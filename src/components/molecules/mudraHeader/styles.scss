@@ -1,0 +1,59 @@
+@import "../../../configs/palette.scss";
+
+.mudra-header {
+  height: 56px;
+  padding: 0px 16px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: $storybook-blue-100;
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  grid-column-gap: 8px;
+  justify-content: space-between;
+  .left-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .title {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 22px;
+      color: $primary-text-color;
+    }
+    .storybook-logo {
+      height: 32px;
+      width: 18.81px;
+      margin-right: 8px;
+    }
+  }
+  .center-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .right-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .avatar {
+      margin-right: 8px;
+    }
+    .user-name {
+      margin-right: 20px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: $storybook-blue-10;
+      @media screen and (max-width: 480px) {
+        & {
+          display: none;
+        }
+      }
+    }
+    .chevron {
+      cursor: pointer;
+      path {
+        fill: $storybook-white-100;
+      }
+    }
+  }
+}

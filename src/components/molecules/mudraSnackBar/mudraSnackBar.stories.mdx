@@ -1,0 +1,490 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import MudraSnackBar from "./mudraSnackBar";
+import { MudraButton } from "../../atoms/index";
+import { Type, Theme, Position } from "./propTypes";
+import { useState } from "react";
+import { Success } from "../../../icons";
+
+<Meta title="Molecules/Mudra SnackBar" component={MudraSnackBar} />
+
+# Snackbar
+
+Snackbar molecule allows to render non blocking notification with short message for users to get a quick glance.
+Storybook has 4 types of snackbar.
+
+1. Error
+2. Success
+3. Warning
+4. Generic
+
+Each one has 2 type of theme. (Dark and Light)
+
+## Usage
+
+1. Import MudraSnackBar.
+2. Import all propTypes.
+3. Define a state in the component you want to use MudraSnackBar to keep track of opening and closing of snackbar.
+4. Render MudraSnackBar in your component. It will be open when that state is true (step 2).
+
+<br />
+
+### 1. Simple Snackbar
+
+A basic snackbar. It will autoClose by default after 3000ms.
+It will be by default at right-top position.
+It will be Generic Dark, if no type and theme is being passed respectively.
+open is boolean type prop and compulsory to pass.
+message is string or jsx type prop and compulsory to pass.
+You will have to pass onClose function in which you will have to make state false which is passed in open prop.
+
+export const SimpleSnackBar = (args) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div style={{ marginTop: "64px" }}>
+      <MudraButton label="Show Simple Snackbar" onClick={() => setOpen(true)} />
+      <MudraSnackBar
+        {...args}
+        open={open}
+        message="This is simple snack bar."
+        onClose={() => setOpen(false)}
+      />
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="SimpleSnackbar">{SimpleSnackBar.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraSnackBar } from "@services/storybook-storybook/molecules/index";
+import { MudraButton } from "@services/storybook-storybook/atoms/index";
+
+export const SimpleSnackBar = (args) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <MudraButton label="Show Simple Snackbar" onClick={() => setOpen(true)} />
+      <MudraSnackBar
+        {...args}
+        open={open}
+        message="This is simple snack bar."
+        onClose={() => setOpen(false)}
+      />
+    </div>
+  );
+};
+```
+
+### 2. All Type and Theme Snackbar
+
+Storybook storybook has four types of snackbar.
+
+1. Error
+2. Generic
+3. Success
+4. Warning
+
+Each type has Dark and Light theme.
+
+export const TypeSnackBar = (args) => {
+  const [open, setOpen] = useState(false);
+  const [typeTheme, setTypeTheme] = useState({
+    type: Type.Error,
+    theme: Theme.Dark,
+  });
+  const handleOpen = (type, theme) => {
+    setTypeTheme({
+      type: type,
+      theme: theme,
+    });
+    setOpen(true);
+  };
+  return (
+    <div style={{ display: "flex", flexDirection: "row", marginTop: "64px" }}>
+      <MudraButton
+        label="Error Dark"
+        onClick={() => handleOpen(Type.Error, Theme.Dark)}
+      />
+      <MudraButton
+        style={{ marginLeft: "16px" }}
+        label="Error Light"
+        onClick={() => handleOpen(Type.Error, Theme.Light)}
+      />
+      <MudraButton
+        style={{ marginLeft: "16px" }}
+        label="Generic Dark"
+        onClick={() => handleOpen(Type.Generic, Theme.Dark)}
+      />
+      <MudraButton
+        style={{ marginLeft: "16px" }}
+        label="Generic Light"
+        onClick={() => handleOpen(Type.Generic, Theme.Light)}
+      />
+      <MudraButton
+        style={{ marginLeft: "16px" }}
+        label="Warning Dark"
+        onClick={() => handleOpen(Type.Warning, Theme.Dark)}
+      />
+      <MudraButton
+        style={{ marginLeft: "16px" }}
+        label="Warning Light"
+        onClick={() => handleOpen(Type.Warning, Theme.Light)}
+      />
+      <MudraButton
+        style={{ marginLeft: "16px" }}
+        label="Success Dark"
+        onClick={() => handleOpen(Type.Success, Theme.Dark)}
+      />
+      <MudraButton
+        style={{ marginLeft: "16px" }}
+        label="Success Light"
+        onClick={() => handleOpen(Type.Success, Theme.Light)}
+      />
+      <MudraSnackBar
+        {...args}
+        open={open}
+        message="This is snack bar message."
+        onClose={() => setOpen(false)}
+        type={typeTheme.type}
+        theme={typeTheme.theme}
+      />
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="TypeSnackBar">{TypeSnackBar.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraSnackBar,
+  MudraSnackBarType,
+  MudraSnackBarTheme,
+} from "@services/storybook-storybook/molecules/index";
+import { MudraButton } from "@services/storybook-storybook/atoms/index";
+
+export const TypeSnackBar = (args) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <MudraButton label="Error Dark" onClick={() => setOpen(true)} />
+      <MudraSnackBar
+        {...args}
+        open={open}
+        message="This is snack bar message."
+        onClose={() => setOpen(false)}
+        type={MudraSnackBarType.Error}
+        theme={MudraSnackBarTheme.Dark}
+      />
+    </div>
+  );
+};
+```
+
+### 3. Positioned Snackbar
+
+Storybook storybook has 4 type of positions user can render snackbar at.
+
+1. RightTop
+2. RightBottom
+3. LeftTop
+4. LeftBottom
+
+export const PositionedSnackBar = (args) => {
+  const [open, setOpen] = useState(false);
+  const [position, setPosition] = useState(Position.RightTop);
+  const handleOpen = (position) => {
+    setPosition(position);
+    setOpen(true);
+  };
+  return (
+    <div style={{ margin: "64px", display: "flex", flexDirection: "row" }}>
+      <MudraButton
+        label="Right Top Snackbar"
+        onClick={() => handleOpen(Position.RightTop)}
+      />
+      <MudraButton
+        style={{ marginLeft: "16px" }}
+        label="Right Bottom Snackbar"
+        onClick={() => handleOpen(Position.RightBottom)}
+      />
+      <MudraButton
+        style={{ marginLeft: "16px" }}
+        label="Left Top Snackbar"
+        onClick={() => handleOpen(Position.LeftTop)}
+      />
+      <MudraButton
+        style={{ marginLeft: "16px" }}
+        label="Left Bottom Snackbar"
+        onClick={() => handleOpen(Position.LeftBottom)}
+      />
+      <MudraSnackBar
+        {...args}
+        open={open}
+        message="This is positioned snack bar."
+        onClose={() => setOpen(false)}
+        position={position}
+      />
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="PositionedSnackBar">{PositionedSnackBar.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraSnackBar,
+  MudraSnackBarPosition,
+} from "@services/storybook-storybook/molecules/index";
+import { MudraButton } from "@services/storybook-storybook/atoms/index";
+
+export const PositionedSnackBar = (args) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <MudraButton label="Right Top Snackbar" onClick={() => setOpen(true)} />
+      <MudraSnackBar
+        {...args}
+        open={open}
+        message="This is positioned snack bar."
+        onClose={() => setOpen(false)}
+        position={MudraSnackBarPosition.RightTop}
+      />
+    </div>
+  );
+};
+```
+
+### 4. Controlled Snackbar
+
+User can control when he want it to close on just click action. You will have pass crossIcon true (as boolean).
+It will render cross icon in snackbar and on click of that snackbar can be closed.
+
+export const ControlledSnackBar = (args) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div style={{ marginTop: "64px" }}>
+      <MudraButton label="Controlled Snackbar" onClick={() => setOpen(true)} />
+      <MudraSnackBar
+        {...args}
+        open={open}
+        autoClose={false}
+        crossIcon={true}
+        message="This is controlled snack bar."
+        onClose={() => setOpen(false)}
+      />
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="ControlledSnackBar">{ControlledSnackBar.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraSnackBar } from "@services/storybook-storybook/molecules/index";
+import { MudraButton } from "@services/storybook-storybook/atoms/index";
+
+export const ControlledSnackBar = (args) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <MudraButton
+        label="Show Controlled Snackbar"
+        onClick={() => setOpen(true)}
+      />
+      <MudraSnackBar
+        {...args}
+        open={open}
+        autoClose={false}
+        crossIcon={true}
+        message="This is controlled snack bar."
+        onClose={() => setOpen(false)}
+      />
+    </div>
+  );
+};
+```
+
+### 5. Duration Snackbar
+
+You can set duration in milisecond (2000ms) according to you. By default duration is 3000ms.
+Snackbar will be auto close after that duration if user won't click cross icon.
+autoClose prop is by default true (boolean).
+
+export const DurationSnackBar = (args) => {
+  const [open, setOpen] = useState(false);
+  const [duration, setDuration] = useState(5000);
+  const handleOpen = (duration) => {
+    setDuration(duration);
+    setOpen(true);
+  };
+  return (
+    <div style={{ marginTop: "64px", display: "flex", flexDirection: "row" }}>
+      <MudraButton label="Duration 2000" onClick={() => handleOpen(2000)} />
+      <MudraButton
+        style={{ marginLeft: "16px" }}
+        label="Duration 5000"
+        onClick={() => handleOpen(5000)}
+      />
+      <MudraButton
+        style={{ marginLeft: "16px" }}
+        label="Duration 8000"
+        onClick={() => handleOpen(8000)}
+      />
+      <MudraSnackBar
+        {...args}
+        open={open}
+        autoClose={true}
+        crossIcon={true}
+        message="This is duration snack bar."
+        onClose={() => setOpen(false)}
+        duration={duration}
+      />
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="DurationSnackBar">{DurationSnackBar.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraSnackBar } from "@services/storybook-storybook/molecules/index";
+import { MudraButton } from "@services/storybook-storybook/atoms/index";
+
+export const DurationSnackBar = (args) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <MudraButton label="Duration 2000" onClick={() => setOpen(true)} />
+      <MudraSnackBar
+        {...args}
+        open={open}
+        autoClose={true}
+        crossIcon={true}
+        message="This is duration snack bar."
+        onClose={() => setOpen(false)}
+        duration={2000}
+      />
+    </div>
+  );
+};
+```
+
+### 6. Snackbar with icon
+
+You can have custom icon in the snackbar by passing icon component as a prop.
+
+export const SnackbarWithIcon = (args) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div style={{ marginTop: "64px" }}>
+      <MudraButton label="Snackbar with icon" onClick={() => setOpen(true)} />
+      <MudraSnackBar
+        {...args}
+        open={open}
+        autoClose={true}
+        crossIcon={true}
+        message="Communication Initiated successfully.You might have to wait for a response until you initiate again"
+        onClose={() => setOpen(false)}
+        icon={Success}
+        type={"Success"}
+        theme={"Light"}
+      />
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="SnackbarWithIcon">{SnackbarWithIcon.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraSnackBar } from "@services/storybook-storybook/molecules/index";
+import { MudraButton } from "@services/storybook-storybook/atoms/index";
+import { Success } from "../../../icons";
+
+export const SnackbarWithIcon = (args) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <MudraButton label="Snackbar with icon" onClick={() => setOpen(true)} />
+      <MudraSnackBar
+        {...args}
+        open={open}
+        autoClose={false}
+        crossIcon={true}
+        message="Communication Initiated successfully.You might have to wait for a response until you initiate again"
+        onClose={() => setOpen(false)}
+        icon={Success}
+        type={"Success"}
+        theme={"Light"}
+      />
+    </div>
+  );
+};
+```
+
+## Props
+
+`MudraSnackBar`
+
+<div style={{overflowX: 'auto'}}>
+
+| prop        | description                                                                                         | type                     |
+| ----------- | --------------------------------------------------------------------------------------------------- | ------------------------ |
+| `open`      | if true, snackbar will be open. (Required)                                                          | `boolean`                |
+| `position`  | `RightTop`, `RightBottom`, `LeftTop` or `LeftBottom` - this decides the position (default RightTop) | `MudraSnackBarPosition`  |
+| `className` | it can use this className for giving custom styles (optional)                                       | `string`                 |
+| `autoClose` | if true snackbar will be closed automatically (default true)                                        | `boolean`                |
+| `duration`  | It decide auto close time in ms. (default 3000ms)                                                   | `number`                 |
+| `type`      | `Error`, `Generic`, `Success` or `Warning` - It decides type of snackbar.                           | `MudraSnackBarType`      |
+| `onClose`   | function passed which is responsible for closing it (Required)                                      | `function`               |
+| `message`   | Message you want to show on snackbar. (Required)                                                    | `string or ReactElement` |
+| `crossIcon` | If true cross icon will be there on snackbar. On click of that snackbar will close. (default false) | `boolean`                |
+| `icon`      | Icon to be rendered in the in the Snackbar (optional)                                               | React.Component          |
+| `theme`     | `Dark` or `Light` - decide the theme of snackbar. (default Dark)                                    | `MudraSnackBarTheme`     |
+
+</div>
+
+`position` : MudraSnackBarPosition is an object with 4 keys
+
+<div style={{overflowX: 'auto'}}>
+
+| key           | description                                                                          |
+| ------------- | ------------------------------------------------------------------------------------ |
+| `RightTop`    | It will show snackbar on right top corner at 24px from right and 24px from top       |
+| `RightBottom` | It will show snackbar on right bottom corner at 24px from right and 24px from bottom |
+| `LeftTop`     | It will show snackbar on left top corner at 24px from left and 24px from top         |
+| `LeftBottom`  | It will show snackbar on left bottom corner at 24px from left and 24px from bottom   |
+
+</div>
+
+`type` : MudraSnackBarType is an object with 4 keys
+
+<div style={{overflowX: 'auto'}}>
+
+| key       | description                                 |
+| --------- | ------------------------------------------- |
+| `Error`   | It can be use for showing errors.           |
+| `Generic` | It can be use for showing general messages. |
+| `Success` | It can be use for success events.           |
+| `Warning` | It can be use for showing warnings.         |
+
+</div>
+
+`theme` : MudraSnackBarTheme is an object with 2 keys
+
+<div style={{overflowX: 'auto'}}>
+
+| key     | description                                                          |
+| ------- | -------------------------------------------------------------------- |
+| `Dark`  | It is responsible for dark color of that particular snack bar type.  |
+| `Light` | It is responsible for light color of that particular snack bar type. |
+
+</div>

@@ -1,0 +1,143 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import MudraChip from "./mudraChip";
+import { CloseSmall } from "../../../icons";
+
+<Meta title="Atoms/Mudra Chip" component={MudraChip} />
+
+export const ChipTemplate = (args) => (
+  <div
+    style={{
+      minHeight: "100px",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    }}
+  >
+    <div style={{ width: "100%" }}>
+      <MudraChip {...args} />
+    </div>
+  </div>
+);
+
+# Chip
+
+Chips are compact elements that represent an input, attribute, or action.
+
+## Usage
+
+```jsx
+import { MudraChip } from "./@services/storybook-storybook/atoms/mudraChip";
+```
+
+### 1. Basic Chip
+
+The chips comes with different `sizes` and in different styling.
+Chip component suports icon as well you can pass the appropriate icon in `icon` attribute.
+
+<Canvas>
+  <Story
+    name="Basic Chip"
+    args={{
+      text: "Chip",
+    }}
+  >
+    {ChipTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraChip } from "./@services/storybook-storybook/atoms/mudraChip";
+
+const Component = () => {
+  return <MudraChip text="Chip" />;
+};
+export default Component;
+```
+
+### 2. Active Chips
+
+The size of chip can be change by changing the `size` attribute.
+
+export const ActiveChip = () => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        gap: "30px",
+      }}
+    >
+      <MudraChip text="Chip" />
+      <MudraChip text="Chip" icon={CloseSmall} />
+      <MudraChip text="Chip" size="large" />
+      <MudraChip text="Chip" icon={CloseSmall} size="large" />
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="Active Chips">{ActiveChip.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraChip } from "./@services/storybook-storybook/atoms/mudraChip";
+import { CloseSmall } from "/@services/storybook-storybook/icons";
+
+const Component = () => {
+  return <MudraChip text="Chip" icon={CloseSmall} />;
+};
+export default Component;
+```
+
+### 3. InActive Chips
+
+The size of chip can be made inactive by setting the `inActive` attribute to true.
+
+export const LargeChips = () => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        gap: "30px",
+      }}
+    >
+      <MudraChip text="Chip" inActive={true} />
+      <MudraChip text="Chip" icon={CloseSmall} inActive={true} />
+      <MudraChip text="Chip" size="large" inActive={true} />
+      <MudraChip text="Chip" icon={CloseSmall} size="large" inActive={true} />
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="InActive Chips">{LargeChips.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraChip } from "./@services/storybook-storybook/atoms/mudraChip";
+
+const Component = () => {
+  return <MudraChip text="Chip" size="large" inActive={true} />;
+};
+export default Component;
+```
+
+## Props
+
+<div style={{overflowX: 'auto'}}>
+
+`MudraChip`
+
+| prop        | description                                               | type       |
+| ----------- | --------------------------------------------------------- | ---------- |
+| text        | A text or words to display                                | `string`   |
+| className   | Custom className to override or extend the existing style | `string`   |
+| size        | `small (default)` and `large` two different sizes         | `string`   |
+| icon        | Icon to be displayed at the end                           | `SVG Icon` |
+| inActive    | Boolen value to indicate whether the chip is inactive     | boolean    |
+| onIconClick | Callback function called on Icon click                    | `fn`       |
+| onClick     | Callback function called on text click                    | `fn`       |
+
+</div>

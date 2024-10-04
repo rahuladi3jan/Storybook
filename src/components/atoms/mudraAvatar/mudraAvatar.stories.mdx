@@ -1,0 +1,142 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import MudraAvatar from "./mudraAvatar";
+import { Type, Size, Status } from "./propTypes";
+
+<Meta title="Atoms/Mudra Avatar" component={MudraAvatar} />
+
+export const AvatarTemplate = (args) => <MudraAvatar {...args} />;
+
+# Avatar
+
+Avatars can be used to represent people or objects. It supports `images`, `Text`, or `Placeholder`.
+
+## Usage
+
+## 1. Image Avatar
+
+Image avatars can be created by passing standard img props `imageUrl` and `type as "Image"` to the component.
+
+<Canvas>
+  <Story
+    name="Image Avatar"
+    args={{
+      type: Type.Image,
+      size: Size.Medium,
+      imageUrl: "/assets/images/pngs/persona.png",
+      status: Status.Available,
+    }}
+  >
+    {AvatarTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import {
+  MudraAvatar,
+  MudraAvatarSize,
+  MudraAvatarType,
+  MudraAvatarStatus,
+} from "./@services/storybook-storybook/atoms/mudraAvatar";
+
+const Component = () => {
+  return (
+    <MudraAvatar
+      type={MudraAvatarType.Image}
+      size={MudraAvatarSize.Medium}
+      imageUrl="/assets/images/pngs/persona.png"
+      status={MudraAvatarStatus.Available}
+    />
+  );
+};
+export default Component;
+```
+
+## 2. Text Avatar
+
+Text avatars can be created by passing standard img props `name` and `type as "Text"` to the component.
+
+<Canvas>
+  <Story
+    name="Text Avatar"
+    args={{
+      type: Type.Text,
+      size: Size.Medium,
+      name: "Avatar",
+      status: Status.Available,
+    }}
+  >
+    {AvatarTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import {
+  MudraAvatar,
+  MudraAvatarSize,
+  MudraAvatarType,
+  MudraAvatarStatus,
+} from "./@services/storybook-storybook/atoms/mudraAvatar";
+const Component = () => {
+  return (
+    <MudraAvatar
+      type={MudraAvatarType.Image}
+      size={MudraAvatarSize.Medium}
+      name="Avatar"
+      status={MudraAvatarStatus.Available}
+    />
+  );
+};
+export default Component;
+```
+
+## 3. Placeholder Avatar
+
+Placeholder avatars can be created by passing standard img props `type as "Placeholder"` to the component.
+
+<Canvas>
+  <Story
+    name="Placeholder Avatar"
+    args={{
+      type: Type.Placeholder,
+      size: Size.Medium,
+      status: Status.Available,
+    }}
+  >
+    {AvatarTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import {
+  MudraAvatar,
+  MudraAvatarSize,
+  MudraAvatarType,
+  MudraAvatarStatus,
+} from "./@services/storybook-storybook/atoms/mudraAvatar";
+const Component = () => {
+  return (
+    <MudraAvatar
+      type={MudraAvatarType.Image}
+      size={MudraAvatarSize.Medium}
+      status={MudraAvatarStatus.Available}
+    />
+  );
+};
+export default Component;
+```
+
+## Props
+
+<div style={{overflowX: 'auto'}}>
+
+| prop        | description                                                                 | type     |
+| ----------- | --------------------------------------------------------------------------- | -------- |
+| `type`      | `"Image"`, `"Text"` or `"Placeholder"` - different types of avatar          | `string` |
+| `size`      | `"Small"`, ` "Medium"`,`"Large" ` or `"XL"` - different sizes of avatar     | `string` |
+| `imageUrl`  | URL to display the image if the type is `"Image"`                           | `string` |
+| `status`    | `"Available"`, `"Away` or `"Busy"` - to represents the status of the avatar | `string` |
+| `className` | Override or extend the styles applied to the component                      | `string` |
+| `name`      | Used to render the text value                                               | `string` |
+
+</div>

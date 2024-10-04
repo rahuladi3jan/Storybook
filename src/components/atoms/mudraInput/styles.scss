@@ -1,0 +1,211 @@
+@import "../../../configs/palette.scss";
+@mixin icon {
+  position: absolute;
+  width: 20px;
+  stroke: $storybook-blue-140;
+}
+@mixin commonFont {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+}
+@mixin indicativeText {
+  position: absolute;
+  right: 0;
+  color: $storybook-blue-40;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  width: 45px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+}
+@mixin prefixPadding {
+  padding-left: 25px;
+}
+@mixin prefixPaddingBig {
+  padding-left: 45px;
+}
+@mixin suffixPadding {
+  padding-right: 25px;
+}
+@mixin suffixPaddingBig {
+  padding-right: 45px;
+}
+.mudra-input {
+  .label {
+    @include commonFont;
+    color: $storybook-blue-100;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .input-container {
+    margin: 5px 0px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    position: relative;
+    .icon-left {
+      left: 0;
+      @include icon;
+    }
+    .icon-right {
+      right: 0;
+      @include icon;
+    }
+    .suffix-text {
+      @include indicativeText;
+      right: 0;
+    }
+    .prefix-text-content {
+      @include indicativeText;
+      left: 0;
+    }
+
+    .suffix-text-link {
+      @include indicativeText;
+      right: 0;
+      text-decoration-line: underline;
+      text-decoration-color: $storybook-blue-40;
+    }
+    .input-field {
+      width: 100%;
+      @include commonFont;
+      color: $storybook-blue-140;
+      outline: 0;
+      border-width: 0 0 2px;
+      border-color: $storybook-blue-40;
+      caret-color: $storybook-blue-100;
+      &::placeholder {
+        @include commonFont;
+      }
+      &:focus {
+        color: $storybook-blue-140;
+        transition-property: border, color;
+        transition-duration: 400ms;
+        border-color: $storybook-blue-140;
+      }
+      &:focus ~ svg {
+        stroke: $storybook-blue-140;
+        transition-property: stroke;
+        transition-duration: 400ms;
+      }
+      &:focus ~ span {
+        color: $storybook-blue-140;
+        transition-property: color;
+        transition-duration: 400ms;
+      }
+      &:focus ~ a {
+        text-decoration-color: $storybook-blue-140;
+        color: $storybook-blue-140;
+        transition-property: text-decoration-color, color;
+        transition-duration: 400ms;
+      }
+    }
+    .input-field:focus &.icon-left {
+      stroke: $storybook-blue-140;
+      transition-property: stroke;
+      transition-duration: 400ms;
+    }
+    .input-field.link {
+      @include suffixPaddingBig;
+    }
+    .input-field.link-left-icon {
+      @include suffixPaddingBig;
+      @include prefixPadding;
+    }
+    .input-field.indicative-text {
+      @include suffixPaddingBig;
+    }
+    .input-field.indicative-text-left-icon {
+      @include suffixPaddingBig;
+      @include prefixPadding;
+    }
+    .input-field.right-icon {
+      @include suffixPadding;
+    }
+    .input-field.left-icon {
+      @include prefixPadding;
+    }
+    .input-field.left-right-icon {
+      @include prefixPadding;
+      @include suffixPadding;
+    }
+    .input-field.prefix-text {
+      @include prefixPaddingBig;
+    }
+    .input-field.prefix-text-right-icon {
+      @include prefixPaddingBig;
+      @include suffixPadding;
+    }
+    .input-field.prefix-text-indicative-text {
+      @include prefixPaddingBig;
+      @include suffixPaddingBig;
+    }
+  }
+  .hint-text {
+    @include commonFont;
+    color: $storybook-blue-40;
+  }
+}
+.mudra-input.error {
+  .label {
+    color: $valentine-red-100;
+  }
+  .hint-text {
+    color: $valentine-red-100;
+  }
+  .error-message {
+    color: $valentine-red-100;
+    margin-top: 4px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+.mudra-input.focused {
+  .input-field {
+    border-color: $storybook-blue-100;
+  }
+}
+.mudra-input.input-filled {
+  .suffix-text,
+  .suffix-text-link {
+    color: $storybook-blue-140;
+  }
+}
+.mudra-input.disabled {
+  .input-field {
+    &:disabled {
+      background-color: transparent;
+      cursor: not-allowed;
+      color: $storybook-blue-40;
+    }
+  }
+  .label {
+    color: $storybook-blue-40;
+  }
+  .hint-text {
+    color: $storybook-blue-40;
+  }
+  .suffix-text {
+    color: $storybook-blue-40;
+  }
+}
+.mudra-input.read-only {
+  .input-field {
+    border-width: 0;
+    background-color: transparent;
+  }
+}
+.mudra-input.required {
+  .label {
+    &::after {
+      content: "*";
+      color: $valentine-red;
+      padding-left: 4px;
+    }
+  }
+}

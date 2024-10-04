@@ -1,0 +1,211 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import MudraCheckbox from "./mudraCheckbox";
+import { CheckedType } from "./propTypes";
+
+<Meta title="Atoms/Mudra Checkbox" component={MudraCheckbox} />
+
+export const CheckboxTemplate = (args) => <MudraCheckbox {...args} />;
+
+# Checkbox
+
+Checkboxes allow the user to select one or more items from a set.
+
+Checkboxes can be used to turn an option on or off.
+
+If you have multiple options appearing in a list, you can preserve space by using checkboxes instead of on/off switches. If you have a single option, avoid using a checkbox and use an on/off switch instead.
+
+## Usage
+
+```jsx
+import {
+  MudraCheckbox,
+  CheckedType,
+} from "./@services/storybook-storybook/atoms/mudraCheckbox";
+```
+
+### 1. Basic Checkbox
+
+<Canvas>
+  <Story
+    name="Basic Checkbox"
+    args={{
+      checkedType: CheckedType.CompleteChecked,
+      defaultChecked: false,
+      disabled: false,
+    }}
+  >
+    {CheckboxTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import {
+  MudraCheckbox,
+  CheckedType,
+} from "./@services/storybook-storybook/atoms/mudraCheckbox";
+
+const Component = () => {
+  return <MudraCheckbox checkedType={CheckedType.CompleteChecked} />;
+};
+export default Component;
+```
+
+### 2. Indeterminate Checkbox
+
+<Canvas>
+  <Story
+    name="Indeterminate Checkbox"
+    args={{
+      checkedType: CheckedType.IndeterminateChecked,
+      defaultChecked: true,
+      disabled: false,
+    }}
+  >
+    {CheckboxTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import {
+  MudraCheckbox,
+  CheckedType,
+} from "./@services/storybook-storybook/atoms/mudraCheckbox";
+
+const Component = () => {
+  return <MudraCheckbox checkedType={CheckedType.IndeterminateChecked} />;
+};
+export default Component;
+```
+
+### 3. Disabled Checkbox
+
+<Canvas>
+  <Story
+    name="Disabled Checkbox"
+    args={{
+      checkedType: CheckedType.CompleteChecked,
+      defaultChecked: false,
+      disabled: true,
+    }}
+  >
+    {CheckboxTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import {
+  MudraCheckbox,
+  CheckedType,
+} from "./@services/storybook-storybook/atoms/mudraCheckbox";
+
+const Component = () => {
+  return <MudraCheckbox checkedType={CheckedType.CompleteChecked} disabled />;
+};
+export default Component;
+```
+
+### 4. Default Checked
+
+<Canvas>
+  <Story
+    name="Default Checked"
+    args={{
+      checkedType: CheckedType.CompleteChecked,
+      defaultChecked: true,
+      disabled: false,
+    }}
+  >
+    {CheckboxTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import {
+  MudraCheckbox,
+  CheckedType,
+} from "./@services/storybook-storybook/atoms/mudraCheckbox";
+
+const Component = () => {
+  return (
+    <MudraCheckbox checkedType={CheckedType.CompleteChecked} defaultChecked />
+  );
+};
+export default Component;
+```
+
+### 5. Disabled Default Checked
+
+<Canvas>
+  <Story
+    name="Disabled Default Checked"
+    args={{
+      checkedType: CheckedType.CompleteChecked,
+      defaultChecked: true,
+      disabled: true,
+    }}
+  >
+    {CheckboxTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import {
+  MudraCheckbox,
+  CheckedType,
+} from "./@services/storybook-storybook/atoms/mudraCheckbox";
+
+const Component = () => {
+  return (
+    <MudraCheckbox
+      checkedType={CheckedType.CompleteChecked}
+      defaultChecked
+      disabled
+    />
+  );
+};
+export default Component;
+```
+
+### 6. Basic Controlled
+
+<Canvas>
+  <Story
+    name="Basic Controlled"
+    args={{
+      checkedType: CheckedType.CompleteChecked,
+      checked: true,
+    }}
+  >
+    {CheckboxTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import {
+  MudraCheckbox,
+  CheckedType,
+} from "./@services/storybook-storybook/atoms/mudraCheckbox";
+
+const Component = () => {
+  return <MudraCheckbox checkedType={CheckedType.CompleteChecked} checked />;
+};
+export default Component;
+```
+
+## Props
+
+<div style={{overflowX: 'auto'}}>
+
+`MudraCheckbox`
+
+| prop             | description                                        | type          |
+| ---------------- | -------------------------------------------------- | ------------- |
+| checkedType      | To indentify the type of checkbox                  | `CheckedType` |
+| checked          | Used for controlled component                      | `boolean`     |
+| defaultChecked   | If set `true` component will be checked by default | `boolean`     |
+| disabled         | To disable the component                           | `boolean`     |
+| className        | To override or extend existing styles of component | `string`      |
+| onChangeCallback | Callback function called on component click        | `fn`          |
+
+</div>

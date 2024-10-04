@@ -1,0 +1,101 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import MudraDivider from "./mudraDivider";
+
+<Meta title="Atoms/Mudra Divider" component={MudraDivider} />
+
+# Divider
+
+Loader express an unspecified wait time or display the length of a process.
+
+## Usage
+
+```jsx
+import { MudraDivider } from "./@services/storybook-storybook/atoms/mudraDivider";
+```
+
+### 1. Default Divider
+
+MudraDivider comes with different styles `solid` and `dashed`.
+
+<Canvas>
+  <Story name="Basic Divider">
+    <MudraDivider />
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraDivider } from "./@services/storybook-storybook/atoms/mudraDivider";
+
+const Component = () => {
+  return <MudraDivider />;
+};
+
+export default Component;
+```
+
+### 2. Vertical Divider
+
+MudraDivider can also be used vertical.
+
+<Canvas>
+  <Story name="Vertical Divider">
+    <div
+      style={{
+        display: "flex",
+        gap: "30px",
+        height: "200px",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <MudraDivider vertical />
+    </div>
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraDivider } from "./@services/storybook-storybook/atoms/mudraDivider";
+
+const Component = () => {
+  return <MudraDivider vertical />;
+};
+
+export default Component;
+```
+
+### 3. Dashed Divider
+
+An example of Dashed divider.
+
+<Canvas>
+  <Story name="Dashed Divider">
+    <div>
+      <MudraDivider dashed color={"red"} />
+    </div>
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraDivider } from "./@services/storybook-storybook/atoms/mudraDivider";
+
+const Component = () => {
+  return <MudraDivider dashed color={"red"} />;
+};
+
+export default Component;
+```
+
+## Props
+
+<div style={{ overflowX: 'auto'}}>
+
+`MudraDivider`
+
+| prop     | description                                         | type      |
+| -------- | --------------------------------------------------- | --------- |
+| Vertical | A boolean value to indicate it's a vertical divider | `boolean` |
+| bashed   | Divider of type dashed                              | `boolean` |
+| color    | Specify the color of the divider                    | `string`  |
+
+</div>

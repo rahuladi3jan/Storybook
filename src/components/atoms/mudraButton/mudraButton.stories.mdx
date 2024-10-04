@@ -1,0 +1,346 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import MudraButton from "./mudraButton";
+import { Variant, Size, Width, IconAlignment, State } from "./propTypes";
+import { Bitcoin } from "../../../icons";
+
+<Meta title="Atoms/Mudra Button" component={MudraButton} />
+
+export const ButtonTemplate = (args) => <MudraButton {...args} />;
+
+# Button
+
+Buttons allow users to take actions, and make choices, with a single tap.
+
+## Usage
+
+## 1. Button variants
+
+Button with different variants can be consumed by changing the `variant` attribute and we have 3 different variant `Primary`, `Secondary` or `Ghost`
+
+export const VariantButton = () => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-around",
+      }}
+    >
+      <MudraButton variant={Variant.Primary} label="Primary Button" />
+      <MudraButton variant={Variant.Secondary} label="Secondary Button" />
+      <MudraButton variant={Variant.Ghost} label="Ghost Button" />
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="Button Variants">{VariantButton.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraButton,
+  MudraButtonVariant,
+} from "@services/storybook-storybook/atoms/index";
+
+const Component = () => {
+  return (
+    <MudraButton variant={MudraButtonVariant.Primary} label="Primary Button" />
+  );
+};
+export default Component;
+```
+
+## 2. Button sizes
+
+Button with different sizes can be consumed by changing the `size` attribute and we have 4 different variant `Small`, `Medium`, `Large` or `XL`
+
+export const SizeButton = () => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-around",
+      }}
+    >
+      <MudraButton
+        variant={Variant.Primary}
+        size={Size.Small}
+        label="Small Button"
+      />
+      <MudraButton
+        variant={Variant.Primary}
+        size={Size.Medium}
+        label="Medium Button"
+      />
+      <MudraButton
+        variant={Variant.Primary}
+        size={Size.Large}
+        label="Large Button"
+      />
+      <MudraButton variant={Variant.Primary} size={Size.XL} label="XL Button" />
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="Button Sizes">{SizeButton.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraButton,
+  MudraButtonVariant,
+  MudraButtonSize,
+} from "@services/storybook-storybook/atoms/index";
+
+const Component = () => {
+  return (
+    <MudraButton
+      variant={MudraButtonVariant.Primary}
+      size={MudraButtonSize.Medium}
+      label="Primary Button"
+    />
+  );
+};
+export default Component;
+```
+
+## 3. Button widths
+
+Button with different width can be consumed by changing the `width` attribute and we have 4 different type `Auto`, `Full`, `Half` , `Circle` or `Square`
+
+export const WidthButton = () => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <MudraButton
+        variant={Variant.Primary}
+        size={Size.Medium}
+        width={Width.Auto}
+        label="Auto Button"
+      />
+      <MudraButton
+        style={{ marginTop: "12px" }}
+        variant={Variant.Primary}
+        size={Size.Medium}
+        width={Width.Half}
+        label="Half Button"
+        icon={Bitcoin}
+      />
+      <MudraButton
+        style={{ marginTop: "12px" }}
+        variant={Variant.Primary}
+        size={Size.Medium}
+        width={Width.Full}
+        label="Full Button"
+      />
+      <MudraButton
+        style={{ marginTop: "12px" }}
+        variant={Variant.Primary}
+        size={Size.Medium}
+        width={Width.Circle}
+        label="Circle Button"
+        iconAlignment={IconAlignment.LeftAligned}
+        icon={Bitcoin}
+      />
+      <MudraButton
+        style={{ marginTop: "12px" }}
+        variant={Variant.Primary}
+        size={Size.Medium}
+        width={Width.Square}
+        label="Square Button"
+        iconAlignment={IconAlignment.LeftAligned}
+        icon={Bitcoin}
+      />
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="Button Widths">{WidthButton.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraButton,
+  MudraButtonVariant,
+  MudraButtonSize,
+  MudraButtonWidth,
+  MudraButtonIconAlignment,
+} from "@services/storybook-storybook/atoms/index";
+
+const Component = () => {
+  return (
+    <MudraButton
+      variant={MudraButtonVariant.Primary}
+      size={MudraButtonSize.Medium}
+      width={MudraButtonWidth.Auto}
+      iconAlignment={MudraButtonIconAlignment.LeftAligned}
+      state={MudraButtonState.Enabled}
+      label="Primary Button"
+      icon={Bitcoin}
+    />
+  );
+};
+export default Component;
+```
+
+## 4. Button Icons
+
+Button with different icon can be consumed by changing the `iconAlignment` attribute and we have 4 different type `None`, `LeftAligned`, `RightAligned` or `Single`
+
+export const IconButton = () => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-around",
+      }}
+    >
+      <MudraButton
+        variant={Variant.Primary}
+        size={Size.Medium}
+        width={Width.Auto}
+        iconAlignment={IconAlignment.None}
+        label="No Icon Button"
+        icon={Bitcoin}
+      />
+      <MudraButton
+        variant={Variant.Primary}
+        size={Size.Medium}
+        width={Width.Auto}
+        iconAlignment={IconAlignment.LeftAligned}
+        label="Left Aligned Icon Button"
+        icon={Bitcoin}
+      />
+      <MudraButton
+        variant={Variant.Primary}
+        size={Size.Medium}
+        width={Width.Auto}
+        iconAlignment={IconAlignment.RightAligned}
+        label="Right Aligned Icon Button"
+        icon={Bitcoin}
+      />
+      <MudraButton
+        variant={Variant.Primary}
+        size={Size.Medium}
+        width={Width.Auto}
+        iconAlignment={IconAlignment.Single}
+        label="Single Icon Button"
+        icon={Bitcoin}
+      />
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="Icon Button">{IconButton.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraButton,
+  MudraButtonIconAlignment,
+  MudraButtonVariant,
+  MudraButtonSize,
+  MudraButtonWidth,
+} from "@services/storybook-storybook/atoms/index";
+
+const Component = () => {
+  return (
+    <MudraButton
+      variant={MudraButtonVariant.Primary}
+      size={MudraButtonSize.Medium}
+      width={MudraButtonWidth.Auto}
+      iconAlignment={MudraButtonIconAlignment.LeftAligned}
+      label="Primary Button"
+      icon={Bitcoin}
+    />
+  );
+};
+export default Component;
+```
+
+## 4. Button States
+
+Button with different state can be consumed by changing the `state` attribute and we have 2 different states `Enabled`or `Disabled`.
+
+export const StateButton = () => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-around",
+      }}
+    >
+      <MudraButton
+        variant={Variant.Primary}
+        size={Size.Medium}
+        width={Width.Auto}
+        state={State.Enabled}
+        label="Enabled Button"
+      />
+      <MudraButton
+        variant={Variant.Primary}
+        size={Size.Medium}
+        width={Width.Auto}
+        state={State.Disabled}
+        label="Disabled Button"
+      />
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="Button State">{StateButton.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraButton,
+  MudraButtonState,
+  MudraButtonVariant,
+  MudraButtonSize,
+  MudraButtonWidth,
+} from "./@services/storybook-storybook/atoms/mudraButton";
+
+const Component = () => {
+  return (
+    <MudraButton
+      variant={MudraButtonVariant.Primary}
+      size={MudraButtonSize.Medium}
+      width={MudraButtonWidth.Auto}
+      state={MudraButtonState.Enabled}
+      label="Primary Button"
+    />
+  );
+};
+export default Component;
+```
+
+## Props
+
+<div style={{overflowX: 'auto'}}>
+
+`MudraButton`
+
+| prop          | description                       | type                     |
+| ------------- | --------------------------------- | ------------------------ |
+| variant       | The different variant             | MudraButtonVariant       |
+| size          | The size of the component         | MudraButtonSize          |
+| width         | The width of the component        | MudraButtonWidth         |
+| iconAlignment | The alignment of the icon used    | MudraButtonIconAlignment |
+| state         | Different states of the component | MudraButtonState         |
+| label         | The text for the button           | `string`                 |
+| icon          | Display Icon for component        | `SVG Icon`               |
+
+</div>

@@ -1,0 +1,42 @@
+@import "../../../configs/palette.scss";
+
+.mudra-breadcrumb {
+  display: flex;
+  flex-direction: row;
+
+  .link-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 6px;
+
+    .link-label {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      color: $storybook-gray-40;
+      margin-right: 6px;
+      &:hover {
+        text-decoration: underline;
+      }
+      &:visited {
+        text-decoration: unset;
+      }
+    }
+
+    .links-separator {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  .link-wrapper:last-child {
+    .link-label {
+      color: $storybook-orange-100;
+    }
+  }
+  .link-wrapper:first-child {
+    .link-label {
+      color: $storybook-gray-40;
+    }
+  }
+}

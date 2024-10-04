@@ -1,0 +1,127 @@
+@import "../../../configs/palette.scss";
+.mudra-avatar {
+  border-radius: 50%;
+  font-weight: 700;
+  background-color: $storybook-blue-20;
+  color: $storybook-blue-100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  &.size-small {
+    height: 24px;
+    width: 24px;
+    font-size: 10px;
+    line-height: 14px;
+    object-fit: cover;
+    .placeholder-icon {
+      height: 16px;
+      width: 16px;
+    }
+    .status {
+      height: 6px;
+      width: 6px;
+    }
+  }
+  &.size-medium {
+    height: 28px;
+    width: 28px;
+    font-size: 12px;
+    line-height: 16px;
+    .placeholder-icon {
+      height: 20px;
+      width: 20px;
+    }
+    .status {
+      height: 8px;
+      width: 8px;
+    }
+  }
+  &.size-large {
+    height: 36px;
+    width: 36px;
+    font-size: 14px;
+    line-height: 20px;
+    .placeholder-icon {
+      height: 24px;
+      width: 24px;
+    }
+    .status {
+      height: 9px;
+      width: 9px;
+    }
+  }
+  &.size-xl {
+    height: 40px;
+    width: 40px;
+    font-size: 16px;
+    line-height: 24px;
+    .placeholder-icon {
+      height: 28px;
+      width: 28px;
+    }
+    .status {
+      height: 10px;
+      width: 10px;
+    }
+  }
+  &.type-image {
+    .photo {
+      display: block;
+    }
+  }
+  &.type-text {
+    .name {
+      display: block;
+    }
+  }
+  &.type-placeholder {
+    .placeholder-icon {
+      display: block;
+    }
+  }
+  &.status-available {
+    .status {
+      display: block;
+      background-color: $emerald-green-100;
+    }
+  }
+  &.status-away {
+    .status {
+      display: block;
+      background-color: $texas-yellow-100;
+    }
+  }
+  &.status-busy {
+    .status {
+      display: block;
+      background-color: $valentine-red-100;
+    }
+  }
+  .photo {
+    object-fit: cover;
+    display: none;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+  }
+
+  .name {
+    display: none;
+  }
+
+  .placeholder-icon {
+    display: none;
+  }
+
+  .status {
+    display: none;
+    position: absolute;
+    border: 1px solid $storybook-white-100;
+    border-radius: 50%;
+    left: 75%;
+    right: 0%;
+    top: 0%;
+    bottom: 75%;
+  }
+}

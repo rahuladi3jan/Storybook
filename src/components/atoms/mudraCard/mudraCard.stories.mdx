@@ -1,0 +1,47 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import MudraCard from "./mudraCard";
+
+<Meta title="Atoms/Mudra Card" component={MudraCard} />
+
+# Card
+
+Card can be used as container for content to show.
+
+## Usage
+
+### 1. Basic Card
+
+Card can used to show for some content of same type and format.
+
+export const BasicCard = () => {
+  return (
+    <MudraCard>This is Mudra card component with a sample content.</MudraCard>
+  );
+};
+
+<Canvas>
+  <Story name="BasicCard">{BasicCard.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraCard } from "@services/storybook-storybook/atoms/index";
+
+export const BasicCard = () => {
+  return (
+    <MudraCard>This is Mudra card component with a sample content.</MudraCard>
+  );
+};
+```
+
+## Props
+
+`MudraCard`
+
+<div style={{overflowX: 'auto'}}>
+
+| prop        | description                                                     | type                  |
+| ----------- | --------------------------------------------------------------- | --------------------- |
+| `style`     | custom style                                                    | `React.CSSProperties` |
+| `className` | user can use this className for giving custom styles (optional) | `string`              |
+
+</div>

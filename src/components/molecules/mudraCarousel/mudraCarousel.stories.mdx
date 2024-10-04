@@ -1,0 +1,187 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import { MudraCarousel, CarouselCard } from "./mudraCarousel";
+
+<Meta title="Molecules/Mudra Carousel" component={MudraCarousel} />
+
+# Carousel
+
+Carousel can be used as cards with details for content to show.
+
+## Usage
+
+### 1. Basic Carousel
+
+Carousel can used to show similar cards for some content of same type and format with controlled buttons.
+
+export const BasicCarousel = () => {
+  const data = ["Card 1", "Card 2"];
+  const header = "Header";
+  return (
+    <>
+      <MudraCarousel header={header} showMobileControls={true}>
+        {data.map((item, index) => {
+          return (
+            <CarouselCard
+              height="200px"
+              width="300px"
+              rounded="16px"
+              className="flex items-center justify-center"
+              key={index}
+            >
+              {item}
+            </CarouselCard>
+          );
+        })}
+      </MudraCarousel>
+    </>
+  );
+};
+
+<Canvas>
+  <Story name="BasicCarousel">{BasicCarousel.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraCarousel,
+  CarouselCard,
+} from "@services/storybook-storybook/molecules/index";
+
+export const BasicCarousel = () => {
+  let data = ["Card 1", "Card 2"];
+  let header = "Header";
+  return (
+    <>
+      <MudraCarousel header={header} showMobileControls={true}>
+        {data.map((item, index) => {
+          return (
+            <CarouselCard
+              height="200px"
+              width="300px"
+              rounded="16px"
+              className="flex items-center justify-center"
+            >
+              {item}
+            </CarouselCard>
+          );
+        })}
+      </MudraCarousel>
+    </>
+  );
+};
+```
+
+### 2. Carousel with Links and Indicators
+
+Carousel can used to show similar cards for some content of same type and format with controlled buttons.
+
+export const AdvancedCarousel = () => {
+  const data = ["Card 1", "Card 2", "Card 3", "Card 4", "Card 5", "Card 6"];
+  const header = "Header";
+  const subHeader = "This is sub header";
+  const buttonText = "Know More";
+  const buttonURL = "https://insights.storybookfinance.com";
+  return (
+    <>
+      <MudraCarousel
+        header={header}
+        subHeader={subHeader}
+        buttonText={buttonText}
+        buttonURL={buttonURL}
+        showMobileControls={true}
+        showMobileIndicators={true}
+      >
+        {data.map((item, index) => {
+          return (
+            <CarouselCard
+              height="200px"
+              width="300px"
+              rounded="16px"
+              className="flex items-center justify-center"
+              key={index}
+            >
+              {item}
+            </CarouselCard>
+          );
+        })}
+      </MudraCarousel>
+    </>
+  );
+};
+
+<Canvas>
+  <Story name="AdvancedCarousel">{AdvancedCarousel.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraCarousel,
+  CarouselCard,
+} from "@services/storybook-storybook/molecules/index";
+
+export const AdvancedCarousel = () => {
+  let data = ["Card 1", "Card 2", "Card 3", "Card 4", "Card 5", "Card 6"];
+  let header = "Header";
+  let subHeader = "This is sub header";
+  let buttonText = "Know More";
+  let buttonURL = "https://insights.storybookfinance.com";
+  return (
+    <>
+      <MudraCarousel
+        header={header}
+        subHeader={subHeader}
+        buttonText={buttonText}
+        buttonURL={buttonURL}
+        showMobileControls={true}
+        showMobileIndicators={true}
+      >
+        {data.map((item, index) => {
+          return (
+            <CarouselCard
+              height="200px"
+              width="300px"
+              rounded="16px"
+              className="flex items-center justify-center"
+            >
+              {item}
+            </CarouselCard>
+          );
+        })}
+      </MudraCarousel>
+    </>
+  );
+};
+```
+
+## Props
+
+`MudraCarousel`
+
+<div style={{overflowX: 'auto'}}>
+
+| Prop                   | Description                                                     | Type                  |
+| ---------------------- | --------------------------------------------------------------- | --------------------- |
+| `style`                | Custom style                                                    | `React.CSSProperties` |
+| `className`            | User can use this className for giving custom styles (optional) | `string`              |
+| `header`               | Header of the carousel (optional)                               | `string`              |
+| `subHeader`            | Sub-header of the carousel (optional)                           | `string`              |
+| `buttonText`           | Text to be shown on the button to navigate (optional)           | `string`              |
+| `buttonURL`            | URL for buttonText                                              | `string`              |
+| `showMobileControls`   | Show/Hide the next and previous button controls (optional)      | `booelan`             |
+| `showMobileIndicators` | Show/Hide the ellipsis in Mobile screens (optional)             | `boolean`             |
+
+</div>
+
+`CarouselCard`
+
+<div style={{overflowX: 'auto'}}>
+
+| Prop        | Description                                                     | Type                  |
+| ----------- | --------------------------------------------------------------- | --------------------- |
+| `style`     | Custom style                                                    | `React.CSSProperties` |
+| `className` | User can use this className for giving custom styles (optional) | `string`              |
+| `height`    | Height of each card (required)                                  | `string`              |
+| `width`     | Width of each card (required)                                   | `string`              |
+| `rounded`   | Border radius of each card (required)                           | `string`              |
+
+</div>

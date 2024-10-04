@@ -1,0 +1,357 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import MudraModal from "./mudraModal";
+import MudraButton from "../../atoms/mudraButton/mudraButton";
+import { Size, Width } from "../../atoms/mudraButton/propTypes";
+import MudraTable from "../../atoms/mudraTable/mudraTable";
+import { Type } from "../../atoms/mudraTable/propTypes";
+import { useState } from "react";
+
+<Meta title="Molecules/Mudra Modal" component={MudraModal} />
+
+# Modal
+
+Modal will be open when user want and it is like a action form user can do here.
+
+`The content of modal is mounted by default even if the modal is not oepned. This default behavior supports server-side rendering and SEO.`
+
+## Usage
+
+### 1. Basic Modal
+
+It will open on some action and close on cross icon click. This opening and closing action is controlled by open prop.
+User need to pass title as string or ReactElement.
+The content user want to show in side panel should be passed as children.
+
+export const BasicModal = () => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <MudraButton label="Refer Case" onClick={() => setOpen(true)} />
+      <MudraModal title="Refer Case" open={open} onClose={() => setOpen(false)}>
+        <div>
+          <p>
+            Your case is ready to be referred. <br /> Please enter your remarks
+            and review the loan details.
+          </p>
+          <div style={{ marginTop: "24px" }}>
+            <MudraTable
+              type={Type.KeyValue}
+              tableWidth="376"
+              tableRows={[
+                ["Loan Amount", "₹500000"],
+                ["Tenure", "60 months"],
+                ["ROI", "17.49%"],
+                ["EMI", "₹12558"],
+                ["Insurance", "₹10679"],
+                ["Processing Fee + GST", "₹11800"],
+              ]}
+            />
+          </div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <MudraButton
+              style={{
+                marginTop: "24px",
+              }}
+              label="Refer Case"
+              size={Size.XL}
+              width={Width.Full}
+              onClick={() => setOpen(false)}
+            />
+          </div>
+        </div>
+      </MudraModal>
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="BasicModal">{BasicModal.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraModal } from "@services/storybook-storybook/molecules/index";
+import {
+  MudraTable,
+  MudraTableType,
+  MudraButton,
+  MudraButtonSize,
+  MudraButtonWidth,
+} from "@services/storybook-storybook/atoms/index";
+
+export const BasicModal = () => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <MudraButton label="Refer Case" onClick={() => setOpen(false)} />
+      <MudraModal title="Refer Case" open={open} onClose={() => setOpen(false)}>
+        <div>
+          <p>
+            Your case is ready to be referred.
+            <br />
+            Please enter your remarks and review the loan details.
+          </p>
+          <MudraTable
+            type={MudraTableType.KeyValue}
+            tableWidth="376"
+            tableRows={[
+              ["Loan Amount", "₹500000"],
+              ["Tenure", "60 months"],
+              ["ROI", "17.49%"],
+              ["EMI", "₹12558"],
+              ["Insurance", "₹10679"],
+              ["Processing Fee + GST", "₹11800"],
+            ]}
+          />
+          <MudraButton
+            label="Refer Case"
+            size={MudraButtonSize.XL}
+            width={MudraButtonWidth.Full}
+          />
+        </div>
+      </MudraModal>
+    </div>
+  );
+};
+```
+
+### 2. Opening animation
+
+Modal can open with animation. You need to pass `animation` as `true`.
+
+export const AnimatedModal = () => {
+  const [open, setOpen] = useState(false);
+  const renderChild = () => {
+    return (
+      <div>
+        <p>
+          Your case is ready to be referred. <br /> Please enter your remarks
+          and review the loan details.
+        </p>
+        <div style={{ marginTop: "24px" }}>
+          <MudraTable
+            type={Type.KeyValue}
+            tableWidth="376"
+            tableRows={[
+              ["Loan Amount", "₹500000"],
+              ["Tenure", "60 months"],
+              ["ROI", "17.49%"],
+              ["EMI", "₹12558"],
+              ["Insurance", "₹10679"],
+              ["Processing Fee + GST", "₹11800"],
+            ]}
+          />
+        </div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <MudraButton
+            style={{ marginTop: "24px" }}
+            label="Refer Case"
+            size={Size.XL}
+            width={Width.Full}
+            onClick={() => setOpen(false)}
+          />
+        </div>
+      </div>
+    );
+  };
+  return (
+    <div>
+      <div style={{ display: "flex", flexDirection: "row", margin: "24px" }}>
+        <MudraButton label="Refer Case" onClick={() => setOpen(true)} />
+      </div>
+      <MudraModal
+        title="Refer Case"
+        open={open}
+        onClose={() => setOpen(false)}
+        animation={true}
+      >
+        {renderChild()}
+      </MudraModal>
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="AnimatedModal">{AnimatedModal.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraModal } from "@services/storybook-storybook/molecules/index";
+import {
+  MudraTable,
+  MudraTableType,
+  MudraButton,
+  MudraButtonSize,
+  MudraButtonWidth,
+} from "@services/storybook-storybook/atoms/index";
+
+export const AnimatedModal = () => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <MudraButton label="Refer Case" onClick={() => setOpen(false)} />
+      <MudraModal
+        title="Refer Case"
+        open={open}
+        onClose={() => setOpen(false)}
+        animation={true}
+      >
+        <div>
+          <p>
+            Your case is ready to be referred.
+            <br />
+            Please enter your remarks and review the loan details.
+          </p>
+          <MudraTable
+            type={MudraTableType.KeyValue}
+            tableWidth="376"
+            tableRows={[
+              ["Loan Amount", "₹500000"],
+              ["Tenure", "60 months"],
+              ["ROI", "17.49%"],
+              ["EMI", "₹12558"],
+              ["Insurance", "₹10679"],
+              ["Processing Fee + GST", "₹11800"],
+            ]}
+          />
+          <MudraButton
+            label="Refer Case"
+            size={MudraButtonSize.XL}
+            width={MudraButtonWidth.Full}
+          />
+        </div>
+      </MudraModal>
+    </div>
+  );
+};
+```
+
+### 3. Modal with blurred background
+
+You can make background blurred by passing `backgroundBlur` as `true`.
+
+export const BlurredModal = () => {
+  const [open, setOpen] = useState(false);
+  const renderChild = () => {
+    return (
+      <div>
+        <p>
+          Your case is ready to be referred. <br /> Please enter your remarks
+          and review the loan details.
+        </p>
+        <div style={{ marginTop: "24px" }}>
+          <MudraTable
+            type={Type.KeyValue}
+            tableWidth="376"
+            tableRows={[
+              ["Loan Amount", "₹500000"],
+              ["Tenure", "60 months"],
+              ["ROI", "17.49%"],
+              ["EMI", "₹12558"],
+              ["Insurance", "₹10679"],
+              ["Processing Fee + GST", "₹11800"],
+            ]}
+          />
+        </div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <MudraButton
+            style={{ marginTop: "24px" }}
+            label="Refer Case"
+            size={Size.XL}
+            width={Width.Full}
+            onClick={() => setOpen(false)}
+          />
+        </div>
+      </div>
+    );
+  };
+  return (
+    <div>
+      <div style={{ display: "flex", flexDirection: "row", margin: "24px" }}>
+        <MudraButton label="Refer Case" onClick={() => setOpen(true)} />
+      </div>
+      <MudraModal
+        title="Refer Case"
+        open={open}
+        onClose={() => setOpen(false)}
+        animation={true}
+        backgroundBlur={true}
+      >
+        {renderChild()}
+      </MudraModal>
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="BlurredModal">{BlurredModal.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraModal } from "@services/storybook-storybook/molecules/index";
+import {
+  MudraTable,
+  MudraTableType,
+  MudraButton,
+  MudraButtonSize,
+  MudraButtonWidth,
+} from "@services/storybook-storybook/atoms/index";
+
+export const BlurredModal = () => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <MudraButton label="Refer Case" onClick={() => setOpen(false)} />
+      <MudraModal
+        title="Refer Case"
+        open={open}
+        onClose={() => setOpen(false)}
+        animation={true}
+      >
+        <div>
+          <p>
+            Your case is ready to be referred.
+            <br />
+            Please enter your remarks and review the loan details.
+          </p>
+          <MudraTable
+            type={MudraTableType.KeyValue}
+            tableWidth="376"
+            tableRows={[
+              ["Loan Amount", "₹500000"],
+              ["Tenure", "60 months"],
+              ["ROI", "17.49%"],
+              ["EMI", "₹12558"],
+              ["Insurance", "₹10679"],
+              ["Processing Fee + GST", "₹11800"],
+            ]}
+          />
+          <MudraButton
+            label="Refer Case"
+            size={MudraButtonSize.XL}
+            width={MudraButtonWidth.Full}
+          />
+        </div>
+      </MudraModal>
+    </div>
+  );
+};
+```
+
+## Props
+
+`MudraModal`
+
+<div style={{overflowX: 'auto'}}>
+
+| prop             | description                                                                          | type           |
+| ---------------- | ------------------------------------------------------------------------------------ | -------------- |
+| `title`          | Title of modal (Required)                                                            | `string`       |
+| `className`      | user can use this className for giving custom styles (optional)                      | `string`       |
+| `open`           | `true` or `false` - if true modal will render on screen. (Required)                  | `boolean`      |
+| `width`          | width of modal main body in px as 376 (optional default 424px)                       | `number`       |
+| `children`       | html content user want to show when modal is open.                                   | `ReactElement` |
+| `onClose`        | function which will be called when user will click on cross icon of modal (Required) | `function`     |
+| `animation`      | if true modal will open with animation. (optional by default false)                  | `boolean`      |
+| `backgroundBlur` | if true then background will be blurred. (optional by default false)                 | `boolean`      |
+
+</div>

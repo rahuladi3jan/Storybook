@@ -1,0 +1,93 @@
+@import "../../../configs/palette.scss";
+@mixin input-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.mudra-password-field {
+  .password-field-label {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: $storybook-blue-100;
+    margin-bottom: 8px;
+    &::after {
+      content: "*";
+      color: $valentine-red;
+      padding-left: 4px;
+    }
+  }
+  .field-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid $storybook-blue-40;
+    &:focus-within {
+      border-bottom: 2px solid $storybook-blue-140;
+    }
+    .password-field {
+      box-sizing: border-box;
+      border-top: 0px;
+      border-left: 0px;
+      border-right: 0px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      outline: 0px;
+      width: calc(100% - 24px);
+      padding: 0px 0px 4px 0px;
+      background-color: transparent;
+      @include input-text;
+      color: $storybook-blue-140;
+      &::placeholder {
+        @include input-text;
+        color: $storybook-blue-40;
+      }
+    }
+    .password-icon {
+      display: block;
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+    }
+  }
+  .error-message {
+    display: none;
+    margin-top: 4px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: $valentine-red;
+  }
+  &.disabled {
+    .password-field,
+    .password-field-label {
+      color: $storybook-blue-40;
+    }
+  }
+  &.read-only {
+    .field-wrapper {
+      border-bottom: none;
+    }
+  }
+  &.error {
+    .password-field-label {
+      color: $valentine-red;
+    }
+    .error-message {
+      display: block;
+    }
+  }
+  &.disabled,
+  &.read-only {
+    .password-field {
+      width: 100%;
+    }
+    .password-icon {
+      display: none;
+    }
+  }
+}

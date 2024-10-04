@@ -1,0 +1,209 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import MudraHeader from "./mudraHeader";
+import MudraButton from "../../atoms/mudraButton/mudraButton";
+import {
+  Variant,
+  Size as ButtonSize,
+  IconAlignment,
+  Width,
+  State,
+} from "../../atoms/mudraButton/propTypes";
+import { Logout } from "../../../icons";
+import { MudraAvatarSize, MudraAvatarType } from "../../atoms/mudraAvatar";
+
+<Meta title="Molecules/Mudra Header" component={MudraHeader} />
+
+# Header
+
+Mudra Header has Logo, Brand Name, ContextMenu, Current User Info and Logout functionality.
+
+## Usage
+
+### 1. Basic Header
+
+Header has Brand Logo, Name, ContextMenu, logged in user info and logout button.
+
+```jsx
+import { MudraHeader } from "@services/storybook-storybook/molecules/index";
+import {
+  MudraAvatarSize,
+  MudraAvatarType,
+} from "@services/storybook-storybook/atoms/index";
+
+export const BasicHeader = () => {
+  return (
+    <MudraHeader
+      heading="Tele Sales"
+      homePageUrl="https://www.storybookfinance.com/"
+      userAvatarProps={{
+        type: MudraAvatarType.Text,
+        size: MudraAvatarSize.Small,
+        name: "Avatar",
+      }}
+      contextMenu={
+        <div
+          style={{
+            marginRight: "100px",
+          }}
+        >
+          <MudraButton
+            {...{
+              variant: Variant.Ghost,
+              size: ButtonSize.Medium,
+              width: Width.Auto,
+              iconAlignment: IconAlignment.RightAligned,
+              state: State.Enabled,
+              label: "Logout",
+              icon: Logout,
+            }}
+          />
+        </div>
+      }
+      centerElement={
+        <div
+          style={{
+            color: "white",
+            fontSize: "14px",
+          }}
+        >
+          Mudra Elements
+        </div>
+      }
+      contextMenuclassName="custom-contextMenu"
+    />
+  );
+};
+```
+
+export const BasicHeader = () => {
+  return (
+    <div style={{ marginBottom: "64px" }}>
+      <MudraHeader
+        heading="Tele Sales"
+        homePageUrl="https://www.storybookfinance.com/"
+        userAvatarProps={{
+          type: MudraAvatarSize.Text,
+          size: MudraAvatarSize.Small,
+          name: "Avatar",
+        }}
+        contextMenu={
+          <div
+            style={{
+              marginRight: "100px",
+            }}
+          >
+            <MudraButton
+              {...{
+                variant: Variant.Ghost,
+                size: ButtonSize.Medium,
+                width: Width.Auto,
+                iconAlignment: IconAlignment.RightAligned,
+                state: State.Enabled,
+                label: "Logout",
+                icon: Logout,
+                onClick: () => alert("logged out"),
+              }}
+            />
+          </div>
+        }
+        centerElement={
+          <div
+            style={{
+              color: "white",
+              fontSize: "14px",
+            }}
+          >
+            Mudra Elements
+          </div>
+        }
+        contextMenuclassName="custom-contextMenu"
+      />
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="BasicHeader">{BasicHeader.bind()}</Story>
+</Canvas>
+
+### 2. Header Without ContextMenu
+
+Header without context menu
+
+```jsx
+import { MudraHeader } from "@services/storybook-storybook/molecules/index";
+import {
+  MudraAvatarSize,
+  MudraAvatarType,
+} from "@services/storybook-storybook/atoms/index";
+
+export const HeaderWithoutContextMenu = () => {
+  return (
+    <div style={{ marginBottom: "64px" }}>
+      <MudraHeader
+        heading="Tele Sales"
+        homePageUrl="https://www.storybookfinance.com/"
+        userAvatarProps={{
+          type: MudraAvatarSize.Placeholder,
+          size: MudraAvatarSize.Small,
+          name: "",
+        }}
+      />
+    </div>
+  );
+};
+```
+
+<Canvas>
+  <Story name="HeaderWithoutContextMenu">
+    {HeaderWithoutContextMenu.bind()}
+  </Story>
+</Canvas>
+
+export const HeaderWithoutContextMenu = () => {
+  return (
+    <MudraHeader
+      heading="Tele Sales"
+      homePageUrl="https://www.storybookfinance.com/"
+      userAvatarProps={{
+        type: MudraAvatarType.Placeholder,
+        size: MudraAvatarSize.Small,
+        name: "",
+      }}
+    />
+  );
+};
+
+## Props
+
+`MudraHeader`
+
+<div style={{overflowX: 'auto'}}>
+
+| prop                       | description                                                         | type                |
+| -------------------------- | ------------------------------------------------------------------- | ------------------- |
+| `heading`                  | Name of brand (Required)                                            | `string`            |
+| `homePageUrl`              | Link to the home page (Required)                                    | `string`            |
+| `onLogoOrBrandNameClicked` | Custom action when the user clicks on logo or brand name (optional) | `function`          |
+| `centerElement`            | it display center content of header (optional)                      | `React.ReactNode`   |
+| `userAvatarProps`          | logged in user related information (Required)                       | `IMudraAvatarProps` |
+| `contextMenu`              | it defines the content of context (optional)                        | `React.ReactNode`   |
+| `contextMenuclassName`     | user can use this className for giving custom styles (optional)     | `MudraBadgeSize`    |
+| `className`                | user can use this className for giving custom styles (optional)     | `string`            |
+
+</div>
+
+`userAvatarProps` : IMudraAvatarProps is an interface with 6 keys
+
+<div style={{overflowX: 'auto'}}>
+
+| key         | description                                          | type                |
+| ----------- | ---------------------------------------------------- | ------------------- |
+| `type`      | `Image`, `Text` or `Placeholder` type of avatar      | `MudraAvatarType`   |
+| `size`      | `Small`, `Medium`, `Large` or `XL` size of avatar    | `MudraAvatarSize`   |
+| `status`    | `Available`, `Away` or `Busy` status of avatar       | `MudraAvatarStatus` |
+| `name`      | name for avatar                                      | `string`            |
+| `imageUrl`  | image url of avatar                                  | `string`            |
+| `className` | user can use this className for giving custom styles | `string`            |
+
+</div>

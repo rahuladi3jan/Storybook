@@ -1,0 +1,94 @@
+@import "../../../configs/palette.scss";
+
+@import "../../../configs/palette.scss";
+
+.mudra-modal {
+    position: fixed;
+    z-index: 1300;
+    inset: 0;
+    visibility: hidden;
+
+    &.animation-true {
+        .mudra-modal-main {
+            transition: transform 0.5s;
+        }
+    }
+
+    &.open-true {
+        visibility: visible;
+        .mudra-modal-main {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            visibility: visible;
+            opacity: 1;
+            background-color: $storybook-white-100;
+            padding: 24px;
+            box-shadow: $storybook-box-shadow;
+            min-width: 424px;
+            pointer-events: all;
+        }
+
+        &.animation-true {
+            .mudra-modal-main {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    }
+
+    .mudra-modal-main {
+        visibility: hidden;
+        pointer-events: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+
+        .mudra-modal-header {
+            border-bottom: 1px solid $storybook-table-header-bg;
+            display: flex;
+            justify-content: space-between;
+
+            .mudra-modal-title {
+                font-weight: 700;
+                font-size: 1rem;
+                line-height: 1.5;
+                padding: 1rem 1rem 1rem 0;
+            }
+
+            .mudra-modal-cross {
+                font-weight: 700;
+                padding: 1rem 0 1rem 1rem;
+                display: flex;
+                align-items: center;
+
+                .mudra-modal-cross-icon {
+                    cursor: pointer;
+                    display: initial;
+                    box-sizing: border-box;
+                    display: inline-block;
+                    overflow: hidden;
+                    width: initial;
+                    height: initial;
+                    background: none;
+                    opacity: 1;
+                    border: 0px;
+                    margin: 0px;
+                    padding: 0px;
+                    position: relative;
+                    height: 16px;
+                    width: 16px;
+                }
+            }
+        }
+
+        .mudra-modal-body {
+            padding: 1rem 0;
+        }
+    }
+
+    &.background-blur {
+        background-color: $storybook-blur-background;
+    }
+}

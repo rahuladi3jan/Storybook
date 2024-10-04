@@ -1,0 +1,7 @@
+@import "../../../configs/palette.scss";
+.mudra-radio {
+  accent-color: $storybook-blue-100 !important;
+  &:hover {
+    accent-color: $storybook-blue-100 !important;
+  }
+}

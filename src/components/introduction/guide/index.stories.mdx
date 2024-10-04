@@ -1,0 +1,53 @@
+import { Meta, Story } from "@storybook/addon-docs";
+
+import "./styles.scss";
+
+export const Guide = () => {
+  return (
+    <div className="theme-container">
+      <h5>What is storybook ?</h5>
+      <p>
+        - Storybook is a JavaScript tool that allows developers to create
+        organized UI systems making both the building process and documentation
+        more efficient and easier to use.
+      </p>
+      <p>
+        - It provides an organized and focused environment to build new
+        components and work on existing ones, and test components in isolation.
+      </p>
+      <p>
+        - It runs outside of the app, too, so project dependencies won't affect
+        the behaviour of components.
+      </p>
+      <p>
+        - Refer to installation part to know how to get install and use these
+        components built in storybook.
+      </p>
+      <br />
+      <div className="intro-body">
+        <img
+          src="/assets/images/pngs/storybook.png"
+          alt="Storybook"
+          width={"800px"}
+        />
+      </div>
+    </div>
+  );
+};
+
+# Guide
+
+<Story name="Guide">{Guide.bind({})}</Story>
+
+<Meta
+  title="Introduction/Guide"
+  component={Guide}
+  parameters={{
+    options: { showPanel: false },
+    previewTabs: {
+      "storybook/docs/panel": {
+        hidden: true,
+      },
+    },
+  }}
+/>

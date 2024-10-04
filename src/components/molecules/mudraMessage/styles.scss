@@ -1,0 +1,110 @@
+@import "../../../configs/palette.scss";
+
+.mudra-message {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 16px;
+    position: fixed;
+    z-index: 1200;
+    width: calc(100% - 48px);
+    box-shadow: $storybook-toast-shadow;
+    border-radius: 8px;
+    visibility: hidden;
+    left: 24px;
+    right: 24px;
+
+
+    .mudra-message-child {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        flex: 1;
+    }
+
+    .mudra-message-cross-icon {
+        cursor: pointer;
+    }
+
+    &.show-true {
+        visibility: visible;
+    }
+
+    &.position-bottom {
+        bottom: 24px;
+    }
+
+    &.position-top {
+        top: 24px;
+    }
+
+    &.variant-generic {
+        &.theme-dark {
+            background-color: $storybook-toast-generic-dark;
+            .mudra-message-child {
+                color: $storybook-white-100;
+            }
+        }
+
+        &.theme-light {
+            background-color: $storybook-toast-generic-light;
+            .mudra-snackBar-message {
+                color: $storybook-generic-light-text;
+            }
+
+            .mudra-snackBar-star {
+                .mudra-snackBar-starIcon {
+                    color: #2C4584;
+                }
+            }
+        }
+    }
+
+    &.variant-error {
+        &.theme-dark {
+            background-color: $valentine-red;
+            .mudra-message-child {
+                color: $storybook-white-100;
+            }
+        }
+
+        &.theme-light {
+            background-color: $storybook-error-light;
+            .mudra-snackBar-message {
+                color: $storybook-error-light-text;
+            }
+        }
+    }
+
+    &.variant-warning {
+        &.theme-dark {
+            background-color: $texas-yellow-100;
+            .mudra-message-child {
+                color: $storybook-warning-dark-text;
+            }
+        }
+
+        &.theme-light {
+            background-color: $storybook-warning-light;
+            .mudra-snackBar-message {
+                color: $storybook-warning-light-text;
+            }
+        }
+    }
+
+    &.variant-success {
+        &.theme-dark {
+            background-color: $emerald-green-100;
+            .mudra-message-child {
+                color: $storybook-white-100;
+            }
+        }
+
+        &.theme-light {
+            background-color: $storybook-success-light;
+            .mudra-snackBar-message {
+                color: $storybook-success-light-text;
+            }
+        }
+    }
+}

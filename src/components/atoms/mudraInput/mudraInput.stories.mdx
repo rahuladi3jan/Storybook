@@ -1,0 +1,531 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import MudraInput from "./mudraInput";
+import { StarSmall, Eye } from "../../../icons";
+
+<Meta title="Atoms/Mudra Input" component={MudraInput} />
+
+export const InputTemplate = (args) => <MudraInput {...args} />;
+
+# Input
+
+- Input Fields let users enter and edit text.
+- Input Field comes with 6 different states `"default (default)"`, `"focused"`,` "filled"`, `"disabled`", `"error"`, `"read-only"`.
+- Input Field comes with 8 different features `"normal (default)"`, `"left-icon`", `"right-icon"`, `"left-right-icon"`, `"indicative-text"`, `"indicative-text-left-icon"`, `"link"`, `"link-left-icon"`.
+
+## Usage
+
+## 1. Basic Input
+
+The Input wrapper component is a complete form control including a label, input, placeholder and help text.
+
+<Canvas>
+  <Story
+    name="Basic Input"
+    args={{
+      label: "Text - Normal",
+      placeholder: "Input Text",
+      state: "default",
+      feature: "normal",
+      hintText: "Hint Text",
+      hint: false,
+    }}
+  >
+    {InputTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraInput } from "./@services/storybook-storybook/atoms/mudraInput";
+
+const Component = () => {
+  return (
+    <MudraInput
+      label="Text - Normal"
+      placeholder="Input Text"
+      state="default"
+      feature="normal"
+      hintText="Hint Text"
+    />
+  );
+};
+export default Component;
+```
+
+## 2. Input with Icon
+
+The Input component also supports displaying icons as well, you can display any storybook icons at the start or end of the input.
+
+<br />
+
+### 2.1 Input with Left Icon
+
+You can display icon at the start by changeing the feature to `left-icon` and passing the icon to `prefixIcon` attribute.
+
+<Canvas>
+  <Story
+    name="Input Left Icon"
+    args={{
+      label: "Text - Left Icon",
+      placeholder: "Input Text",
+      state: "default",
+      feature: "left-icon",
+      hintText: "Hint Text",
+      prefixIcon: StarSmall,
+      hint: false,
+    }}
+  >
+    {InputTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraInput } from "./@services/storybook-storybook/atoms/mudraInput";
+import { StarSmall } from "/@services/storybook-storybook/icons";
+
+const Component = () => {
+  return (
+    <MudraInput
+      label="Text - Left Icon"
+      placeholder="Input Text"
+      state="default"
+      feature="left-icon"
+      hintText="Hint Text"
+      prefixIcon={StarSmall}
+    />
+  );
+};
+export default Component;
+```
+
+### 2.2 Input with Right Icon
+
+You can display icon at the end by changeing the feature to `right-icon` and passing the icon to `suffixIcon` attribute.
+
+<Canvas>
+  <Story
+    name="Input Right Icon"
+    args={{
+      label: "Text - Right Icon",
+      placeholder: "Input Text",
+      state: "default",
+      feature: "right-icon",
+      hintText: "Hint Text",
+      suffixIcon: StarSmall,
+      hint: false,
+    }}
+  >
+    {InputTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraInput } from "./@services/storybook-storybook/atoms/mudraInput";
+import { StarSmall } from "/@services/storybook-storybook/icons";
+
+const Component = () => {
+  return (
+    <MudraInput
+      label="Text - right Icon"
+      placeholder="Input Text"
+      state="default"
+      feature="left-icon"
+      hintText="Hint Text"
+      suffixIcon={StarSmall}
+    />
+  );
+};
+export default Component;
+```
+
+### 2.3 Input with Left & Right Icon
+
+You can display icons at both start and end by changeing the feature to `left-right-icon` and passing the icons to `suffixIcon` and `prefixIcon` attribute.
+
+<Canvas>
+  <Story
+    name="Input left & Right Icon"
+    args={{
+      label: "Text - Left & Right Icon",
+      placeholder: "Input Text",
+      state: "default",
+      feature: "left-right-icon",
+      hintText: "Hint Text",
+      suffixIcon: StarSmall,
+      prefixIcon: Eye,
+      hint: false,
+    }}
+  >
+    {InputTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraInput } from "./@services/storybook-storybook/atoms/mudraInput";
+import { StarSmall, Eye } from "/@services/storybook-storybook/icons";
+
+const Component = () => {
+  return (
+    <MudraInput
+      label="Text - Left & Right Icon"
+      placeholder="Input Text"
+      state="default"
+      feature="left-icon"
+      hintText="Hint Text"
+      suffixIcon={StarSmall}
+      prefixIcon={Eye}
+    />
+  );
+};
+export default Component;
+```
+
+## 3. Input with Text or Link
+
+The Input component also gives you the option to display an Indicative text or a link at the end of the input.
+
+### 3.1 Input with Indicative Text
+
+You can display an Indicative text at the end by changeing the feature to `indicative-text` and passing the text to `suffixText` attribute.
+
+<Canvas>
+  <Story
+    name="Input Indicative Text"
+    args={{
+      label: "Text - Indicative Text",
+      placeholder: "Input Text",
+      state: "default",
+      feature: "indicative-text",
+      hintText: "Hint Text",
+      suffixText: "10/10",
+      hint: false,
+    }}
+  >
+    {InputTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraInput } from "./@services/storybook-storybook/atoms/mudraInput";
+
+const Component = () => {
+  return (
+    <MudraInput
+      label="Text - Indicative Text"
+      placeholder="Input Text"
+      state="default"
+      feature="indicative-text"
+      hintText="Hint Text"
+      suffixText="10/10"
+    />
+  );
+};
+export default Component;
+```
+
+### 3.2 Input with Indicative Text & Left Icon
+
+You can display an Indicative text at the end and a left icon by changeing the feature to `indicative-text-left-icon` and passing the text to `suffixText` and icon to `prefixIcon` attribute.
+
+<Canvas>
+  <Story
+    name="Input Indicative Text & Left Icon"
+    args={{
+      label: "Text - Indicative Text Left Icon",
+      placeholder: "Input Text",
+      state: "default",
+      feature: "indicative-text-left-icon",
+      hintText: "Hint Text",
+      prefixIcon: StarSmall,
+      suffixText: "10/10",
+      hint: false,
+    }}
+  >
+    {InputTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraInput } from "./@services/storybook-storybook/atoms/mudraInput";
+import { StarSmall } from "/@services/storybook-storybook/icons";
+
+const Component = () => {
+  return (
+    <MudraInput
+      label="Text - Indicative Text"
+      placeholder="Input Text"
+      state="default"
+      feature="indicative-text-left-icon"
+      hintText="Hint Text"
+      suffixText="10/10"
+      prefixIcon={StarSmall}
+    />
+  );
+};
+export default Component;
+```
+
+### 3.3 Input with Link
+
+You can display an Link at the end changeing the feature to `link` and passing the URL to `linkURL` attribute.
+
+<Canvas>
+  <Story
+    name="Input with Link"
+    args={{
+      label: "Text - Link",
+      placeholder: "Input Text",
+      state: "default",
+      feature: "link",
+      hintText: "Hint Text",
+      suffixText: "Link",
+      linkURL: "https://www.w3schools.com",
+      hint: false,
+    }}
+  >
+    {InputTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraInput } from "./@services/storybook-storybook/atoms/mudraInput";
+
+const Component = () => {
+  return (
+    <MudraInput
+      label="Text - Link"
+      placeholder="Input Text"
+      state="default"
+      feature="link"
+      hintText="Hint Text"
+      suffixText="Link"
+      linkURL="https://www.w3schools.com"
+    />
+  );
+};
+export default Component;
+```
+
+### 3.4 Input with Link & Left Icon
+
+You can display an Link at the end and a left icon changeing the feature to `link-left-icon` and passing the URL to `linkURL` and Icon to `prefixIcon` attribute.
+
+<Canvas>
+  <Story
+    name="Input with Link & Left Icon"
+    args={{
+      label: "Text - Link & Left Icon",
+      placeholder: "Input Text",
+      state: "default",
+      feature: "link-left-icon",
+      hintText: "Hint Text",
+      suffixText: "Link",
+      prefixIcon: StarSmall,
+      linkURL: "https://www.w3schools.com",
+      hint: false,
+    }}
+  >
+    {InputTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraInput } from "./@services/storybook-storybook/atoms/mudraInput";
+import { StarSmall } from "/@services/storybook-storybook/icons";
+
+const Component = () => {
+  return (
+    <MudraInput
+      label="Text - Link & Left Icon"
+      placeholder="Input Text"
+      state="default"
+      feature="link-left-icon"
+      hintText="Hint Text"
+      suffixText="Link"
+      prefixIcon={StarSmall}
+    />
+  );
+};
+export default Component;
+```
+
+## 3. Input with prefix text
+
+The Input component also gives you the option to display prefix at the beginning of the control
+
+### 3.1 Input with Prefix Text
+
+You can display a prefix text at the beginning by changing the feature to `prefix-text` and passing the text to `prefixText` attribute.
+
+<Canvas>
+  <Story
+    name="Input Prefix Text"
+    args={{
+      label: "Text - Prefix Text",
+      placeholder: "Input Text",
+      state: "default",
+      feature: "prefix-text",
+      prefixText: "+91",
+      type: "number",
+    }}
+  >
+    {InputTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraInput } from "./@services/storybook-storybook/atoms/mudraInput";
+
+const Component = () => {
+  return (
+    <MudraInput
+      label= "Text - Prefix Text",
+      placeholder= "Input Text",
+      state= "default",
+      feature= "prefix-text",
+      prefixText= "+91",
+      type="number"
+    />
+  );
+};
+export default Component;
+```
+
+### 3.2 Input with Prefix Text and Right Icon
+
+You can display an prefix text at the beginning and a right icon by changing the feature to `prefix-text-right-icon` and passing the text to `prefixText` and icon to `suffixIcon` attribute.
+
+<Canvas>
+  <Story
+    name="Input Prefix Text Right Icon"
+    args={{
+      label: "Text - Prefix Text Right Icon",
+      placeholder: "Input Text",
+      state: "default",
+      feature: "prefix-text-right-icon",
+      suffixIcon: StarSmall,
+      prefixText: "+91",
+    }}
+  >
+    {InputTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraInput } from "./@services/storybook-storybook/atoms/mudraInput";
+import { StarSmall } from "/@services/storybook-storybook/icons";
+
+const Component = () => {
+  return (
+    <MudraInput
+      label= "Text - Prefix Text Right Icon",
+      placeholder= "Input Text",
+      state= "default",
+      feature= "prefix-text-right-icon",
+      suffixIcon={StarSmall}
+      prefixText= "+91",
+    />
+  );
+};
+export default Component;
+```
+
+### 3.3 Input with Right & Left Prefix
+
+You can display prefix and suffix text changing the feature to `"prefix-text-indicative-text"` and passing text to `prefixText` and `suffixText`
+
+<Canvas>
+  <Story
+    name="Input with Left and Right Prefix"
+    args={{
+      label: "Text - Suffix and Prefix",
+      placeholder: "Input Text",
+      state: "default",
+      feature: "prefix-text-indicative-text",
+      prefixText: "+91",
+      suffixText: "India",
+      required: true,
+    }}
+  >
+    {InputTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraInput } from "./@services/storybook-storybook/atoms/mudraInput";
+import { StarSmall } from "/@services/storybook-storybook/icons";
+
+const Component = () => {
+  return (
+    <MudraInput
+       label: "Text - Suffix and Prefix",
+      placeholder: "Input Text",
+      state: "default",
+      feature: "prefix-text-indicative-text",
+      prefixText: "+91",
+      suffixText:"India"
+    />
+  );
+};
+```
+
+## Props
+
+<div style={{overflowX: 'auto'}}>
+
+#### `MudraInput`
+
+| prop         | description                                                                                                                                                                                                  | type                                |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- |
+| className    | Override or extend the styles applied to the component.                                                                                                                                                      | `string`                            |
+| autoFocus    | If true, the input element is focused during the first mount.                                                                                                                                                | `boolean`                           |
+| label        | A text to display the label.                                                                                                                                                                                 | `string`                            |
+| value        | The value of the input element, required for a controlled component.                                                                                                                                         | `string`                            |
+| placeholder  | The short hint displayed in the input before the user enters a value.                                                                                                                                        | `string`                            |
+| defaultValue | The default value. Use when the component is not controlled.                                                                                                                                                 | `string`                            |
+| prefixIcon   | Icon to be displayed on the start of the Input.                                                                                                                                                              | `SVG Icon`                          |
+| suffixIcon   | Icon to be displayed on the end of the Input.                                                                                                                                                                | `SVG Icon`                          |
+| hintText     | A text for displaying the hint the below the Input.                                                                                                                                                          | `string`                            |
+| state        | Represents different state of the component `"default (default)"`, `"focused"`,` "filled"`, `"disabled`", `"error"`or `"read-only"`.                                                                         | `string`                            |
+| disabled     | If true, the component is disabled.                                                                                                                                                                          | `boolean`                           |
+| hint         | If true, the hink text will be displayed.                                                                                                                                                                    | `boolean`                           |
+| feature      | Represents different features of the component `"normal (default)"`, `"left-icon"`, `"right-icon"`, `"left-right-icon"`, `"indicative-text"`, `"indicative-text-left-icon"`, `"link"` or `"link-left-icon"`. | `string`                            |
+| suffixText   | A text to be displayed at the end of Input.                                                                                                                                                                  | `string`                            |
+| prefixText   | A text to be displayed at the start of Input.                                                                                                                                                                | `string`                            |
+| linkURL      | A URL for the link component.                                                                                                                                                                                | `string`                            |
+| width        | To override or change the width of the component.                                                                                                                                                            | `string`                            |
+| controlled   | If true the component is a controlled.                                                                                                                                                                       | `boolean`                           |
+| onChange     | A Callback fired when the value is changed.                                                                                                                                                                  | `fn`                                |
+| type         | Type of the input field                                                                                                                                                                                      | `number or text...`                 |
+| required     | If true then a asterisk is displayed after the label(optional)                                                                                                                                               | `boolean`                           |
+| id           | Id of the input field                                                                                                                                                                                        | `string`                            |
+| name         | Name of the input field                                                                                                                                                                                      | `string`                            |
+| ref          | Reference to the input field                                                                                                                                                                                 | `React.RefObject<HTMLInputElement>` |
+
+`state`- Defines the state of the Input.
+
+| value     | description                         |
+| --------- | ----------------------------------- |
+| default   | A normal input with basic features. |
+| focused   | Makes the input focused.            |
+| disabled  | A disabled input.                   |
+| error     | To indicate an error.               |
+| read-only | Acts as an label componenet.        |
+
+`feature`- Indicates the kind of feature that user wants to consume.
+
+| value                       | description                                          |
+| --------------------------- | ---------------------------------------------------- |
+| normal                      | A normal input with basic features.                  |
+| left-icon                   | An input with Icon at the start.                     |
+| right-icon                  | An input with Icon at the end.                       |
+| left-right-icon             | An input with Icon at both start and end.            |
+| indicative-text             | An input with text at end.                           |
+| indicative-text-left-icon   | An input with text at end and Icon at the start.     |
+| link                        | An input with Link at the end.                       |
+| link-left-icon              | An input with Link at the end and Icon at the start. |
+| prefix-text                 | An input with text at the start.                     |
+| prefix-text-indicative-text | An input with text at both start and end.            |
+| prefix-text-right-icon      | An input with text at start and icon at end.         |
+
+</div>

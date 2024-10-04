@@ -1,0 +1,88 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import MudraDropDown from "./mudraDropDown";
+
+<Meta title="Molecules/Mudra DropDown" component={MudraDropDown} />
+
+export const options = [
+  { value: "green", label: "Green" },
+  { value: "blue", label: "Blue" },
+  { value: "red", label: "Red" },
+  { value: "yellow", label: "Yellow" },
+  { value: "orange", label: "Orange" },
+  {
+    value: "pink",
+    label: "Pink",
+  },
+  { value: "purple", label: "Purple" },
+  { value: "grey", label: "Grey" },
+];
+export const MudraDropDownTemplate = (args) => (
+  <div style={{ height: "200px" }}>
+    <MudraDropDown {...args} />
+  </div>
+);
+
+# MudraDropDown
+
+The MudraDropDown display a list of choices on temporary surfaces.
+
+## Usage
+
+```jsx
+import { MudraDropDown } from "./@services/storybook-storybook/molecules/mudraDropDown";
+```
+
+## 1. Basic MudraDropDown
+
+<Canvas>
+  <Story
+    name="Basic MudraDropDown"
+    args={{
+      placeHolder: "Select Component",
+      options: options,
+      value: { value: "green", label: "Green" },
+    }}
+  >
+    {MudraDropDownTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraDropDown } from "./@services/storybook-storybook/atoms/mudraDropDown";
+
+const Component = () => {
+  return (
+    <MudraDropDown
+      options={[
+        { value: "green", label: "Green" },
+        { value: "blue", label: "Blue" },
+        { value: "red", label: "Red" },
+        { value: "yellow", label: "Yellow" },
+        { value: "orange", label: "Orange" },
+        { value: "pink", label: "Pink" },
+        { value: "purple", label: "Purple" },
+        { value: "grey", label: "Grey" },
+      ]}
+      value={{ value: "green", label: "Green" }}
+    />
+  );
+};
+
+export default Component;
+```
+
+## Props
+
+<div style={{overflowX: 'auto'}}>
+
+`MudraDropDown`
+
+| prop        | description                                                       | type                                        |
+| ----------- | ----------------------------------------------------------------- | ------------------------------------------- |
+| `options`   | Array of object with key value and label used for listing options | `[{ value: string/number, label: string }]` |
+| `onSelect`  | A callback function fired when an item is selected from the list  | `func`                                      |
+| `value`     | Object that represents selected option                            | `{ value: string/number, label: string }`   |
+| `className` | Custom class name                                                 | `string`                                    |
+
+</div>

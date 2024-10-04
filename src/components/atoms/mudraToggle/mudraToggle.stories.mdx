@@ -1,0 +1,63 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import MudraToggle from "./mudraToggle";
+
+<Meta title="Atoms/Mudra Toggle" component={MudraToggle} />
+
+# Toggle
+
+The Toggle comonent toggle the state of a single setting on or off.
+
+## Usage
+
+```jsx
+import { MudraToggle } from "./@services/storybook-storybook/atoms/mudraToggle";
+```
+
+export const Toggles = () => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "30px",
+      }}
+    >
+      <MudraToggle />
+      <MudraToggle checked />
+      <MudraToggle disabled />
+      <MudraToggle disabled checked />
+    </div>
+  );
+};
+
+### 1. Basic Toggle
+
+<Canvas>
+  <Story name="Basic Toggle">{Toggles.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraToggle } from "./@services/storybook-storybook/atoms/mudraToggle";
+
+const Component = () => {
+  return <MudraToggle />;
+};
+
+export default Component;
+```
+
+## Props
+
+<div style={{overflowX: 'auto'}}>
+
+`MudraToggle`
+
+| prop      | description                                                       | type      |
+| --------- | ----------------------------------------------------------------- | --------- |
+| className | Override or extend the styles applied to the component.           | `string`  |
+| disabled  | If true, the component is disabled.                               | `boolean` |
+| checked   | If true, the component is checked. Used for controlled componenet | `boolean` |
+| onClick   | A Callback fired when the toggle is clicked.                      | `fn`      |
+
+</div>

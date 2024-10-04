@@ -1,0 +1,8 @@
+@import "../../../configs/palette.scss";
+.mudra-card {
+  border-radius: 8px;
+  box-shadow: 0px 8px 24px -6px rgba(0, 0, 0, 0.16),
+    0px 0px 1px rgba(0, 0, 0, 0.4);
+  background-color: $storybook-white-100;
+  padding: 16px;
+}

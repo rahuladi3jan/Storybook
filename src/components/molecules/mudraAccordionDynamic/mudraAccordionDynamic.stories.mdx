@@ -1,0 +1,119 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import MudraAccordionDynamic from "./mudraAccordionDynamic";
+
+<Meta
+  title="Molecules/Mudra Accordion Dynamic"
+  component={MudraAccordionDynamic}
+/>
+
+# Dynamic Accordion
+
+Dynamic Accordion molecule allows the user to show and hide sections of related content on a page.
+This accordion can handle inline styling passed through data props and generate required UI.
+
+export const BasicAccordion = () => {
+  const data = {
+    style: {},
+    heading: "Header",
+    detailSection: {
+      style: {},
+      components: [
+        {
+          paragraph: {
+            style: { color: "#666666" },
+            content: <p>Description</p>,
+          },
+        },
+      ],
+    },
+  };
+  return (
+    <div style={{ margin: "16px" }}>
+      <MudraAccordionDynamic
+        id="acc_dyn_one"
+        title={data.heading}
+        onClick={() => console.info("button clicked")}
+        detailSection={data.detailSection}
+      >
+        <div style={{ ...data.detailSection.style }}>
+          {data.detailSection.components.map((descriptionData) => {
+            return (
+              <div key={descriptionData.paragraph.content}>
+                <div style={{ ...descriptionData.paragraph.style }}>
+                  {descriptionData.paragraph.content}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </MudraAccordionDynamic>
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="BasicAccordion">{BasicAccordion.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraAccordionDynamic } from "@services/storybook-storybook/molecules/index";
+
+export const BasicAccordion = () => {
+  const data = {
+    style: {},
+    heading: "Header",
+    detailSection: {
+      style: {},
+      components: [
+        {
+          paragraph: {
+            style: { color: "#666666" },
+            content: <p>Description</p>,
+          },
+        },
+      ],
+    },
+  };
+  return (
+    <div style={{ margin: "16px" }}>
+      <MudraAccordionDynamic
+        id="acc_dyn_one"
+        title={data.heading}
+        onClick={() => console.info("button clicked")}
+        detailSection={data.detailSection}
+      >
+        <div style={{ ...data.detailSection.style }}>
+          {data.detailSection.components.map((descriptionData) => {
+            return (
+              <div>
+                <div style={{ ...descriptionData.paragraph.style }}>
+                  {descriptionData.paragraph.content}11
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </MudraAccordionDynamic>
+    </div>
+  );
+};
+```
+
+## Props
+
+    `MudraAccordion`
+
+<div style = {{ overflowX: 'auto' }}>
+
+| prop                | description                                                                                              | type                     |
+| ------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------ |
+| `title`             | Title of accordion(Required)                                                                             | `string`                 |
+| `className`         | user can use this className for giving custom styles(optional)                                           | `string`                 |
+| `initiallyExpanded` | `true` or`false` - this decides the open and close state of accordion initially(optional, default false) | `boolean`                |
+| `children`          | html content user want to show when accordion is open.                                                   | `ReactElement`           |
+| `icon`              | icon display at left side of accrodion header(Optional)                                                  | `string`                 |
+| `iconAlignment`     | The alignment of the icon used                                                                           | `IconAlignment`          |
+| `onChange`          | Callback triggered when the Accordion collapsed or expanded                                              | `(AccordionState)=>void` |
+| `detailSection`     | It is an array of object containing description data                                                     | `array`                  |
+
+</div>

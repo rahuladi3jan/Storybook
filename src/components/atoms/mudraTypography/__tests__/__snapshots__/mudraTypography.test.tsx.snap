@@ -1,0 +1,461 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Atoms/Mudra Typography ATextNunito 1`] = `
+<div>
+  <span
+    className="sc-bdVaJa iTFIoM"
+    size={40}
+  >
+    Nunito Regular Typography
+  </span>
+  <span
+    className="sc-bdVaJa dAPAgl"
+    size={10}
+  >
+    Nunito - regular -
+    10
+  </span>
+  <span
+    className="sc-bdVaJa MUnUL"
+    size={12}
+  >
+    Nunito - regular -
+    12
+  </span>
+  <span
+    className="sc-bdVaJa ekdSXV"
+    size={14}
+  >
+    Nunito - regular -
+    14
+  </span>
+  <span
+    className="sc-bdVaJa lkLaLf"
+    size={16}
+  >
+    Nunito - regular -
+    16
+  </span>
+  <span
+    className="sc-bdVaJa bkXaww"
+    size={18}
+  >
+    Nunito - regular -
+    18
+  </span>
+  <span
+    className="sc-bdVaJa WGFCP"
+    size={20}
+  >
+    Nunito - regular -
+    20
+  </span>
+  <span
+    className="sc-bdVaJa gOwJSr"
+    size={24}
+  >
+    Nunito - regular -
+    24
+  </span>
+  <span
+    className="sc-bdVaJa dgRblo"
+    size={28}
+  >
+    Nunito - regular -
+    28
+  </span>
+  <span
+    className="sc-bdVaJa jJgsKw"
+    size={32}
+  >
+    Nunito - regular -
+    32
+  </span>
+  <span
+    className="sc-bdVaJa gxXNrn"
+    size={36}
+  >
+    Nunito - regular -
+    36
+  </span>
+  <span
+    className="sc-bdVaJa cbBsLN"
+    size={40}
+  >
+    Nunito - regular -
+    40
+  </span>
+  <span
+    className="sc-bdVaJa ekOcWj"
+    size={48}
+  >
+    Nunito - regular -
+    48
+  </span>
+  <span
+    className="sc-bdVaJa kTPmYn"
+    size={56}
+  >
+    Nunito - regular -
+    56
+  </span>
+  <span
+    className="sc-bdVaJa emnqLz"
+    size={64}
+  >
+    Nunito - regular -
+    64
+  </span>
+  <span
+    className="sc-bdVaJa icPFOU"
+    size={72}
+  >
+    Nunito - regular -
+    72
+  </span>
+  <span
+    className="sc-bdVaJa kAWBks"
+    size={80}
+  >
+    Nunito - regular -
+    80
+  </span>
+  <span
+    className="sc-bdVaJa IpQNv"
+    size={88}
+  >
+    Nunito - regular -
+    88
+  </span>
+  <span
+    className="sc-bdVaJa kQgRMX"
+    size={96}
+  >
+    Nunito - regular -
+    96
+  </span>
+  <span
+    className="sc-bdVaJa iTFIoM"
+    size={40}
+  >
+    Nunito Bold Typography
+  </span>
+  <span
+    className="sc-bdVaJa jSUkpy"
+    size={10}
+  >
+    Nunito - bold -
+    10
+  </span>
+  <span
+    className="sc-bdVaJa hpFkdd"
+    size={12}
+  >
+    Nunito - bold -
+    12
+  </span>
+  <span
+    className="sc-bdVaJa bIwFdK"
+    size={14}
+  >
+    Nunito - bold -
+    14
+  </span>
+  <span
+    className="sc-bdVaJa hLJofu"
+    size={16}
+  >
+    Nunito - bold -
+    16
+  </span>
+  <span
+    className="sc-bdVaJa dNgXdJ"
+    size={18}
+  >
+    Nunito - bold -
+    18
+  </span>
+  <span
+    className="sc-bdVaJa beWCzw"
+    size={20}
+  >
+    Nunito - bold -
+    20
+  </span>
+  <span
+    className="sc-bdVaJa klODJR"
+    size={24}
+  >
+    Nunito - bold -
+    24
+  </span>
+  <span
+    className="sc-bdVaJa goZfFW"
+    size={28}
+  >
+    Nunito - bold -
+    28
+  </span>
+  <span
+    className="sc-bdVaJa eGMjoJ"
+    size={32}
+  >
+    Nunito - bold -
+    32
+  </span>
+  <span
+    className="sc-bdVaJa epEscu"
+    size={36}
+  >
+    Nunito - bold -
+    36
+  </span>
+  <span
+    className="sc-bdVaJa gXKYGC"
+    size={40}
+  >
+    Nunito - bold -
+    40
+  </span>
+  <span
+    className="sc-bdVaJa jOwAtn"
+    size={48}
+  >
+    Nunito - bold -
+    48
+  </span>
+  <span
+    className="sc-bdVaJa iBlKxK"
+    size={56}
+  >
+    Nunito - bold -
+    56
+  </span>
+  <span
+    className="sc-bdVaJa fHrbvj"
+    size={64}
+  >
+    Nunito - bold -
+    64
+  </span>
+  <span
+    className="sc-bdVaJa jRNLhA"
+    size={72}
+  >
+    Nunito - bold -
+    72
+  </span>
+  <span
+    className="sc-bdVaJa fpzFgx"
+    size={80}
+  >
+    Nunito - bold -
+    80
+  </span>
+  <span
+    className="sc-bdVaJa hGFvW"
+    size={88}
+  >
+    Nunito - bold -
+    88
+  </span>
+  <span
+    className="sc-bdVaJa fYJLlw"
+    size={96}
+  >
+    Nunito - bold -
+    96
+  </span>
+  <span
+    className="sc-bdVaJa iTFIoM"
+    size={40}
+  >
+    Nunito Extra Bold Typography
+  </span>
+  <span
+    className="sc-bdVaJa gpAWlT"
+    size={10}
+  >
+    Nunito - extraBold -
+    10
+  </span>
+  <span
+    className="sc-bdVaJa eyVLXm"
+    size={12}
+  >
+    Nunito - extraBold -
+    12
+  </span>
+  <span
+    className="sc-bdVaJa kAIFnX"
+    size={14}
+  >
+    Nunito - extraBold -
+    14
+  </span>
+  <span
+    className="sc-bdVaJa cOowfJ"
+    size={16}
+  >
+    Nunito - extraBold -
+    16
+  </span>
+  <span
+    className="sc-bdVaJa feqjFq"
+    size={18}
+  >
+    Nunito - extraBold -
+    18
+  </span>
+  <span
+    className="sc-bdVaJa QVdDP"
+    size={20}
+  >
+    Nunito - extraBold -
+    20
+  </span>
+  <span
+    className="sc-bdVaJa hcPwTc"
+    size={24}
+  >
+    Nunito - extraBold -
+    24
+  </span>
+  <span
+    className="sc-bdVaJa xnxdA"
+    size={28}
+  >
+    Nunito - extraBold -
+    28
+  </span>
+  <span
+    className="sc-bdVaJa qnrPv"
+    size={32}
+  >
+    Nunito - extraBold -
+    32
+  </span>
+  <span
+    className="sc-bdVaJa kfwsZl"
+    size={36}
+  >
+    Nunito - extraBold -
+    36
+  </span>
+  <span
+    className="sc-bdVaJa ffeVbv"
+    size={40}
+  >
+    Nunito - extraBold -
+    40
+  </span>
+  <span
+    className="sc-bdVaJa eJwXye"
+    size={48}
+  >
+    Nunito - extraBold -
+    48
+  </span>
+  <span
+    className="sc-bdVaJa ijmOlP"
+    size={56}
+  >
+    Nunito - extraBold -
+    56
+  </span>
+  <span
+    className="sc-bdVaJa izoklx"
+    size={64}
+  >
+    Nunito - extraBold -
+    64
+  </span>
+  <span
+    className="sc-bdVaJa gqcxEe"
+    size={72}
+  >
+    Nunito - extraBold -
+    72
+  </span>
+  <span
+    className="sc-bdVaJa jFrtRK"
+    size={80}
+  >
+    Nunito - extraBold -
+    80
+  </span>
+  <span
+    className="sc-bdVaJa gowviT"
+    size={88}
+  >
+    Nunito - extraBold -
+    88
+  </span>
+  <span
+    className="sc-bdVaJa jYupZb"
+    size={96}
+  >
+    Nunito - extraBold -
+    96
+  </span>
+</div>
+`;
+
+exports[`Atoms/Mudra Typography BVariants 1`] = `
+<div>
+  <span
+    className="sc-bdVaJa fUiqOY"
+    size={20}
+  >
+    Storybook blue 120 - text size 20 - extra bold
+  </span>
+  <span
+    className="sc-bdVaJa kkyKFo"
+    size={24}
+  >
+    Storybook orange 140 - text size 24 - bold
+  </span>
+  <span
+    className="sc-bdVaJa gsCvsR"
+    size={28}
+  >
+    Royal blue 60 - text size 28 - regular
+  </span>
+</div>
+`;
+
+exports[`Atoms/Mudra Typography CCapitalize 1`] = `
+<span
+  className="sc-bdVaJa gmAawY"
+  size={16}
+>
+  Capitalize
+</span>
+`;
+
+exports[`Atoms/Mudra Typography DUnderline 1`] = `
+<span
+  className="sc-bdVaJa bmJQJN"
+  size={16}
+>
+  Underline
+</span>
+`;
+
+exports[`Atoms/Mudra Typography EEllipsis 1`] = `
+<span
+  className="sc-bdVaJa fFiHal"
+  size={16}
+>
+  Ellipsis Text Ellipsis TextEllipsis Text Ellipsis Text Ellipsis Text Ellipsis Text Ellipsis Text Ellipsis Text Ellipsis Text Ellipsis Text Ellipsis Text Ellipsis Text Ellipsis Text
+</span>
+`;
+
+exports[`Atoms/Mudra Typography FLineThrough 1`] = `
+<span
+  className="sc-bdVaJa dPRcxI"
+  size={16}
+>
+  Line Through
+</span>
+`;

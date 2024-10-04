@@ -1,0 +1,196 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import MudraSelect from "./mudraSelect";
+
+<Meta title="Molecules/Mudra Select" component={MudraSelect} />
+
+export const SelectTemplate = (args) => (
+  <div
+    style={{
+      minHeight: "400px",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    }}
+  >
+    <div style={{ width: "500px" }}>
+      <MudraSelect {...args} />
+    </div>
+  </div>
+);
+
+# Select
+
+Select components are used for collecting user provided information from a list of options.
+
+## Usage
+
+### 1. Basic Select
+
+<Canvas>
+  <Story
+    name="Basic Select"
+    args={{
+      placeHolder: "Select Component",
+      options: [
+        { value: "green", label: "Green" },
+        { value: "blue", label: "Blue" },
+        { value: "red", label: "Red" },
+        { value: "yellow", label: "Yellow" },
+        { value: "orange", label: "Orange" },
+        { value: "pink", label: "Pink" },
+        { value: "purple", label: "Purple" },
+        { value: "grey", label: "Grey" },
+      ],
+      defaultValue: { value: "green", label: "Green" },
+    }}
+  >
+    {SelectTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraSelect } from "./@services/storybook-storybook/atoms/mudraSelect";
+
+const Component = () => {
+  return (
+    <MudraSelect
+      placeHolder="Basic Select"
+      options={[
+        { value: "green", label: "Green" },
+        { value: "blue", label: "Blue" },
+        { value: "red", label: "Red" },
+        { value: "yellow", label: "Yellow" },
+        { value: "orange", label: "Orange" },
+        { value: "pink", label: "Pink" },
+        { value: "purple", label: "Purple" },
+        { value: "grey", label: "Grey" },
+      ]}
+      defaultValue={{ value: "green", label: "Green" }}
+    />
+  );
+};
+
+export default Component;
+```
+
+### 2. ReadOnly Select
+
+<Canvas>
+  <Story
+    name="ReadOnly Select"
+    args={{
+      options: [
+        { value: "green", label: "Green" },
+        { value: "blue", label: "Blue" },
+        { value: "red", label: "Red" },
+        { value: "yellow", label: "Yellow" },
+        { value: "orange", label: "Orange" },
+        { value: "pink", label: "Pink" },
+        { value: "purple", label: "Purple" },
+        { value: "grey", label: "Grey" },
+      ],
+      defaultValue: { value: "green", label: "Green" },
+      readOnly: true,
+      placeHolder: "Select Color",
+    }}
+  >
+    {SelectTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraSelect } from "./@services/storybook-storybook/atoms/mudraSelect";
+
+const Component = () => {
+  return (
+    <MudraSelect
+      placeHolder="Basic Select"
+      options={[
+        { value: "green", label: "Green" },
+        { value: "blue", label: "Blue" },
+        { value: "red", label: "Red" },
+        { value: "yellow", label: "Yellow" },
+        { value: "orange", label: "Orange" },
+        { value: "pink", label: "Pink" },
+        { value: "purple", label: "Purple" },
+        { value: "grey", label: "Grey" },
+      ]}
+      defaultValue={{ value: "green", label: "Green" }}
+      readOnly={true}
+      placeHolder="Select Color"
+    />
+  );
+};
+
+export default Component;
+```
+
+### 3. Disabled Select
+
+<Canvas>
+  <Story
+    name="Disabled Select"
+    args={{
+      placeHolder: "Select Component",
+      options: [
+        { value: "green", label: "Green" },
+        { value: "blue", label: "Blue" },
+        { value: "red", label: "Red" },
+        { value: "yellow", label: "Yellow" },
+        { value: "orange", label: "Orange" },
+        { value: "pink", label: "Pink" },
+        { value: "purple", label: "Purple" },
+        { value: "grey", label: "Grey" },
+      ],
+      defaultValue: { value: "green", label: "Green" },
+      disabled: true,
+    }}
+  >
+    {SelectTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraSelect } from "./@services/storybook-storybook/atoms/mudraSelect";
+
+const Component = () => {
+  return (
+    <MudraSelect
+      placeHolder="Basic Select"
+      options={[
+        { value: "green", label: "Green" },
+        { value: "blue", label: "Blue" },
+        { value: "red", label: "Red" },
+        { value: "yellow", label: "Yellow" },
+        { value: "orange", label: "Orange" },
+        { value: "pink", label: "Pink" },
+        { value: "purple", label: "Purple" },
+        { value: "grey", label: "Grey" },
+      ]}
+      defaultValue={{ value: "green", label: "Green" }}
+      disabled={true}
+    />
+  );
+};
+
+export default Component;
+```
+
+## Props
+
+<div style={{overflowX: 'auto'}}>
+
+| prop           | description                                                                                                   | type                                        |
+| -------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| `placeHolder`  | The short hint displayed in the select before the user select a value                                         | `string`                                    |
+| `options`      | Array of object with key value and label used for listing options                                             | `[{ value: string/number, label: string }]` |
+| `onSelect`     | function(value: object) => void                                                                               | `func`                                      |
+| `value`        | Object that represents selected option, this value should not be null for controlled component                | `{ value: string/number, label: string }`   |
+| `defaultValue` | Object that represents selected option, this property is used to set default value for uncontrolled component | `{ value: string/number, label: string }`   |
+| `className`    | Custom class name                                                                                             | `string`                                    |
+| `readOnly`     | Set value to true for read-only field (optional)                                                              | `boolean`                                   |
+| `disabled`     | Set value to true for disabled field (optional)                                                               | `boolean`                                   |
+| `isControlled` | Set value to true for controlled field (optional)                                                             | `boolean`                                   |
+
+</div>

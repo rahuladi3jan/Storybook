@@ -1,0 +1,15 @@
+@import "../../../configs/palette.scss";
+
+.mudra-accordionContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+
+    .mudra-accordionContainer-title {
+        font-family: Nunito, sans-serif;
+        font-size: 1rem;
+        line-height: 1.5;
+        font-weight: 800;
+        padding-bottom: 1rem;
+    }
+}

@@ -1,0 +1,14 @@
+@import "../../../configs/palette.scss";
+
+.mudra-input-helper-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: $storybook-blue-40;
+}
+.mudra-input-helper-text.error {
+  color: $valentine-red-100;
+}
+.mudra-input-helper-text.disabled {
+  color: $storybook-blue-40;
+}

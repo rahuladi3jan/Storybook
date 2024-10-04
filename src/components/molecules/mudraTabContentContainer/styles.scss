@@ -1,0 +1,19 @@
+@import "../../../configs/palette.scss";
+
+.mudra-tab-content-container {
+
+    &.display-horizontal {
+        padding-left: 1rem;
+
+        &.type-scrollable {
+            overflow-y: scroll;
+        }
+    }
+    &.display-vertical {
+        padding-top: 1rem;
+
+        &.type-scrollable {
+            overflow-y: scroll;
+        }
+    }
+}

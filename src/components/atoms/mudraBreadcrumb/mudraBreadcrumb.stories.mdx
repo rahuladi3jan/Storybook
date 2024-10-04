@@ -1,0 +1,136 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import MudraBreadcrumb from "./mudraBreadcrumb";
+
+<Meta title="Atoms/Mudra Breadcrumb" component={MudraBreadcrumb} />
+
+# Breadcrumb
+
+Breadcrumb is used to make navigation easy for users. User can easily move to any previous steps.
+
+## Usage
+
+### 1. Basic Breadcrumb
+
+Breadcrumb with defined style.
+
+export const BasicBreadcrumb = () => {
+  return (
+    <MudraBreadcrumb
+      links={[
+        {
+          label: "Home",
+          relativeURL: "/iframe.html",
+        },
+        {
+          label: "Loans",
+          relativeURL: "/iframe2.html",
+        },
+        {
+          label: "Personal Loan",
+          relativeURL: "/iframe3.html",
+        },
+      ]}
+    />
+  );
+};
+
+<Canvas>
+  <Story name="BasicBreadcrumb">{BasicBreadcrumb.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraBreadcrumb } from "@services/storybook-storybook/atoms/index";
+
+export const BasicBreadcrumb = () => {
+  return (
+    <MudraBreadcrumb
+      links={[
+        {
+          label: "Home",
+          relativeURL: "/iframe.html",
+        },
+        {
+          label: "Loans",
+          relativeURL: "/iframe2.html",
+        },
+        {
+          label: "Personal Loan",
+          relativeURL: "/iframe3.html",
+        },
+      ]}
+    />
+  );
+};
+```
+
+### 2. Custom Breadcrumb
+
+export const CustomBreadcrumb = () => {
+  return (
+    <MudraBreadcrumb
+      links={[
+        {
+          label: "Home",
+          relativeURL: "/iframe.html",
+        },
+        {
+          label: "Loans",
+          relativeURL: "/iframe2.html",
+        },
+        {
+          label: "Personal Loan",
+          relativeURL: "/iframe3.html",
+        },
+      ]}
+      renderLink={(link) => {
+        return <a href={link.relativeURL}>{link.label}</a>;
+      }}
+    />
+  );
+};
+
+<Canvas>
+  <Story name="CustomBreadcrumb">{CustomBreadcrumb.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraBreadcrumb } from "@services/storybook-storybook/atoms/index";
+
+export const CustomBreadcrumb = () => {
+  return (
+    <MudraBreadcrumb
+      links={[
+        {
+          label: "Home",
+          relativeURL: "/iframe.html",
+        },
+        {
+          label: "Loans",
+          relativeURL: "/iframe2.html",
+        },
+        {
+          label: "Personal Loan",
+          relativeURL: "/iframe3.html",
+        },
+      ]}
+      renderLink={(link: any) => {
+        return <a href={link.relativeURL}>{link.label}</a>;
+      }}
+    />
+  );
+};
+```
+
+## Props
+
+`BreadCrumb`
+
+<div style={{overflowX: 'auto'}}>
+
+| prop         | description                                                                     | type              |
+| ------------ | ------------------------------------------------------------------------------- | ----------------- |
+| `links`      | array of object, and each object will have label key and relativeURL (Required) | `array of object` |
+| `className`  | user can use this className for giving custom styles (optional)                 | `string`          |
+| `renderLink` | callback function which will take link as props.                                | `function`        |
+
+</div>

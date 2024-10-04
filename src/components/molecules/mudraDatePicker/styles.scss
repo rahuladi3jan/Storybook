@@ -1,0 +1,132 @@
+
+@import "../../../configs/palette.scss";
+$font-family: "Nunito";
+
+//font size
+$medium: 16px;
+$xs: 8px;
+$small: 14px;
+$large: 24px;
+$xlarge: 34px;
+
+.wrapper {
+    color: $storybook-gray-50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    .content {
+        padding: 0 0 $large;
+        border-radius: 6px;
+        height: 100%;
+        max-width: 360px;
+        border: 1px solid $storybook-blue-10;
+        color: $storybook-black;
+        font-family: $font-family;
+        height: 100%;
+        overflow: auto;
+        width: calc(min(350px, 100%));
+        .DatePickerHeader {
+            padding: $small - 2 $large $small - 2;
+            text-align: left;
+            border-bottom: 1px solid $storybook-blue-10;
+            top: 0;
+            width: 100%;
+            z-index: 4;
+            background: $storybook-white-background;
+            border-radius: 6px 6px 0 0;
+            .close {
+                display: flex;
+                justify-content: space-between;
+                padding-bottom: $small + 4;
+                font-size: $small;
+                line-height: $small;
+                font-family: sans-serif;
+            }
+            .displayDateWrapper{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                .end{
+                    justify-self: end;
+                }
+            }
+        }
+        .datePickerItem {
+            padding-top: 30px;
+            .daysWrapper {
+                display: grid;
+                justify-content: center;
+                justify-items: center;
+                grid-template-columns: repeat(7, minmax(0,1fr));
+            }
+            .dateMonth {
+                display: grid;
+                grid-template-columns: repeat(7, minmax(0,1fr));
+                justify-content: center;
+                justify-items: center;
+                .selectedDateWrapper {
+                    margin-top: $small - 2;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: $xlarge + 4;
+                    height: $xlarge + 4;
+                    padding-right: $small - 2;
+                    box-sizing: unset;
+                }
+                .startDateWrapper {
+                    background: linear-gradient(to right, $storybook-white-background 50%, #FEF0EC 0%);
+                }
+                .endDateWrapper {
+                    background: linear-gradient(to left, $storybook-white-background 50%, #FEF0EC 50%);
+                }
+                .startDate {
+                    color: $storybook-white-background;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: $xlarge + 4;
+                    height: $xlarge + 4;
+                    font-size: $small;
+                    line-height: $small + 4;;
+                    background: $storybook-orange-100;
+                    border-radius: 50%;
+                    transform: translateX(6px);
+                }
+                .currentDate {
+                    color: $storybook-orange-100;
+                    border: 1px solid $storybook-orange-100;
+                    height: 37px;
+                    width: 37px;
+                    background: $storybook-white-background;
+                }
+                .date {
+                    padding: $xs - 4 $xs + 2;
+                    margin-top: $small - 2;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: $xlarge - 4;
+                    height: $xlarge - 4;
+                    font-size: $small;
+                    line-height: $small + 4;
+                    box-sizing: unset;
+                }
+                .dateRange {
+                    background: $pirama-white-120;
+                }
+                .disabledDate {
+                    color: $storybook-gray-60;
+                }
+            }
+        }
+        .month {
+            text-align: left;
+            padding-left: $medium;
+            color: $storybook-blue-140;
+            font-size: $medium;
+            line-height: $large;
+            margin-bottom: $xs;
+        }
+    }
+}

@@ -1,0 +1,246 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import MudraTabContainer from "./mudraTabContainer";
+import { Type, Display } from "./propTypes";
+
+<Meta title="Molecules/Mudra TabContainer" component={MudraTabContainer} />
+
+# Tabs
+
+Tabs make it easy to explore and switch between different views.
+Tabs organize and allow navigation between groups of content that are related and at the same level of hierarchy.
+
+#### The content of Tabs is mounted by default even if that tab is not focused. This default behavior supports server-side rendering and SEO.
+
+## Usage
+
+### 1. Basic Horizontal Tabs
+
+At a time only selected tab content will be there. Tab Header will be Horizontal.
+
+```jsx
+import { MudraTabContainer } from "@services/storybook-storybook/molecules/index";
+import {
+  MudraTabContainerDisplay,
+  MudraContainerType,
+} from "@services/storybook-storybook/molecules/index";
+
+export const BasicHorizontalTabs = () => {
+  return (
+    <MudraTabContainer
+      tabs={["Tab1", "Tab2", "Tab3"]}
+      display={MudraTabContainerDisplay.Horizontal}
+      type={MudraContainerType.Basic}
+      tabContents={[
+        "Tab 1 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section",
+        "Tab 2 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section",
+        "Tab 3 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section",
+      ]}
+    />
+  );
+};
+```
+
+export const BasicHorizontalTabs = () => {
+  return (
+    <div style={{ margin: "16px" }}>
+      <MudraTabContainer
+        id="basic_tab_1"
+        tabs={["Tab1", "Tab2", "Tab3"]}
+        type={Type.Basic}
+        display={Display.Horizontal}
+        tabContents={[
+          "Tab 1 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section",
+          "Tab 2 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section",
+          "Tab 3 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section",
+        ]}
+      />
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="BasicHorizontalTabs">{BasicHorizontalTabs.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraTabContainer,
+  MudraTabContainerDisplay,
+  MudraContainerType,
+} from "@services/storybook-storybook/molecules/index";
+
+export const BasicVerticalTabs = () => {
+  return (
+    <MudraTabContainer
+      id="basic_tab_1"
+      tabs={["Tab1", "Tab2", "Tab3"]}
+      display={MudraTabContainerDisplay.Horizontal}
+      type={MudraContainerType.Basic}
+      tabContents={[
+        "Tab 1 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section",
+        "Tab 2 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section",
+        "Tab 3 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section",
+      ]}
+    />
+  );
+};
+```
+
+export const BasicVerticalTabs = () => {
+  return (
+    <div style={{ margin: "16px" }}>
+      <MudraTabContainer
+        id="basic_tab_2"
+        tabs={["Tab1", "Tab2", "Tab3"]}
+        type={Type.Basic}
+        display={Display.Vertical}
+        tabContents={[
+          "Tab 1 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section",
+          "Tab 2 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section",
+          "Tab 3 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section",
+        ]}
+      />
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="BasicVerticalTabs">{BasicVerticalTabs.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraTabContainer,
+  MudraTabContainerDisplay,
+  MudraContainerType,
+} from "@services/storybook-storybook/molecules/index";
+
+export const ScrollabelHorizontalTabs = () => {
+  return (
+    <MudraTabContainer
+      id="basic_tab_2"
+      tabs={["Tab1", "Tab2", "Tab3"]}
+      display={MudraTabContainerDisplay.Vertical}
+      type={MudraContainerType.Basic}
+      tabContents={[
+        "Tab 1 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section",
+        "Tab 2 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section",
+        "Tab 3 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section",
+      ]}
+    />
+  );
+};
+```
+
+export const ScrollabelHorizontalTabs = () => {
+  return (
+    <div style={{ margin: "16px" }}>
+      <MudraTabContainer
+        id="scroll_tab_h_1"
+        tabs={["Tab1", "Tab2", "Tab3"]}
+        type={Type.Scrollable}
+        display={Display.Horizontal}
+        maxContentHeight="300"
+        tabContents={[
+          "Tab 1 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section",
+          "Tab 2 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance.  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section The first line of Lorem Ipsum, comes from a line in section",
+          "Tab 3 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section during the Renaissance. the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section The first line of Lorem Ipsum, comes from a line in section",
+        ]}
+      />
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="ScrollabelHorizontalTabs">
+    {ScrollabelHorizontalTabs.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import {
+  MudraTabContainer,
+  MudraTabContainerDisplay,
+  MudraContainerType,
+} from "@services/storybook-storybook/molecules/index";
+
+export const ScrollabelVerticalTabs = () => {
+  return (
+    <MudraTabContainer
+      id="scroll_tab_h_1"
+      tabs={["Tab1", "Tab2", "Tab3"]}
+      display={MudraTabContainerDisplay.Horizontal}
+      type={MudraContainerType.Scrollable}
+      tabContents={[
+        "Tab 1 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section",
+        "Tab 2 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance.  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section The first line of Lorem Ipsum, comes from a line in section",
+        "Tab 3 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section during the Renaissance. the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section The first line of Lorem Ipsum, comes from a line in section",
+      ]}
+    />
+  );
+};
+```
+
+export const ScrollabelVerticalTabs = () => {
+  return (
+    <div style={{ margin: "16px" }}>
+      <MudraTabContainer
+        id="scroll_tab_v_2"
+        tabs={["Tab1", "Tab2", "Tab3"]}
+        type={Type.Scrollable}
+        display={Display.Vertical}
+        maxContentHeight="300"
+        tabContents={[
+          "Tab 1 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section",
+          "Tab 2 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance.  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section The first line of Lorem Ipsum, comes from a line in section",
+          "Tab 3 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section during the Renaissance. the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section The first line of Lorem Ipsum, comes from a line in section",
+        ]}
+      />
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="ScrollabelVerticalTabs">{ScrollabelVerticalTabs.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraTabContainer,
+  MudraTabContainerDisplay,
+  MudraContainerType,
+} from "@services/storybook-storybook/molecules/index";
+
+export const ScrollabelVerticalTabs = (args) => {
+  return (
+    <MudraTabContainer
+      id="scroll_tab_v_2"
+      tabs={["Tab1", "Tab2", "Tab3"]}
+      display={MudraTabContainerDisplay.Vertical}
+      type={MudraContainerType.Scrollable}
+      tabContents={[
+        "Tab 1 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section",
+        "Tab 2 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance.  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section The first line of Lorem Ipsum, comes from a line in section",
+        "Tab 3 Contrary to popular belief, Lorem Ipsum is not to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyunchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more  recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumsimply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections and of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section during the Renaissance. the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section The first line of Lorem Ipsum, comes from a line in section",
+      ]}
+    />
+  );
+};
+```
+
+## Props
+
+`MudraTabContainer`
+
+<div style={{overflowX: 'auto'}}>
+
+| prop          | description                                                                                            | type                                |
+| ------------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------- |
+| `tabs`        | there are the tabs you want to show. (Required)                                                        | `array of (string or ReactElement)` |
+| `className`   | user can use this className for giving custom styles (optional)                                        | `string`                            |
+| `tabContents` | Contents of each tab in an array. (Required)                                                           | `boolean`                           |
+| `expanded`    | `true` or `false` - this decides the open and close state of accordion if controlled prop is also true | `boolean`                           |
+| `children`    | html content user want to show when accordion is open.                                                 | `ReactElement`                      |
+| `id`          | to differentiate different tab containers (Required)                                                   | `string`                            |
+
+</div>

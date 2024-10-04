@@ -1,0 +1,227 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import MudraTextArea from "./mudraTextArea";
+
+<Meta title="Molecules/Mudra TextArea" component={MudraTextArea} />
+
+export const TextAreaTemplate = (args) => <MudraTextArea {...args} />;
+
+# TextArea
+
+- The textarea tag defines a multi-line text input control.
+- The textarea element is often used in a form, to collect user inputs like comments or reviews.
+
+## Usage
+
+## 1. Disabled TextArea
+
+TextArea with disabled feature can be enabled by making the `disabled` attribute `true`
+
+<Canvas>
+  <Story
+    name="Disabled TextArea"
+    args={{
+      defaultValue: "test",
+      rows: 2,
+      label: "Label - Default",
+      hintText: "hintText",
+      hint: true,
+      disabled: true,
+    }}
+  >
+    {TextAreaTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraTextArea } from "./@services/storybook-storybook/molecules/mudraTextArea";
+
+const Component = () => {
+  return (
+    <MudraSelect
+      defaultValue="test"
+      rows={2}
+      label="Label - Default"
+      hintText="hintText"
+      hint={true}
+      disabled={true}
+    />
+  );
+};
+
+export default Component;
+```
+
+## 2. Focused TextArea
+
+TextArea with focused feature can be enabled by making the `autoFocus` attribute `true`
+
+<Canvas>
+  <Story
+    name="Focused TextArea"
+    args={{
+      placeholder: "placeholder",
+      rows: 2,
+      label: "Label - Default",
+      hintText: "hintText",
+      hint: true,
+      autoFocus: true,
+    }}
+  >
+    {TextAreaTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraTextArea } from "./@services/storybook-storybook/molecules/mudraTextArea";
+
+const Component = () => {
+  return (
+    <MudraSelect
+      defaultValue="test"
+      rows={2}
+      label="Label - Default"
+      hintText="hintText"
+      hint={true}
+      autoFocus={true}
+    />
+  );
+};
+
+export default Component;
+```
+
+## 3. Error TextArea
+
+TextArea with focused feature can be enabled by making the `autoFocus` attribute `true`
+
+<Canvas>
+  <Story
+    name="Error TextArea"
+    args={{
+      defaultValue: "test",
+      rows: 2,
+      label: "Label - Default",
+      hintText: "hintText",
+      hint: true,
+      error: true,
+    }}
+  >
+    {TextAreaTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraTextArea } from "./@services/storybook-storybook/molecules/mudraTextArea";
+
+const Component = () => {
+  return (
+    <MudraSelect
+      defaultValue="test"
+      rows={2}
+      label="Label - Default"
+      hintText="hintText"
+      hint={true}
+      error={true}
+    />
+  );
+};
+
+export default Component;
+```
+
+## 4. ReadOnly TextArea
+
+TextArea with readOnly feature can be enabled by making the `readOnly` attribute `true`
+
+<Canvas>
+  <Story
+    name="ReadOnly TextArea"
+    args={{
+      defaultValue: "test",
+      rows: 2,
+      label: "Label - Default",
+      hintText: "hintText",
+      hint: true,
+      readOnly: true,
+    }}
+  >
+    {TextAreaTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraTextArea } from "./@services/storybook-storybook/molecules/mudraTextArea";
+
+const Component = () => {
+  return (
+    <MudraSelect
+      defaultValue="test"
+      rows={2}
+      label="Label - Default"
+      hintText="hintText"
+      hint={true}
+      readOnly={true}
+    />
+  );
+};
+
+export default Component;
+```
+
+## 4. Required TextArea
+
+TextArea with Required feature can be enabled by making the `Required` attribute `true`
+
+<Canvas>
+  <Story
+    name="Required TextArea"
+    args={{
+      defaultValue: "test",
+      rows: 2,
+      label: "Label - Default",
+      hintText: "hintText",
+      hint: true,
+      required: true,
+    }}
+  >
+    {TextAreaTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraTextArea } from "./@services/storybook-storybook/molecules/mudraTextArea";
+
+const Component = () => {
+  return (
+    <MudraSelect
+      defaultValue="test"
+      rows={2}
+      label="Label - Default"
+      hintText="hintText"
+      hint={true}
+      required={true}
+    />
+  );
+};
+
+export default Component;
+```
+
+## Props
+
+`MudraTextArea`
+
+<div style={{overflowX: 'auto'}}>
+
+| prop        | description                               | type      |
+| ----------- | ----------------------------------------- | --------- |
+| error       | An error indication for component         | `boolean` |
+| disabled    | A attribute to disable the component      | `boolean` |
+| required    | value to be true for the required field   | `boolean` |
+| placeholder | placeholder for the text area             | `string`  |
+| label       | A text to display the label for component | `string`  |
+| hint        | A control to display the hintText         | `boolean` |
+| hintText    | A text to display the hint for component  | `string`  |
+
+</div>

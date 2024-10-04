@@ -1,0 +1,158 @@
+@font-face {
+    font-family: 'Nunito';
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+    src: url('https://cdn.storybookfinance.com/pchfweb/assets/fonts/Nunito-ExtraLight.woff2') format('woff2'),
+        url('https://cdn.storybookfinance.com/pchfweb/assets/fonts/Nunito-ExtraLight.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Nunito';
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+    src: url('https://cdn.storybookfinance.com/pchfweb/assets/fonts/Nunito-Light.woff2') format('woff2'),
+        url('https://cdn.storybookfinance.com/pchfweb/assets/fonts/Nunito-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Nunito';
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url('https://cdn.storybookfinance.com/pchfweb/assets/fonts/Nunito-Regular.woff2') format('woff2'),
+        url('https://cdn.storybookfinance.com/pchfweb/assets/fonts/Nunito-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Nunito';
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+    src: url('https://cdn.storybookfinance.com/pchfweb/assets/fonts/Nunito-SemiBold.woff2') format('woff2'),
+        url('https://cdn.storybookfinance.com/pchfweb/assets/fonts/Nunito-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Nunito';
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    src: url('https://cdn.storybookfinance.com/pchfweb/assets/fonts/Nunito-Bold.woff2') format('woff2'),
+        url('https://cdn.storybookfinance.com/pchfweb/assets/fonts/Nunito-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Nunito';
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+    src: url('https://cdn.storybookfinance.com/pchfweb/assets/fonts/Nunito-ExtraBold.woff2') format('woff2'),
+        url('https://cdn.storybookfinance.com/pchfweb/assets/fonts/Nunito-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Nunito-fallback';
+    size-adjust: 101.44000000000005%;
+    ascent-override: 109%;
+    src: local('Arial');
+}
+
+@font-face {
+    font-family: "NunitoBold";
+    src: url("https://cdn.storybookfinance.com/pchfweb/assets/fonts/Nunito-Bold.ttf");
+}
+
+@font-face {
+    font-family: "NunitoExtraBold";
+    src: url("https://cdn.storybookfinance.com/pchfweb/assets/fonts/Nunito-ExtraBold.ttf")
+}
+
+@font-face {
+    font-family: "NunitoExtraLight";
+    src: url("https://cdn.storybookfinance.com/pchfweb/assets/fonts/Nunito-ExtraLight.ttf")
+}
+
+@font-face {
+    font-family: "NunitoLight";
+    src: url("https://cdn.storybookfinance.com/pchfweb/assets/fonts/Nunito-Light.ttf")
+}
+
+@font-face {
+    font-family: "NunitoRegular";
+    src: url("https://cdn.storybookfinance.com/pchfweb/assets/fonts/Nunito-Regular.ttf")
+}
+
+@font-face {
+    font-family: "NunitoSemiBold";
+    src: url("https://cdn.storybookfinance.com/pchfweb/assets/fonts/Nunito-SemiBold.ttf")
+}
+
+@font-face {
+    font-family: "NunitoItalic";
+    src: url("https://cdn.storybookfinance.com/pchfweb/assets/fonts/Nunito-Italic.ttf")
+}
+
+html,
+body {
+    font-family: Nunito, Nunito-fallback, sans-serif !important;
+}
+
+//standard naming for all fonts
+
+// * {
+//     font-family: "NunitoRegular";
+// }
+
+.primary-font-bold {
+    font-family: "NunitoBold";
+}
+
+.primary-font-italic {
+    font-family: "NunitoItalic";
+}
+
+.primary-font-extra-bold {
+    font-family: "NunitoExtraBold";
+}
+
+.primary-font-extra-light {
+    font-family: "NunitoExtraLight";
+}
+
+.primary-font-light {
+    font-family: "NunitoLight";
+}
+
+.primary-font-regular {
+    font-family: "NunitoRegular";
+}
+
+.primary-font-semi-bold {
+    font-family: "NunitoSemiBold";
+}
+
+.nunito-bold {
+    font-family: "NunitoBold";
+}
+
+.nunito-ExtraBold {
+    font-family: "NunitoExtraBold";
+}
+
+.nunito-ExtraLight {
+    font-family: "NunitoExtraLight";
+}
+
+.nunito-Light {
+    font-family: "NunitoLight";
+}
+
+.nunito-Regular {
+    font-family: "NunitoRegular";
+}
+
+.nunito-SemiBold {
+    font-family: "NunitoSemiBold";
+}

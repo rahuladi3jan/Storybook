@@ -1,0 +1,25 @@
+@import "../../../configs/palette.scss";
+
+.mudra-autocomplete-root {
+  .input-container {
+    text-align: left;
+    border-bottom: 2px solid $storybook-blue-40;
+    transition-property: border, stroke;
+    transition-duration: 400ms;
+    stroke: $storybook-blue-40;
+    position: relative;
+    &.focused {
+      border-color: $storybook-orange-100;
+      stroke: $storybook-orange-100;
+    }
+    &:hover {
+      border-color: $storybook-blue-140;
+      stroke: $storybook-blue-140;
+    }
+    .autocomplete-base-input {
+      border: none;
+      outline: none !important;
+      padding: 5px;
+    }
+  }
+}

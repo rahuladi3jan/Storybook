@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Molecules/Mudra List AOrderedList 1`] = `
+<div>
+  <ul
+    className="sc-bwzfXH gtusOf"
+  >
+    <li>
+      <span
+        className="sc-bdVaJa kPRpeD"
+        size={16}
+      >
+        Ordered List Item 1
+      </span>
+    </li>
+    <li>
+      <span
+        className="sc-bdVaJa kPRpeD"
+        size={16}
+      >
+        Ordered List Item 2
+      </span>
+    </li>
+    <li>
+      <span
+        className="sc-bdVaJa kPRpeD"
+        size={16}
+      >
+        Ordered List Item 3
+      </span>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Molecules/Mudra List BBasicOrderedList 1`] = `
+<div>
+  <ol
+    className="sc-htpNat jjzYvY"
+  >
+    <li>
+      <span
+        className="sc-bdVaJa kPRpeD"
+        size={16}
+      >
+        Ordered List Item 1
+      </span>
+    </li>
+    <li>
+      <span
+        className="sc-bdVaJa kPRpeD"
+        size={16}
+      >
+        Ordered List Item 2
+      </span>
+    </li>
+    <li>
+      <span
+        className="sc-bdVaJa kPRpeD"
+        size={16}
+      >
+        Ordered List Item 3
+      </span>
+    </li>
+  </ol>
+</div>
+`;
+
+exports[`Molecules/Mudra List CBasicUnorderedList 1`] = `
+<div>
+  <ul
+    className="sc-bwzfXH lgBAof"
+  >
+    <li>
+      <span
+        className="sc-bdVaJa kPRpeD"
+        size={16}
+      >
+        Unordered List Item 1
+      </span>
+    </li>
+    <li>
+      <span
+        className="sc-bdVaJa kPRpeD"
+        size={16}
+      >
+        Unordered List Item 2
+      </span>
+    </li>
+    <li>
+      <span
+        className="sc-bdVaJa kPRpeD"
+        size={16}
+      >
+        Unordered List Item 3
+      </span>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Molecules/Mudra List DStyledUnorderedList 1`] = `
+<div>
+  <ul
+    className="sc-bwzfXH jpLtKc"
+  >
+    <li
+      style={
+        Object {
+          "color": "blue",
+          "margin": 10,
+        }
+      }
+    >
+      <span
+        className="sc-bdVaJa hsKQWw"
+        size={18}
+      >
+        Styled Unordered List Item 1
+      </span>
+    </li>
+    <li
+      style={
+        Object {
+          "color": "blue",
+          "margin": 10,
+        }
+      }
+    >
+      <span
+        className="sc-bdVaJa hsKQWw"
+        size={18}
+      >
+        Styled Unordered List Item 2
+      </span>
+    </li>
+    <li
+      style={
+        Object {
+          "color": "blue",
+          "margin": 10,
+        }
+      }
+    >
+      <span
+        className="sc-bdVaJa hsKQWw"
+        size={18}
+      >
+        Styled Unordered List Item 3
+      </span>
+    </li>
+  </ul>
+</div>
+`;

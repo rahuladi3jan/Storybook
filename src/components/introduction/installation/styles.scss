@@ -1,0 +1,25 @@
+.theme-container {
+  p {
+    margin: 0.75rem 0.5rem;
+    padding: 0;
+  }
+  h5 {
+    font-weight: bold;
+    margin-top: 1.25rem;
+  }
+}
+
+.story-container {
+  display: block;
+  position: relative;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  overflow: auto;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 3rem 2rem;
+  margin: -1rem;
+}

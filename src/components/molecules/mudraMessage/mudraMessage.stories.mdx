@@ -1,0 +1,137 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import MudraMessage from "./mudraMessage";
+import { MudraButton } from "../../atoms/index";
+import { Variant, Theme, Position } from "./propTypes";
+import { useState } from "react";
+
+<Meta title="Molecules/Mudra Message" component={MudraMessage} />
+
+# Message
+
+A message is an element that displays a brief, important message in a way that attracts the user's attention without interrupting the user's task.
+
+1. Error
+2. Success
+3. Warning
+4. Generic
+
+Each one has 2 type of theme. (Dark and Light)
+
+## Usage
+
+### 1. Message
+
+A basic snackbar. It will autoClose by default after 3000ms.
+It will be by default at right-top position.
+It will be Generic Dark, if no type and theme is being passed respectively.
+open is boolean type prop and compulsory to pass.
+message is string or jsx type prop and compulsory to pass.
+You will have to pass onClose function in which you will have to make state false which is passed in open prop.
+
+export const BasicMessage = () => {
+  const [show, setShow] = useState(false);
+  return (
+    <div>
+      <MudraButton
+        label={show ? "Close Message" : "Show Message"}
+        onClick={() => setShow(!show)}
+      />
+      <MudraMessage
+        position={Position.Bottom}
+        variant={Variant.Generic}
+        theme={Theme.Dark}
+        show={show}
+        onClose={() => setShow(false)}
+      >
+        This is simple message.
+      </MudraMessage>
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="BasicMessage">{BasicMessage.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraMessage,
+  MudraMessagePosition,
+  MudraMessageVariant,
+  MudraMessageTheme,
+} from "@services/storybook-storybook/molecules/index";
+
+export const BasicMessage = () => {
+  const [show, setShow] = useState(false);
+  return (
+    <div>
+      <MudraButton
+        label={show ? "Close Message" : "Show Message"}
+        onClick={() => setShow(!show)}
+      />
+      <MudraMessage
+        show={show}
+        position={MudraMessagePosition.Bottom}
+        theme={MudraMessageTheme.Dark}
+        variant={MudraMessageVariant.Generic}
+        onClose={() => setShow(false)}
+      >
+        This is simple message.
+      </MudraMessage>
+    </div>
+  );
+};
+```
+
+## Props
+
+`MudraMessage`
+
+<div style={{overflowX: 'auto'}}>
+
+| prop        | description                                                                 | type                     |
+| ----------- | --------------------------------------------------------------------------- | ------------------------ |
+| `show`      | if true, message will be open. (default true)                               | `boolean`                |
+| `position`  | `Top` or `Bottom` - this decides the position (default Bottom)              | `MudraMessagePosition`   |
+| `className` | it can use this className for giving custom styles (optional)               | `string`                 |
+| `variant`   | `Error`, `Generic`, `Success` or `Warning` - It decides variant of message. | `MudraMessageVariant`    |
+| `onClose`   | function passed which is responsible for closing it (optional)              | `function`               |
+| `children`  | as ReactElement or string, which contain main message content               | `string or ReactElement` |
+| `theme`     | `Dark` or `Light` - decide the theme of message. (default Dark)             | `MudraMessageTheme`      |
+
+</div>
+
+`position` : MudraMessagePosition is an object with 2 keys
+
+<div style={{overflowX: 'auto'}}>
+
+| key      | description                                        |
+| -------- | -------------------------------------------------- |
+| `Top`    | It will show message on top at 24px from top       |
+| `Bottom` | It will show message on bottom at 24px from bottom |
+
+</div>
+
+`type` : MudraMessageVariant is an object with 4 keys
+
+<div style={{overflowX: 'auto'}}>
+
+| key       | description                                 |
+| --------- | ------------------------------------------- |
+| `Error`   | It can be use for showing errors.           |
+| `Generic` | It can be use for showing general messages. |
+| `Success` | It can be use for success events.           |
+| `Warning` | It can be use for showing warnings.         |
+
+</div>
+
+`theme` : MudraMessageTheme is an object with 2 keys
+
+<div style={{overflowX: 'auto'}}>
+
+| key     | description                                                        |
+| ------- | ------------------------------------------------------------------ |
+| `Dark`  | It is responsible for dark color of that particular message type.  |
+| `Light` | It is responsible for light color of that particular message type. |
+
+</div>

@@ -1,0 +1,138 @@
+@import "../../../configs/palette.scss";
+
+.mudra-tabContainer {
+    display: flex;
+    position: relative;
+
+
+    .mudra-tabs {
+        background-color: $storybook-tab-background;
+        padding: 1rem 0 0 1rem;
+
+        .mudra-tab {
+            font-size: 16px;
+            line-height: 24px;
+            outline: none;
+            color: $storybook-tab-unselected;
+
+            .mudra-tab-header-content {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .mudra-tabs-contents {
+        padding-left: 1rem;
+    }
+
+    &.display-horizontal {
+        flex-direction: column;
+
+        .mudra-tabs {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 16px;
+
+            .mudra-tab {
+                padding: 0 16px 12px;
+                border-bottom: 3px solid transparent;
+
+                &.selected {
+                    color: $storybook-black;
+                    border-bottom: 4px solid $storybook-orange-100;
+                }
+            }
+        }
+
+        &.type-basic{
+            .mudra-tabs-contents {
+                .mudra-tab-content {
+                    height: 0;
+                    min-height: 0;
+                    overflow: hidden;
+
+                    &.selected {
+                        height: auto;
+                        overflow: visible;
+                    }
+                }
+            }
+        }
+
+        &.type-scrollable {
+            .mudra-tabs {
+                width: 100%;
+            }
+
+            .mudra-tabs-contents {
+                overflow-y: scroll;
+
+                .mudra-tab-content {
+                    margin-bottom: 16px;
+                }
+
+                .mudra-tab-content-last {
+                    height: 600px;
+                }
+            }
+        }
+    }
+
+    &.display-vertical {
+        flex-direction: row;
+
+        .mudra-tabs {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-right: 16px;
+            padding: 1rem 0 1rem 1rem;
+
+            .mudra-tab {
+                padding: 16px 12px 16px 0;
+                border-right: 3px solid transparent;
+
+                &.selected {
+                    border-right: 4px solid $storybook-orange-100;
+                    color: $storybook-black;
+                }
+            }
+        }
+
+        &.type-basic{
+            .mudra-tabs-contents {
+                margin-top: 16px;
+                .mudra-tab-content {
+                    height: 0;
+                    min-height: 0;
+                    overflow: hidden;
+
+                    &.selected {
+                        height: auto;
+                        overflow: visible;
+                    }
+                }
+            }
+        }
+
+        &.type-scrollable {
+            .mudra-tabs {
+                width: auto;
+            }
+
+            .mudra-tabs-contents {
+                margin-left: 60px;
+                margin-top: 16px;
+                overflow-y: scroll;
+
+                .mudra-tab-content {
+                    margin-bottom: 16px;
+                }
+
+                .mudra-tab-content-last {
+                    height: 600px;
+                }
+            }
+        }
+    }
+}

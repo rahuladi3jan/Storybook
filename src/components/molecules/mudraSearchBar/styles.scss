@@ -1,0 +1,125 @@
+@import "../../../configs/palette.scss";
+.searchBarWrapper {
+  width: 100%;
+  position: relative;
+  .searchBar {
+    width: 100%;
+    box-sizing: border-box;
+    height: 32px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background-color: $storybook-blue-20;
+    font-weight: 400;
+    font-size: 14px;
+    border: 0.5px solid $storybook-blue-80;
+    color: $storybook-black;
+    display: flex;
+    align-items: center;
+
+    .prefix {
+      font-size: 12px;
+      color: $storybook-blue-80;
+      margin-right: 4px;
+    }
+
+    .searchInput {
+      width: 100%;
+      box-sizing: border-box;
+      border-top: 0px;
+      border-left: 0px;
+      border-right: 0px;
+      font-style: normal;
+      background-color: transparent;
+      outline: 0px;
+      color: $storybook-black;
+      &::placeholder {
+        font-size: 12px;
+        color: $storybook-blue-80;
+      }
+    }
+
+    .searchIcon {
+      cursor: pointer;
+      &:loading {
+        cursor: not-allowed;
+      }
+    }
+
+    .searchLoader {
+      margin-left: 12px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      &::before {
+        content: "";
+        border-radius: 50%;
+        border-top: 2px solid $storybook-blue-100;
+        border-right: 2px solid $storybook-blue-100;
+        border-left: 2px solid $storybook-blue-100;
+        border-bottom: 2px solid transparent;
+        width: 16px;
+        height: 16px;
+        -webkit-animation: spin 1.5s linear infinite; /* Safari */
+        animation: spin 1.5s linear infinite;
+        position: absolute;
+      }
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+  .resultsWrapper {
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 32px;
+    background: $storybook-white-100;
+    box-shadow: 0px 8px 24px -6px rgba(0, 0, 0, 0.16),
+      0px 0px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    .results {
+      .result {
+        border-bottom: 1px solid $storybook-table-header-bg;
+        cursor: pointer;
+        &:hover {
+          background: $storybook-orange-20;
+        }
+        &:last-child {
+          border-bottom: unset;
+        }
+      }
+    }
+    .moreButtonWrapper {
+      display: flex;
+      flex-direction: row-reverse;
+      margin: 8px;
+    }
+    &::-webkit-scrollbar {
+      height: 18px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #d9d9d9;
+      border-radius: 12px;
+      border: 5px solid $storybook-white-100;
+    }
+  }
+}

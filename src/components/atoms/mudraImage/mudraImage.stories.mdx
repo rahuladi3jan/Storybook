@@ -1,0 +1,68 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import MudraImage from "./mudraImage";
+
+<Meta title="Atoms/Mudra Image" component={MudraImage} />
+
+export const ImageTemplate = (args) => (
+  <MudraImage {...args} isEnableLoading={true} />
+);
+
+# Image
+
+Image component is used to display image with optional loader
+
+## Usage
+
+```jsx
+import { MudraImage } from "./@services/storybook-storybook/atoms/mudraImage";
+```
+
+### 1. Image with Loader
+
+<Canvas>
+  <Story
+    name="Basic Image"
+    args={{
+      src: "https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?cs=srgb&dl=pexels-maxime-francis-2246476.jpg&fm=jpg",
+      loadingContainerWidth: "100%",
+      loadingContainerHeight: "50vh",
+      alt: "image",
+    }}
+  >
+    {ImageTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraImage } from "./@services/storybook-storybook/atoms/mudraImage";
+
+const Component = () => {
+  return (
+    <MudraImage
+      src="https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?cs=srgb&dl=pexels-maxime-francis-2246476.jpg&fm=jpg"
+      loadingContainerWidth="100%"
+      loadingContainerHeight="50vh"
+      alt="basic-image"
+    />
+  );
+};
+export default Component;
+```
+
+## Props
+
+<div style={{overflowX: 'auto'}}>
+
+`MudraImage`
+
+| prop                   | description                                                                                                     | type      |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------- | --------- |
+| src                    | Specifies the path/URL to the image                                                                             | `string`  |
+| height and width       | Use the HTML width and height attributes or the CSS width and height properties to define the size of the image | `string`  |
+| alt                    | Attribute to define an alternate text for an image, if it cannot be displayed                                   | `string`  |
+| isEnableLoading        | Enabling loader                                                                                                 | `boolean` |
+| loadingContainerWidth  | CSS width for loading container                                                                                 | `string`  |
+| loadingContainerHeight | CSS height for loading container                                                                                | `string`  |
+
+</div>

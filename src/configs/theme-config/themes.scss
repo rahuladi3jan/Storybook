@@ -1,0 +1,20 @@
+// @import 'tailwindcss/base';
+// @import 'tailwindcss/components';
+// @import 'tailwindcss/utilities';
+
+:root {
+  --color-text-primary: #363537;
+  --color-text-secondary: #4d4d4d;
+  --color-bg-primary: #FFF;
+}
+.dark {
+  --color-text-primary: #FAFAFA;
+  --color-text-secondary: #cccccc;
+  --color-bg-primary: #363537;
+}
+
+.light {
+  --color-text-primary: #363537;
+  --color-text-secondary: #4d4d4d;
+  --color-bg-primary: #FFF;
+}

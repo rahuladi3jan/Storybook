@@ -1,0 +1,160 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import MudraDatePicker from "./mudraDatePicker";
+import { getCurrentDate } from "./utils";
+
+<Meta title="Molecules/Mudra MudraDatePicker" component={MudraDatePicker} />
+
+export const date = getCurrentDate({});
+export const days = 86400000;
+export const eightDaysAgo = new Date(date - 8 * days);
+export const fiveDaysAgo = new Date(date - 5 * days);
+export const singleDate = `${eightDaysAgo.getDate()}/${
+  eightDaysAgo.getMonth() + 1
+}/${eightDaysAgo.getFullYear()}`;
+export const multidateRange = `${eightDaysAgo.getDate()}/${
+  eightDaysAgo.getMonth() + 1
+}/${eightDaysAgo.getFullYear()}-${fiveDaysAgo.getDate()}/${
+  fiveDaysAgo.getMonth() + 1
+}/${fiveDaysAgo.getFullYear()}`;
+
+# DatePicker
+
+## 1. Date Picker for Date Range Select
+
+export const DatePickerTemplate = (args) => (
+  <div style={{ height: "600px" }}>
+    <MudraDatePicker {...args} />
+  </div>
+);
+
+<Canvas>
+  <Story
+    name="DatePicker"
+    args={{
+      selectedDate: multidateRange,
+      noOfMonthsData: 24,
+    }}
+  >
+    {DatePickerTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraDatePicker } from "./@services/storybook-storybook/molecules/mudraDatePicker";
+
+const Page = () => {
+  const [date, selectDate]= useState(null);
+  const [openDatePicker, setOpenDatePicker]= useState(true);
+  return (
+    <MudraDatePicker
+      handleSelectDate:(date) => selectDate(date)
+      selectedDate:singleDate,
+      onClose:() => setOpenDatePicker(false)
+      noOfMonthsData={24}
+    />
+  );
+};
+
+export default Page;
+```
+
+## 2. Date Picker for Single Date Select
+
+export const SingleDatePickerTemplate = (args) => (
+  <div style={{ height: "600px" }}>
+    <MudraDatePicker {...args} />
+  </div>
+);
+
+<Canvas>
+  <Story
+    name="Single Date Select DatePicker"
+    args={{
+      selectedDate: multidateRange,
+      noOfMonthsData: 24,
+      singleDateSelector: true,
+    }}
+  >
+    {SingleDatePickerTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraDatePicker } from "./@services/storybook-storybook/molecules/mudraDatePicker";
+
+const Page = () => {
+  const [date, selectDate]= useState(null);
+  const [openDatePicker, setOpenDatePicker]= useState(true);
+  return (
+    <MudraDatePicker
+      handleSelectDate:(date) => selectDate(date)
+      selectedDate:"04/04/2023-14/05/2023"
+      onClose:() => setOpenDatePicker(false)
+      noOfMonthsData={24}
+      singleDateSelector
+    />
+  );
+};
+
+export default Page;
+```
+
+## 2. Date Picker for Single Date Select and Disable next values
+
+export const SingleDateDisablePickerTemplate = (args) => (
+  <div style={{ height: "600px" }}>
+    <MudraDatePicker {...args} />
+  </div>
+);
+
+<Canvas>
+  <Story
+    name="Single Date Disable Select DatePicker"
+    args={{
+      selectedDate: singleDate,
+      noOfMonths: 24,
+      singleDateSelector: true,
+      nextValuesDisabled: true,
+    }}
+  >
+    {SingleDateDisablePickerTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraDatePicker } from "./@services/storybook-storybook/molecules/mudraDatePicker";
+
+const Page = () => {
+  const [date, selectDate]= useState(null);
+  const [openDatePicker, setOpenDatePicker]= useState(true);
+  return (
+    <MudraDatePicker
+      handleSelectDate:(date) => selectDate(date)
+      selectedDate:"04/04/2023"
+      onClose:() => setOpenDatePicker(false)
+      noOfMonths={24}
+      singleDateSelector
+      nextValuesDisabled
+    />
+  );
+};
+
+export default Page;
+```
+
+## Props
+
+<div style={{overflowX: 'auto'}}>
+
+| prop                 | description                                                                                                                               | type                                                           |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| `selectedDate`       | The default that is selected it must be passed in given format for single and multi date selector respectively                            | `string in the format "DD/MM/YYYY" or "DD/MM/YYYY-dd/mm/yyyy"` |
+| `singleDateSelector` | Boolean value that is to select only one date by default date picker is to select dates between the ranges                                | `boolean`                                                      |
+| `prevValuesDisabled` | Boolean value to disable previous dates from current date                                                                                 | `boolean`                                                      |
+| `nextValuesDisabled` | Boolean value to disable next dates from current date : \* max value can be 360 i.e 30 years                                              | `boolean`                                                      |
+| `noOfMonths`         | To shown how much months of data need to show before and after current date for 2 years value should be 24 , 0.5 year values should be 6. | `number`                                                       |
+| `handleSelectDate`   | Function that will return the selected value after selection                                                                              | `func`                                                         |
+| `onClose`            | Function to close the date picker                                                                                                         | `func`                                                         |
+| `closeOnSelect`      | Boolean value to close the date picker on selection only                                                                                  | `boolean`                                                      |
+
+</div>

@@ -1,0 +1,38 @@
+@import "../../../configs/palette.scss";
+
+.mudra-chip {
+  .chip-text {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+  }
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 10px;
+  width: fit-content;
+  height: 32px;
+  background: $storybook-blue-100;
+  color: $storybook-white-background;
+  stroke: $storybook-white-background;
+  border-radius: 50px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  cursor: pointer;
+  .chip-icon {
+    cursor: pointer;
+  }
+  &.inactive {
+    border: 1px solid $storybook-neutral-80;
+    background: $storybook-white-background;
+    color: $storybook-neutral-80;
+    stroke: $storybook-neutral-80;
+  }
+  &.large {
+    padding: 12px 12px 12px 16px;
+    height: 40px;
+  }
+}

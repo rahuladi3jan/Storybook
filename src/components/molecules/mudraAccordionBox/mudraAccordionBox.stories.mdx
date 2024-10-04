@@ -1,0 +1,462 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import MudraAccordionBox from "./mudraAccordionBox";
+import MudraAccordion from "../mudraAccordion/mudraAccordion";
+import { Type } from "./propTypes";
+
+<Meta title="Molecules/Mudra Accordion Box" component={MudraAccordionBox} />
+
+# Accordion Box
+
+Accordion Box can be used to wrap one or more Accordions.
+`id` prop should always be different for all the AccordionBox you are using in your project.
+
+`The content of Accordion Box is mounted by default even if the accordion is not expanded. This default behavior supports server-side rendering and SEO.`
+
+## Usage
+
+### 1. Basic Accordion Box
+
+It will open and close on click. At one time multiple number of accordions can be expanded and by default all will be closed.
+
+export const BasicAccordionBox = () => {
+  return (
+    <div style={{ margin: "16px" }}>
+      <MudraAccordionBox id="boxidOne">
+        <MudraAccordion id="acc_one" title="Accordion One">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc_two" title="Accordion two">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc_three" title="Accordion three">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc_four" title="Accordion four">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+      </MudraAccordionBox>
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="BasicAccordionBox">{BasicAccordionBox.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraAccordionBox,
+  MudraAccordionBoxType,
+  MudraAccordion,
+} from "@services/storybook-storybook/molecules/index";
+
+export const BasicAccordionBox = () => {
+  return (
+    <div style={{ margin: "16px" }}>
+      <MudraAccordionBox id="boxidOne">
+        <MudraAccordion id="acc-one" title="Accordion One">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-two" title="Accordion two">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-three" title="Accordion three">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-four" title="Accordion four">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+      </MudraAccordionBox>
+    </div>
+  );
+};
+```
+
+### 2. Basic Accordion Box with all expanded
+
+It will open and close on click. At one time multiple number of accordions can be expanded and all accordion will be opened and controlled by `intiallyAllAccordionExpanded` prop.
+
+export const BasicAllOpened = () => {
+  return (
+    <div style={{ margin: "16px" }}>
+      <MudraAccordionBox id="boxidTwo" intiallyAllAccordionExpanded={true}>
+        <MudraAccordion id="acc_one" title="Accordion One">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc_two" title="Accordion two">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc_three" title="Accordion three">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc_four" title="Accordion four">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+      </MudraAccordionBox>
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="BasicAllOpened">{BasicAllOpened.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraAccordionBox,
+  MudraAccordionBoxType,
+  MudraAccordion,
+} from "@services/storybook-storybook/molecules/index";
+
+export const BasicAllOpened = () => {
+  return (
+    <div style={{ margin: "16px" }}>
+      <MudraAccordionBox id="boxidTwo" intiallyAllAccordionExpanded={true}>
+        <MudraAccordion id="acc-one" title="Accordion One">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-two" title="Accordion two">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-three" title="Accordion three">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-four" title="Accordion four">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+      </MudraAccordionBox>
+    </div>
+  );
+};
+```
+
+### 3. Basic Accordion Box With Default Expanded
+
+It will open and close on click. At one time multiple number of accordions can be expanded and by default accordion id passed to `defaultExpanded` prop will be expanded.
+
+export const BasicDefaultExpanded = () => {
+  return (
+    <div style={{ margin: "16px" }}>
+      <MudraAccordionBox id="boxidThree" defaultExpanded="acc-two">
+        <MudraAccordion id="acc_one" title="Accordion One">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-two" title="Accordion two">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-three" title="Accordion three">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-four" title="Accordion four">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+      </MudraAccordionBox>
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="BasicDefaultExpanded">{BasicDefaultExpanded.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraAccordionBox,
+  MudraAccordionBoxType,
+  MudraAccordion,
+} from "@services/storybook-storybook/molecules/index";
+
+export const BasicDefaultExpanded = () => {
+  return (
+    <div style={{ margin: "16px" }}>
+      <MudraAccordionBox id="boxidThree" defaultExpanded="acc-two">
+        <MudraAccordion id="acc-one" title="Accordion One">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-two" title="Accordion two">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-three" title="Accordion three">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-four" title="Accordion four">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+      </MudraAccordionBox>
+    </div>
+  );
+};
+```
+
+### 4. Advance Accordion Box
+
+It will open and close on click. At one time only one accordionc can be expanded and by default all will be closed.
+
+export const AdvanceAccordionBox = () => {
+  return (
+    <div style={{ margin: "16px" }}>
+      <MudraAccordionBox id="boxidFour" type={Type.Advance}>
+        <MudraAccordion id="acc_one" title="Accordion One">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-two" title="Accordion two">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-three" title="Accordion three">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-four" title="Accordion four">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+      </MudraAccordionBox>
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="AdvanceAccordionBox">{AdvanceAccordionBox.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraAccordionBox,
+  MudraAccordionBoxType,
+  MudraAccordion,
+} from "@services/storybook-storybook/molecules/index";
+
+export const AdvanceAccordionBox = () => {
+  return (
+    <div style={{ margin: "16px" }}>
+      <MudraAccordionBox id="boxidFour" type={MudraAccordionBoxType.Advance}>
+        <MudraAccordion id="acc-one" title="Accordion One">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-two" title="Accordion two">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-three" title="Accordion three">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-four" title="Accordion four">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+      </MudraAccordionBox>
+    </div>
+  );
+};
+```
+
+### 5. Advance Accordion Box With Default Expanded
+
+It will open and close on click. At one time only one accordion can be expanded and by default accordion id passed to `defaultExpanded` prop will be expanded.
+
+export const AdvanceDefaultExpanded = () => {
+  return (
+    <div style={{ margin: "16px" }}>
+      <MudraAccordionBox
+        id="boxidFive"
+        defaultExpanded="acc-two"
+        type={Type.Advance}
+      >
+        <MudraAccordion id="acc_one" title="Accordion One">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-two" title="Accordion two">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-three" title="Accordion three">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-four" title="Accordion four">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+      </MudraAccordionBox>
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="AdvanceDefaultExpanded">{AdvanceDefaultExpanded.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraAccordionBox,
+  MudraAccordionBoxType,
+  MudraAccordion,
+} from "@services/storybook-storybook/molecules/index";
+
+export const AdvanceDefaultExpanded = () => {
+  return (
+    <div style={{ margin: "16px" }}>
+      <MudraAccordionBox
+        id="boxidFive"
+        defaultExpanded="acc-two"
+        type={MudraAccordionBoxType.Advance}
+      >
+        <MudraAccordion id="acc-one" title="Accordion One">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-two" title="Accordion two">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-three" title="Accordion three">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+        <MudraAccordion id="acc-four" title="Accordion four">
+          <div>
+            <h1>Accordion Content Title</h1>
+            <p>Accordion Content</p>
+          </div>
+        </MudraAccordion>
+      </MudraAccordionBox>
+    </div>
+  );
+};
+```
+
+## Props
+
+`MudraAccordionBox`
+
+<div style={{overflowX: 'auto'}}>
+
+| prop                           | description                                                                                                                 | type                    |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| `title`                        | Title of accordion box (Optional)                                                                                           | `string`                |
+| `className`                    | user can use this className for giving custom styles (optional)                                                             | `string`                |
+| `type`                         | `Basic` or `Advance` - decides how if one or more accordions can be expanded. (default Basic)                               | `MudraAccordionBoxType` |
+| `defaultExpanded`              | decide which accordion will be default expanded when component will render. (optional)                                      | `string`                |
+| `children`                     | `Accordion`                                                                                                                 | `Accordion`             |
+| `id`                           | id of accordion box to differentiate it from other accordion box used in project. (required and should always be unique)    | `string`                |
+| `intiallyAllAccordionExpanded` | `true` it will make all accordion open initially and will work with only basic accordion. (Optional, default will be false) | `boolean`               |
+
+</div>
+
+`MudraAccordionBoxType` : It has two keys `Basic` and `Advance` by default it will be `Basic`.
+
+<div style={{overflowX: 'auto'}}>
+
+| prop      | description                                           |
+| --------- | ----------------------------------------------------- |
+| `Basic`   | Multiple accordions can be kept expanded at one time. |
+| `Advance` | Only one accordion can be expanded at one time.       |
+
+</div>

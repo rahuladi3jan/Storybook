@@ -1,0 +1,92 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import MudraAutocomplete from "./mudraAutocomplete";
+
+<Meta title="Molecules/Mudra Autocomplete" component={MudraAutocomplete} />
+
+export const AutocompleteTemplate = (args) => (
+  <div
+    style={{
+      minHeight: "600px",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    }}
+  >
+    <div style={{ width: "500px" }}>
+      <MudraAutocomplete {...args} />
+    </div>
+  </div>
+);
+
+# Autocomplete
+
+Autocomplete components is a similar component like a basic select with the option to search and select options.
+
+## 1. Basic Autocomplete
+
+<Canvas>
+  <Story
+    name="Basic Autocomplete"
+    args={{
+      placeHolder: "Basic Autocomplete",
+      options: [
+        { value: "green", label: "Green" },
+        { value: "blue", label: "Blue" },
+        { value: "red", label: "Red" },
+        { value: "yellow", label: "Yellow" },
+        { value: "orange", label: "Orange" },
+        { value: "pink", label: "Pink" },
+        { value: "purple", label: "Purple" },
+        { value: "grey", label: "Grey" },
+      ],
+      value: { value: "green", label: "Green" },
+      onSelect: (value) => {
+        console.info("selected", value);
+      },
+    }}
+  >
+    {AutocompleteTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraAutocomplete } from "./@services/storybook-storybook/molecules/mudraAutocomplete";
+
+const Page = () => {
+  return (
+    <MudraAutocomplete
+      placeHolder="Basic Autocomplete"
+      options={[
+        { value: "green", label: "Green" },
+        { value: "blue", label: "Blue" },
+        { value: "red", label: "Red" },
+        { value: "yellow", label: "Yellow" },
+        { value: "orange", label: "Orange" },
+        { value: "pink", label: "Pink" },
+        { value: "purple", label: "Purple" },
+        { value: "grey", label: "Grey" },
+      ]}
+      onSelect={(value) => {
+        console.log("selected", value);
+      }}
+    />
+  );
+};
+
+export default Page;
+```
+
+## Props
+
+<div style={{overflowX: 'auto'}}>
+
+| prop          | description                                                           | type                                        |
+| ------------- | --------------------------------------------------------------------- | ------------------------------------------- |
+| `placeHolder` | The short hint displayed in the select before the user select a value | `string`                                    |
+| `options`     | Array of object with key value and label used for listing options     | `[{ value: string/number, label: string }]` |
+| `onSelect`    | function(value: object) => void                                       | `func`                                      |
+| `value`       | Object thet represents selected option                                | `{ value: string/number, label: string }`   |
+| `className`   | Custom class name                                                     | `string`                                    |
+
+</div>

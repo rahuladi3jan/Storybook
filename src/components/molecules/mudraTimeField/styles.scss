@@ -1,0 +1,124 @@
+@import "../../../configs/palette.scss";
+.mudraTimeFieldWrapper {
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  .mudraTimeFieldLabel {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    color: $storybook-blue-100;
+  }
+  .hoursInput,
+  .minutesInput {
+    box-sizing: border-box;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    font-style: normal;
+    background-color: transparent;
+    outline: 0px;
+    color: $storybook-black;
+    &::placeholder {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      color: $storybook-blue-40;
+    }
+  }
+  .hoursInput {
+    width: 1.2em;
+  }
+  .minutesInput {
+    width: 1.8em;
+  }
+
+  .controlsWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    border-bottom: 2px solid $storybook-blue-40;
+    padding-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    &:focus-within {
+      .select-base-tool {
+        stroke: $storybook-blue-140;
+      }
+      border-bottom: 2px solid $storybook-blue-140;
+    }
+    .select-base-container {
+      border-bottom: none;
+      &.active {
+        stroke: $storybook-blue-140;
+        border-color: $storybook-blue-140;
+      }
+    }
+    .select-base-input {
+      padding: unset;
+    }
+  }
+  .errorMessage {
+    display: none;
+  }
+  &.error {
+    .errorMessage {
+      display: block;
+      color: $valentine-red-100;
+      margin-top: 4px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+    }
+    .mudraTimeFieldLabel {
+      color: $valentine-red-100;
+    }
+  }
+  &.disabled {
+    cursor: not-allowed;
+    .mudraTimeFieldLabel,
+    .hoursInput,
+    .minutesInput,
+    .separator {
+      color: $storybook-blue-40;
+      cursor: not-allowed;
+    }
+    .controlsWrapper {
+      cursor: not-allowed;
+    }
+  }
+  &.readOnly {
+    cursor: not-allowed;
+    .controlsWrapper {
+      border-bottom: none;
+    }
+    .controlsWrapper,
+    .mudraTimeFieldLabel,
+    .hoursInput,
+    .minutesInput {
+      cursor: not-allowed;
+    }
+  }
+  &.required {
+    .mudraTimeFieldLabel {
+      &::after {
+        content: "*";
+        color: $valentine-red;
+        padding-left: 4px;
+      }
+    }
+  }
+  &.empty {
+    .separator {
+      color: $storybook-blue-40;
+    }
+  }
+}

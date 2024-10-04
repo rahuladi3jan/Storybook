@@ -1,0 +1,540 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import MudraSidePanel from "./mudraSidePanel";
+import MudraButton from "../../atoms/mudraButton/mudraButton";
+import { Size, Width } from "../../atoms/mudraButton/propTypes";
+import MudraTable from "../../atoms/mudraTable/mudraTable";
+import { Type } from "../../atoms/mudraTable/propTypes";
+import { AnimationType } from "./propTypes";
+import { useState } from "react";
+
+<Meta title="Molecules/Mudra Side Panel" component={MudraSidePanel} />
+
+# Side Panel
+
+Side panel will be open when user want and it is like a action form user can do here.
+####The content of side panel is mounted by default even if the side panel is not oepned. This default behavior supports server-side rendering and SEO.
+
+## Usage
+
+### 1. Basic Side Panel
+
+It will open on some action and close on cross icon click. This opening and closing action is controlled by open prop.
+User need to pass title as string or ReactElement.
+The content user want to show in side panel should be passed as children.
+Press escape to close it.
+
+export const BasicSidePanel = () => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <MudraButton label="Refer Case" onClick={() => setOpen(true)} />
+      <MudraSidePanel open={open} onClick={() => setOpen(false)}>
+        <div style={{ padding: "16px" }}>
+          <p>
+            Your case is ready to be referred. <br /> Please enter your remarks
+            and review the loan details.
+          </p>
+          <div style={{ marginTop: "24px" }}>
+            <MudraTable
+              type={Type.KeyValue}
+              tableWidth="376"
+              tableRows={[
+                ["Loan Amount", "₹500000"],
+                ["Tenure", "60 months"],
+                ["ROI", "17.49%"],
+                ["EMI", "₹12558"],
+                ["Insurance", "₹10679"],
+                ["Processing Fee + GST", "₹11800"],
+              ]}
+            />
+          </div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <MudraButton
+              style={{
+                marginTop: "264px",
+              }}
+              label="Refer Case"
+              size={Size.XL}
+              width={Width.Full}
+              onClick={() => setOpen(false)}
+            />
+          </div>
+        </div>
+      </MudraSidePanel>
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="BasicSidePanel">{BasicSidePanel.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraSidePanel } from "@services/storybook-storybook/molecules/index";
+import {
+  MudraTable,
+  MudraTableType,
+  MudraButton,
+  MudraButtonSize,
+  MudraButtonWidth,
+} from "@services/storybook-storybook/atoms/index";
+
+export const BasicSidePanel = () => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <MudraButton label="Refer Case" onClick={() => setOpen(false)} />
+      <MudraSidePanel open={open} onClick={() => setOpen(false)}>
+        <div style={{ padding: "16px" }}>
+          <p>
+            Your case is ready to be referred.
+            <br />
+            Please enter your remarks and review the loan details.
+          </p>
+          <MudraTable
+            type={MudraTableType.KeyValue}
+            tableWidth="376"
+            tableRows={[
+              ["Loan Amount", "₹500000"],
+              ["Tenure", "60 months"],
+              ["ROI", "17.49%"],
+              ["EMI", "₹12558"],
+              ["Insurance", "₹10679"],
+              ["Processing Fee + GST", "₹11800"],
+            ]}
+          />
+          <MudraButton
+            label="Refer Case"
+            size={MudraButtonSize.XL}
+            width={MudraButtonWidth.Full}
+          />
+        </div>
+      </MudraSidePanel>
+    </div>
+  );
+};
+```
+
+### 2. Animated Side Panel
+
+Side panel will open with animation from the side user want. User can pass `animationType` as `top`, `bottom`, `right` or `left`.
+Press escape to close it.
+
+export const AnimatedSidePanel = () => {
+  const [openTop, setOpenTop] = useState(false);
+  const [openBottom, setOpenBottom] = useState(false);
+  const [openRight, setOpenRight] = useState(false);
+  const [openLeft, setOpenLeft] = useState(false);
+  const handleCloseAll = () => {
+    setOpenTop(false);
+    setOpenBottom(false);
+    setOpenRight(false);
+    setOpenLeft(false);
+  };
+  const renderChild = () => {
+    return (
+      <div style={{ padding: "16px" }}>
+        <p>
+          Your case is ready to be referred. <br /> Please enter your remarks
+          and review the loan details.
+        </p>
+        <div style={{ marginTop: "24px" }}>
+          <MudraTable
+            type={Type.KeyValue}
+            tableWidth="376"
+            tableRows={[
+              ["Loan Amount", "₹500000"],
+              ["Tenure", "60 months"],
+              ["ROI", "17.49%"],
+              ["EMI", "₹12558"],
+              ["Insurance", "₹10679"],
+              ["Processing Fee + GST", "₹11800"],
+            ]}
+          />
+        </div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <MudraButton
+            style={{ marginTop: "264px" }}
+            label="Refer Case"
+            size={Size.XL}
+            width={Width.Full}
+            onClick={() => handleCloseAll(false)}
+          />
+        </div>
+      </div>
+    );
+  };
+  return (
+    <div>
+      <div style={{ display: "flex", flexDirection: "row", margin: "24px" }}>
+        <MudraButton
+          label="Open from Top"
+          onClick={() => {
+            handleCloseAll();
+            setOpenTop(true);
+          }}
+        />
+        <MudraButton
+          style={{ marginLeft: "16px" }}
+          label="Open from Bottom"
+          onClick={() => {
+            handleCloseAll();
+            setOpenBottom(true);
+          }}
+        />
+        <MudraButton
+          style={{ marginLeft: "16px" }}
+          label="Open from Right"
+          onClick={() => {
+            handleCloseAll();
+            setOpenRight(true);
+          }}
+        />
+        <MudraButton
+          style={{ marginLeft: "16px" }}
+          label="Open from Left"
+          onClick={() => {
+            handleCloseAll();
+            setOpenLeft(true);
+          }}
+        />
+      </div>
+      <MudraSidePanel
+        open={openTop}
+        onClick={() => setOpenTop(false)}
+        animationType={AnimationType.Top}
+      >
+        {renderChild()}
+      </MudraSidePanel>
+      <MudraSidePanel
+        open={openBottom}
+        onClick={() => setOpenBottom(false)}
+        animationType={AnimationType.Bottom}
+      >
+        {renderChild()}
+      </MudraSidePanel>
+      <MudraSidePanel
+        open={openRight}
+        onClick={() => setOpenRight(false)}
+        animationType={AnimationType.Right}
+      >
+        {renderChild()}
+      </MudraSidePanel>
+      <MudraSidePanel
+        open={openLeft}
+        onClick={() => setOpenLeft(false)}
+        animationType={AnimationType.Left}
+      >
+        {renderChild()}
+      </MudraSidePanel>
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="AnimatedSidePanel">{AnimatedSidePanel.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraSidePanel,
+  SidePanelanimationType,
+} from "@services/storybook-storybook/molecules/index";
+import {
+  MudraTable,
+  MudraTableType,
+  MudraButton,
+  MudraButtonSize,
+  MudraButtonWidth,
+} from "@services/storybook-storybook/atoms/index";
+
+export const TopSidePanel = () => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <MudraButton label="Open from Top" onClick={() => setOpen(false)} />
+      <MudraSidePanel
+        open={open}
+        onClick={() => setOpen(false)}
+        animationType={SidePanelanimationType.Top}
+      >
+        <div style={{ padding: "16px" }}>
+          <p>
+            Your case is ready to be referred.
+            <br />
+            Please enter your remarks and review the loan details.
+          </p>
+          <MudraTable
+            type={MudraTableType.KeyValue}
+            tableWidth="376"
+            tableRows={[
+              ["Loan Amount", "₹500000"],
+              ["Tenure", "60 months"],
+              ["ROI", "17.49%"],
+              ["EMI", "₹12558"],
+              ["Insurance", "₹10679"],
+              ["Processing Fee + GST", "₹11800"],
+            ]}
+          />
+          <MudraButton
+            label="Refer Case"
+            size={MudraButtonSize.XL}
+            width={MudraButtonWidth.Full}
+          />
+        </div>
+      </MudraSidePanel>
+    </div>
+  );
+};
+```
+
+### 3. Side Panel with Background Blur
+
+Side panel with blurred background. User need to pass `backgroundBlur` as `true` or `false`. By default it will be `false`.
+Press escape to close it.
+
+export const BlurredSidePanel = () => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <MudraButton label="Refer Case" onClick={() => setOpen(true)} />
+      <MudraSidePanel
+        open={open}
+        onClick={() => setOpen(false)}
+        backgroundBlur={true}
+      >
+        <div style={{ padding: "16px" }}>
+          <p>
+            Your case is ready to be referred. <br /> Please enter your remarks
+            and review the loan details.
+          </p>
+          <div style={{ marginTop: "24px" }}>
+            <MudraTable
+              type={Type.KeyValue}
+              tableWidth="376"
+              tableRows={[
+                ["Loan Amount", "₹500000"],
+                ["Tenure", "60 months"],
+                ["ROI", "17.49%"],
+                ["EMI", "₹12558"],
+                ["Insurance", "₹10679"],
+                ["Processing Fee + GST", "₹11800"],
+              ]}
+            />
+          </div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <MudraButton
+              style={{ marginTop: "264px" }}
+              label="Refer Case"
+              size={Size.XL}
+              width={Width.Full}
+              onClick={() => setOpen(false)}
+            />
+          </div>
+        </div>
+      </MudraSidePanel>
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="BlurredSidePanel">{BlurredSidePanel.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraSidePanel,
+  SidePanelanimationType,
+} from "@services/storybook-storybook/molecules/index";
+import {
+  MudraTable,
+  MudraTableType,
+  MudraButton,
+  MudraButtonSize,
+  MudraButtonWidth,
+} from "@services/storybook-storybook/atoms/index";
+
+export const BlurredSidePanel = () => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <MudraButton onClick={() => setOpen(false)} />
+      <MudraSidePanel
+        title="Refer Case"
+        open={open}
+        animationType={SidePanelanimationType.Top}
+        backgroundBlur={true}
+      >
+        <div style={{ padding: "16px" }}>
+          <p>
+            Your case is ready to be referred.
+            <br />
+            Please enter your remarks and review the loan details.
+          </p>
+          <MudraTable
+            type={MudraTableType.KeyValue}
+            tableWidth="376"
+            tableRows={[
+              ["Loan Amount", "₹500000"],
+              ["Tenure", "60 months"],
+              ["ROI", "17.49%"],
+              ["EMI", "₹12558"],
+              ["Insurance", "₹10679"],
+              ["Processing Fee + GST", "₹11800"],
+            ]}
+          />
+          <MudraButton
+            label="Refer Case"
+            size={MudraButtonSize.XL}
+            width={MudraButtonWidth.Full}
+          />
+        </div>
+      </MudraSidePanel>
+    </div>
+  );
+};
+```
+
+### 4. Side Panel with internal Header
+
+Side panel with internal Header. You can pass `title` and `onClick` and UI will be handled internally. User need to pass `useInternalHeader` as `true`. By default it will be `false`.
+
+export const WithHeaderSidePanel = () => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <MudraButton label="Refer Case" onClick={() => setOpen(true)} />
+      <MudraSidePanel
+        title="Refer Case"
+        open={open}
+        onClick={() => setOpen(false)}
+        backgroundBlur={true}
+        useInternalHeader={true}
+      >
+        <div style={{ padding: "16px" }}>
+          <p>
+            Your case is ready to be referred. <br /> Please enter your remarks
+            and review the loan details.
+          </p>
+          <div style={{ marginTop: "24px" }}>
+            <MudraTable
+              type={Type.KeyValue}
+              tableWidth="376"
+              tableRows={[
+                ["Loan Amount", "₹500000"],
+                ["Tenure", "60 months"],
+                ["ROI", "17.49%"],
+                ["EMI", "₹12558"],
+                ["Insurance", "₹10679"],
+                ["Processing Fee + GST", "₹11800"],
+              ]}
+            />
+          </div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <MudraButton
+              style={{ marginTop: "264px" }}
+              label="Refer Case"
+              size={Size.XL}
+              width={Width.Full}
+              onClick={() => setOpen(false)}
+            />
+          </div>
+        </div>
+      </MudraSidePanel>
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="WithHeaderSidePanel">{WithHeaderSidePanel.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraSidePanel,
+  SidePanelanimationType,
+} from "@services/storybook-storybook/molecules/index";
+import {
+  MudraTable,
+  MudraTableType,
+  MudraButton,
+  MudraButtonSize,
+  MudraButtonWidth,
+} from "@services/storybook-storybook/atoms/index";
+
+export const BlurredSidePanel = () => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <MudraButton label="Refer Case" onClick={() => setOpen(false)} />
+      <MudraSidePanel
+        title="Refer Case"
+        open={open}
+        onClick={() => setOpen(false)}
+        animationType={SidePanelanimationType.Top}
+        backgroundBlur={true}
+        useInternalHeader={true}
+      >
+        <div style={{ padding: "16px" }}>
+          <p>
+            Your case is ready to be referred.
+            <br />
+            Please enter your remarks and review the loan details.
+          </p>
+          <MudraTable
+            type={MudraTableType.KeyValue}
+            tableWidth="376"
+            tableRows={[
+              ["Loan Amount", "₹500000"],
+              ["Tenure", "60 months"],
+              ["ROI", "17.49%"],
+              ["EMI", "₹12558"],
+              ["Insurance", "₹10679"],
+              ["Processing Fee + GST", "₹11800"],
+            ]}
+          />
+          <MudraButton
+            label="Refer Case"
+            size={MudraButtonSize.XL}
+            width={MudraButtonWidth.Full}
+          />
+        </div>
+      </MudraSidePanel>
+    </div>
+  );
+};
+```
+
+## Props
+
+`MudraSidePanel`
+
+<div style={{overflowX: 'auto'}}>
+
+| prop                | description                                                                                                | type                     |
+| ------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------ |
+| `title`             | Title of side Panel (Required)                                                                             | `string`                 |
+| `className`         | user can use this className for giving custom styles (optional)                                            | `string`                 |
+| `open`              | `true` or `false` - if true side panel will render on screen. (Required)                                   | `boolean`                |
+| `panelWidth`        | width of side panel in px or % as "376px" or 376 or "90%", number will be treated as in px.                | `string or number`       |
+| `children`          | html content user want to show when side paenl is open.                                                    | `ReactElement`           |
+| `onClick`           | function which will be called when user will click on cross icon of side panel                             | `function`               |
+| `animationType`     | It handles the openening animation of side panel. `top`, `right`, `left` or `right`                        | `SidePanelanimationType` |
+| `backgroundBlur`    | if true then background will be blurred. (by default false)                                                | `boolean`                |
+| `useInternalHeader` | if true then Header UI will be there itselt, user just need to pass title for sidepanel (by default false) | `boolean`                |
+| `onOpen`            | If user want to run a function just after opening of side panel, then pass that function in onOpen         | `function`               |
+
+</div>
+
+`SidePanelanimationType` It has four keys which handle direction of opening of sidepanel.
+
+<div style={{overflowX: 'auto'}}>
+
+| key      | description                       |
+| -------- | --------------------------------- |
+| `Top`    | Side Panel will open from top.    |
+| `Bottom` | Side Panel will open from bottom. |
+| `Right`  | Side Panel will open from right.  |
+| `Left`   | Side Panel will open from left.   |
+
+</div>

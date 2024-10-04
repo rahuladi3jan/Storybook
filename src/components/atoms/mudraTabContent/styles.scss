@@ -1,0 +1,23 @@
+@import "../../../configs/palette.scss";
+
+.mudra-tab-content {
+    &.type-basic {
+        .mudra-tab-content-value {
+            height: 0;
+            visibility: hidden;
+        }
+        &.selected {
+            .mudra-tab-content-value {
+                height: auto;
+                visibility: visible;
+            }
+        }
+    }
+
+    &.type-scrollable {
+        &:nth-child(1) {
+            margin-top: 0;
+        }
+        margin-top: 12px;
+    }
+}

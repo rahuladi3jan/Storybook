@@ -1,0 +1,187 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import { TimeFormat } from "./types.ts";
+import MudraTimeField from "./mudraTimeField";
+
+<Meta title="Molecules/Mudra Time Field" component={MudraTimeField} />
+
+# Time Field
+
+Time Field control takes time as input in both 12 and 24 hours format.
+
+## Usage
+
+```jsx
+import { MudraTimeField } from "@services/storybook-storybook/molecules/mudraTimeField";
+```
+
+## 1. Basic Time Field
+
+By default the control has 24 hours format
+
+<Canvas>
+  <Story name="Basic Time Field">
+    <MudraTimeField label="Enter Time" />
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraTimeField } from "@services/storybook-storybook/molecules/mudraTimeField";
+
+export const BasicTimeField = () => {
+  return <MudraTimeField label="Enter Time" />;
+};
+```
+
+## 2. Time field in 12 hours format
+
+<Canvas>
+  <Story name="Time field in 12 hours format">
+    <MudraTimeField label="Enter Time" timeFormat={TimeFormat.HOURS_12} />
+  </Story>
+</Canvas>
+
+```jsx
+import {
+  MudraTimeField,
+  TimeFormat,
+} from "@services/storybook-storybook/molecules/mudraTimeField";
+
+export const TimeField = () => {
+  return <MudraTimeField label="Enter Time" timeFormat={TimeFormat.HOURS_12} />;
+};
+```
+
+## 3. Read-Only Time Field
+
+<Canvas>
+  <Story name="Read-Only Time Field">
+    <MudraTimeField
+      label="Enter Time"
+      readOnly={true}
+      defaultValue={new Date()}
+    />
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraTimeField } from "@services/storybook-storybook/molecules/mudraTimeField";
+
+export const TimeField = () => {
+  return (
+    <MudraTimeField
+      label="Enter Time"
+      readOnly={true}
+      defaultValue={new Date()}
+    />
+  );
+};
+```
+
+## 4. Disabled Time Field
+
+<Canvas>
+  <Story name="Disabled Time Field">
+    <MudraTimeField
+      label="Enter Time"
+      disabled={true}
+      defaultValue={new Date()}
+      timeFormat={TimeFormat.HOURS_12}
+    />
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraTimeField } from "@services/storybook-storybook/molecules/mudraTimeField";
+
+export const TimeField = () => {
+  return (
+    <MudraTimeField
+      label="Enter Time"
+      disabled={true}
+      defaultValue={new Date()}
+      timeFormat={TimeFormat.HOURS_12}
+    />
+  );
+};
+```
+
+## 5. Time Field with Error Message
+
+<Canvas>
+  <Story name="Time Field with Error Message">
+    <MudraTimeField
+      label="Enter Time"
+      required
+      timeFormat={TimeFormat.HOURS_12}
+      errorMessage="Please enter some value"
+    />
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraTimeField } from "@services/storybook-storybook/molecules/mudraTimeField";
+
+export const TimeField = () => {
+  return (
+    <MudraTimeField
+      label="Enter Time"
+      required
+      timeFormat={TimeFormat.HOURS_12}
+      errorMessage="Please enter some value"
+    />
+  );
+};
+```
+
+## 6. Controlled Time Field
+
+export const ControlledTimeField = (props) => {
+  const [date, setDate] = React.useState(new Date());
+  const modifiedProps = {
+    ...props,
+    value: date,
+    onChange: (value) => setDate(value),
+  };
+  return <MudraTimeField {...modifiedProps} />;
+};
+
+<Canvas>
+  <Story name="Controlled Time Field">
+    <ControlledTimeField label="Enter Time" timeFormat={TimeFormat.HOURS_12} />
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraTimeField } from "@services/storybook-storybook/molecules/mudraTimeField";
+
+const ControlledTimeField = (props) => {
+  const [date, setDate] = React.useState(new Date());
+  return <MudraTimeField
+      label="Enter Time"
+      timeFormat={TimeFormat.HOURS_12}
+      value= {date},
+      onChange={ (value) => setDate(value)}
+     />;
+};
+```
+
+## Props
+
+`MudraTimeField`
+
+<div style={{overflowX: 'auto'}}>
+
+| prop           | description                                                                       | type                     |
+| -------------- | --------------------------------------------------------------------------------- | ------------------------ |
+| `value`        | value for the Time Field, set value initially for controlled component (optional) | `string`                 |
+| `defaultValue` | default value for controlled component (optional)                                 | `string`                 |
+| `onChange`     | Callback function when the value changes (optional)                               | `(value : date) => void` |
+| `label`        | Label for the time field                                                          | `string`                 |
+| `timeFormat`   | Enum for time format                                                              | `12HOURS or 12HOURS`     |
+| `readOnly`     | Set value to true for read-only field (optional)                                  | `boolean`                |
+| `disabled`     | Set value to true for disabled field (optional)                                   | `boolean`                |
+| `required`     | Set value to true for required field (optional)                                   | `boolean`                |
+| `className`    | Add custom class name to the wrapper container (optional)                         | `string`                 |
+| `errorMessage` | Error message to be displayed below the field (optional)                          | `string`                 |
+
+</div>

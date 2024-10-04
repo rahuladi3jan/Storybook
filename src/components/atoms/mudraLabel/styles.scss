@@ -1,0 +1,20 @@
+@import "../../../configs/palette.scss";
+.mudra-input-label {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: $storybook-blue-100;
+}
+.mudra-input-label.error {
+  color: $valentine-red-100;
+}
+.mudra-input-label.disabled {
+  color: $storybook-blue-40;
+}
+.mudra-input-label.required {
+  &::after {
+    content: "*";
+    color: $valentine-red;
+    padding-left: 4px;
+  }
+}

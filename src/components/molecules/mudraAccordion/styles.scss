@@ -1,0 +1,84 @@
+@import "../../../configs/palette.scss";
+
+.mudra-accordion {
+    padding: .25rem 0 1rem 0;
+    background-color: $storybook-white-100;
+    box-shadow: rgb(0 0 0 / 16%) 0px 8px 24px -6px, rgb(0 0 0 / 40%) 0px 0px 1px;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+
+    .mudra_accordion_header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0 16px;
+        min-height: 48px;
+        cursor: pointer;
+
+        .mudra_accordion_title_container {
+            margin: 12px 0;
+            display: flex;
+            flex-grow: 1;
+
+            .mudra_accordion_title {
+                font-size: 1rem;
+                color: $storybook-black;
+                font-weight: 700;
+            }
+
+            .mudra_accordion_header_icon {
+                margin-right: 8px;
+            }
+
+            &.left-aligned {
+                flex-direction: row-reverse;
+                justify-content: left;
+                .icon {
+                  margin-right: 8px;
+                }
+              }
+
+            &.right-aligned {
+                flex-direction: row;
+                .icon {
+                    margin-left: 8px;
+                }
+            }
+
+        }
+
+        .mudra_accordion_svg{
+            path {
+                fill: black;
+            }
+        }
+    }
+
+    .mudra_accordion_summary {
+        height: 0;
+        min-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        transition: height 222ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+        .mudra_accordion_content {
+            padding: 8px 16px 16px;
+        }
+    }
+
+    &.expanded-true{
+        .mudra_accordion_header {
+            border-bottom: 1px solid $storybook-border;
+        }
+
+        .mudra_accordion_summary {
+            min-height: 0;
+            height: auto;
+            overflow: visible;
+            visibility: visible;
+        }
+    }
+
+
+}

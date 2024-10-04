@@ -1,0 +1,523 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import MudraTooltip from "./mudraTooltip";
+import MudraButton from "../mudraButton/mudraButton";
+import {
+  ToolTipAlignment,
+  BeakSize,
+  Direction,
+  RenderCondition,
+  Theme,
+} from "./propTypes";
+
+<Meta title="Atoms/Mudra Tooltip" component={MudraTooltip} />
+
+export const CommonComponent = ({
+  label,
+  direction,
+  beakSize,
+  alignment,
+  gap,
+  renderCondition,
+  theme,
+  parentRef,
+}) => {
+  return (
+    <>
+      <MudraButton label={label} />
+      <MudraTooltip
+        direction={direction}
+        beakSize={beakSize}
+        alignment={alignment}
+        gap={gap}
+        renderCondition={renderCondition}
+        theme={theme}
+        parentRef={parentRef}
+      >
+        tooltip
+      </MudraTooltip>
+    </>
+  );
+};
+
+export const CommonLayout = ({ children }) => {
+  return (
+    <div
+      style={{
+        height: "250px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-evenly",
+      }}
+    >
+      {children}
+    </div>
+  );
+};
+
+# Tooltip
+
+Tooltips display informative text when users hover over, focus on, or tap an element.
+
+## Usage
+
+## 1. Tooltip Themes
+
+You can change the theme of the tooltip by changing the `theme` attribute.
+
+export const ThemeTooltip = () => {
+  const lightRef = React.useRef(null);
+  const darkRef = React.useRef(null);
+  return (
+    <CommonLayout>
+      <div ref={lightRef}>
+        <CommonComponent
+          label={`Tooltip Themes`}
+          direction={Direction.Bottom}
+          beakSize={BeakSize.Medium}
+          alignment={ToolTipAlignment.Start}
+          gap={5}
+          renderCondition={RenderCondition.Hover}
+          theme={Theme.Light} // change the theme here
+          parentRef={lightRef}
+        />
+      </div>
+      <div ref={darkRef}>
+        <CommonComponent
+          label={`Dark Theme`}
+          direction={Direction.Bottom}
+          beakSize={BeakSize.Medium}
+          alignment={ToolTipAlignment.Start}
+          gap={5}
+          renderCondition={RenderCondition.Hover}
+          theme={Theme.Dark}
+          parentRef={darkRef}
+        />
+      </div>
+    </CommonLayout>
+  );
+};
+
+<Canvas>
+  <Story name="Tooltip Themes">{ThemeTooltip.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraButton } from "./@services/storybook-storybook/atoms/mudraButton";
+import {
+  MudraTooltip,
+  MudraTooltipAlignment,
+  MudraTooltipBeakSize,
+  MudraTooltipDirection,
+  MudraTooltipRenderCondition,
+  MudraTooltipTheme,
+} from "./@services/storybook-storybook/atoms/mudraTooltip";
+
+const Component = () => {
+  const ref = React.useRef(null);
+
+  return (
+    <div ref={ref}>
+      <MudraButton label={`Tooltip Themes`} />
+      <MudraTooltip
+        direction={MudraTooltipDirection.Bottom}
+        beakSize={MudraTooltipBeakSize.Medium}
+        alignment={ToolTipAlignment.Start}
+        gap={5}
+        renderCondition={MudraTooltipRenderCondition.Hover}
+        theme={MudraTooltipTheme.Light} // change the theme here
+        parentRef={ref}
+      >
+        tooltip
+      </MudraTooltip>
+    </div>
+  );
+};
+export default Component;
+```
+
+## 2. Tooltip Directions
+
+You can change the direction of the tooltip by changing the `direction` attribute.
+
+export const DirectionTooltip = () => {
+  const topRef = React.useRef(null);
+  const bottomRef = React.useRef(null);
+  const rightRef = React.useRef(null);
+  const leftRef = React.useRef(null);
+  return (
+    <CommonLayout>
+      <div ref={topRef}>
+        <CommonComponent
+          label={`Top Direction`}
+          direction={Direction.Top}
+          beakSize={BeakSize.Medium}
+          alignment={ToolTipAlignment.Start}
+          gap={5}
+          renderCondition={RenderCondition.Hover}
+          theme={Theme.Dark}
+          parentRef={topRef}
+        />
+      </div>
+      <div ref={bottomRef}>
+        <CommonComponent
+          label={`Bottom Direction`}
+          direction={Direction.Bottom}
+          beakSize={BeakSize.Medium}
+          alignment={ToolTipAlignment.Start}
+          gap={5}
+          renderCondition={RenderCondition.Hover}
+          theme={Theme.Dark}
+          parentRef={bottomRef}
+        />
+      </div>
+      <div ref={rightRef}>
+        <CommonComponent
+          label={`Right Direction`}
+          direction={Direction.Right}
+          beakSize={BeakSize.Medium}
+          alignment={ToolTipAlignment.Start}
+          gap={5}
+          renderCondition={RenderCondition.Hover}
+          theme={Theme.Dark}
+          parentRef={rightRef}
+        />
+      </div>
+      <div ref={leftRef}>
+        <CommonComponent
+          label={`Left Direction`}
+          direction={Direction.Left}
+          beakSize={BeakSize.Medium}
+          alignment={ToolTipAlignment.Start}
+          gap={5}
+          renderCondition={RenderCondition.Hover}
+          theme={Theme.Dark}
+          parentRef={leftRef}
+        />
+      </div>
+    </CommonLayout>
+  );
+};
+
+<Canvas>
+  <Story name="Tooltip Directions">{DirectionTooltip.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraButton } from "./@services/storybook-storybook/atoms/mudraButton";
+import {
+  MudraTooltip,
+  MudraTooltipAlignment,
+  MudraTooltipBeakSize,
+  MudraTooltipDirection,
+  MudraTooltipRenderCondition,
+  MudraTooltipTheme,
+} from "./@services/storybook-storybook/atoms/mudraTooltip";
+
+const Component = () => {
+  const ref = React.useRef(null);
+
+  return (
+    <div ref={ref}>
+      <MudraButton label={`Tooltip Directions`} />
+      <MudraTooltip
+        direction={MudraTooltipDirection.Bottom} // change the direction here
+        beakSize={MudraTooltipBeakSize.Medium}
+        alignment={ToolTipAlignment.Start}
+        gap={5}
+        renderCondition={MudraTooltipRenderCondition.Hover}
+        theme={MudraTooltipTheme.Light}
+        parentRef={ref}
+      >
+        tooltip
+      </MudraTooltip>
+    </div>
+  );
+};
+export default Component;
+```
+
+## 3. Tooltip Alignments
+
+You can change the Alignments of the tooltip by changing the `alignment` attribute.
+
+export const AlignmentTooltip = () => {
+  const startRef = React.useRef(null);
+  const centerRef = React.useRef(null);
+  const endRef = React.useRef(null);
+  return (
+    <CommonLayout>
+      <div ref={startRef}>
+        <CommonComponent
+          label={`Start Alignment`}
+          direction={Direction.Top}
+          beakSize={BeakSize.Medium}
+          alignment={ToolTipAlignment.Start}
+          gap={5}
+          renderCondition={RenderCondition.Hover}
+          theme={Theme.Dark}
+          parentRef={startRef}
+        />
+      </div>
+      <div ref={centerRef}>
+        <CommonComponent
+          label={`Center Alignment`}
+          direction={Direction.Top}
+          beakSize={BeakSize.Medium}
+          alignment={ToolTipAlignment.Center}
+          gap={5}
+          renderCondition={RenderCondition.Hover}
+          theme={Theme.Dark}
+          parentRef={centerRef}
+        />
+      </div>
+      <div ref={endRef}>
+        <CommonComponent
+          label={`End Alignment`}
+          direction={Direction.Top}
+          beakSize={BeakSize.Medium}
+          alignment={ToolTipAlignment.End}
+          gap={5}
+          renderCondition={RenderCondition.Hover}
+          theme={Theme.Dark}
+          parentRef={endRef}
+        />
+      </div>
+    </CommonLayout>
+  );
+};
+
+<Canvas>
+  <Story name="Tooltip Alignments">{AlignmentTooltip.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraButton } from "./@services/storybook-storybook/atoms/mudraButton";
+import {
+  MudraTooltip,
+  MudraTooltipAlignment,
+  MudraTooltipBeakSize,
+  MudraTooltipDirection,
+  MudraTooltipRenderCondition,
+  MudraTooltipTheme,
+} from "./@services/storybook-storybook/atoms/mudraTooltip";
+
+const Component = () => {
+  const ref = React.useRef(null);
+
+  return (
+    <div ref={ref}>
+      <MudraButton label={`Tooltip Alignments`} />
+      <MudraTooltip
+        direction={MudraTooltipDirection.Bottom}
+        beakSize={MudraTooltipBeakSize.Medium}
+        alignment={ToolTipAlignment.Start} // change the aligment here
+        gap={5}
+        renderCondition={MudraTooltipRenderCondition.Hover}
+        theme={MudraTooltipTheme.Light}
+        parentRef={ref}
+      >
+        tooltip
+      </MudraTooltip>
+    </div>
+  );
+};
+export default Component;
+```
+
+## 4. Tooltip BeakSizes
+
+You can change the BeakSize of the tooltip by changing the `beakSize` attribute.
+
+export const BeakSizeTooltip = () => {
+  const smallRef = React.useRef(null);
+  const mediumRef = React.useRef(null);
+  const largeRef = React.useRef(null);
+  const xlRef = React.useRef(null);
+  return (
+    <CommonLayout>
+      <div ref={smallRef}>
+        <CommonComponent
+          label={`Small`}
+          direction={Direction.Top}
+          beakSize={BeakSize.Small}
+          alignment={ToolTipAlignment.Start}
+          gap={5}
+          renderCondition={RenderCondition.Hover}
+          theme={Theme.Dark}
+          parentRef={smallRef}
+        />
+      </div>
+      <div ref={mediumRef}>
+        <CommonComponent
+          label={`Medium`}
+          direction={Direction.Top}
+          beakSize={BeakSize.Medium}
+          alignment={ToolTipAlignment.Center}
+          gap={5}
+          renderCondition={RenderCondition.Hover}
+          theme={Theme.Dark}
+          parentRef={mediumRef}
+        />
+      </div>
+      <div ref={largeRef}>
+        <CommonComponent
+          label={`Large`}
+          direction={Direction.Top}
+          beakSize={BeakSize.Large}
+          alignment={ToolTipAlignment.Start}
+          gap={5}
+          renderCondition={RenderCondition.Hover}
+          theme={Theme.Dark}
+          parentRef={largeRef}
+        />
+      </div>
+      <div ref={xlRef}>
+        <CommonComponent
+          label={`XL`}
+          direction={Direction.Top}
+          beakSize={BeakSize.XL}
+          alignment={ToolTipAlignment.Start}
+          gap={5}
+          renderCondition={RenderCondition.Hover}
+          theme={Theme.Dark}
+          parentRef={xlRef}
+        />
+      </div>
+    </CommonLayout>
+  );
+};
+
+<Canvas>
+  <Story name="Tooltip BeakSizes">{BeakSizeTooltip.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraButton } from "./@services/storybook-storybook/atoms/mudraButton";
+import {
+  MudraTooltip,
+  MudraTooltipAlignment,
+  MudraTooltipBeakSize,
+  MudraTooltipDirection,
+  MudraTooltipRenderCondition,
+  MudraTooltipTheme,
+} from "./@services/storybook-storybook/atoms/mudraTooltip";
+
+const Component = () => {
+  const ref = React.useRef(null);
+
+  return (
+    <div ref={ref}>
+      <MudraButton label={`Tooltip BeakSizes`} />
+      <MudraTooltip
+        direction={MudraTooltipDirection.Bottom}
+        beakSize={MudraTooltipBeakSize.Medium} // change the beaksize here
+        alignment={ToolTipAlignment.Start}
+        gap={5}
+        renderCondition={MudraTooltipRenderCondition.Hover}
+        theme={MudraTooltipTheme.Light}
+        parentRef={ref}
+      >
+        tooltip
+      </MudraTooltip>
+    </div>
+  );
+};
+export default Component;
+```
+
+## 5. Tooltip RenderConditions
+
+You can change the Render Condition of the tooltip by changing the `renderCondition` attribute.
+
+export const RenderConditionTooltip = () => {
+  const hoverRef = React.useRef(null);
+  const clickRef = React.useRef(null);
+  return (
+    <CommonLayout>
+      <div ref={hoverRef}>
+        <CommonComponent
+          label={`Hover Me`}
+          direction={Direction.Top}
+          beakSize={BeakSize.Small}
+          alignment={ToolTipAlignment.Start}
+          gap={5}
+          renderCondition={RenderCondition.Hover}
+          theme={Theme.Dark}
+          parentRef={hoverRef}
+        />
+      </div>
+      <div ref={clickRef}>
+        <CommonComponent
+          label={`Click me`}
+          direction={Direction.Top}
+          beakSize={BeakSize.Medium}
+          alignment={ToolTipAlignment.Center}
+          gap={5}
+          renderCondition={RenderCondition.Click}
+          theme={Theme.Dark}
+          parentRef={clickRef}
+        />
+      </div>
+    </CommonLayout>
+  );
+};
+
+<Canvas>
+  <Story name="Tooltip Render Condition">{RenderConditionTooltip.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraButton } from "./@services/storybook-storybook/atoms/mudraButton";
+import {
+  MudraTooltip,
+  MudraTooltipAlignment,
+  MudraTooltipBeakSize,
+  MudraTooltipDirection,
+  MudraTooltipRenderCondition,
+  MudraTooltipTheme,
+} from "./@services/storybook-storybook/atoms/mudraTooltip";
+
+const Component = () => {
+  const ref = React.useRef(null);
+
+  return (
+    <div ref={ref}>
+      <MudraButton label={`Tooltip RenderConditions`} />
+      <MudraTooltip
+        direction={MudraTooltipDirection.Bottom}
+        beakSize={MudraTooltipBeakSize.Medium}
+        alignment={ToolTipAlignment.Start}
+        gap={5}
+        renderCondition={MudraTooltipRenderCondition.Hover} // change the condition here
+        theme={MudraTooltipTheme.Light}
+        parentRef={ref}
+      >
+        tooltip
+      </MudraTooltip>
+    </div>
+  );
+};
+export default Component;
+```
+
+## Props
+
+<div style={{overflowX: 'auto'}}>
+
+`MudraTooltip`
+
+| prop            | description                                         | type                          |
+| --------------- | --------------------------------------------------- | ----------------------------- |
+| parentRef       | Reference for parent element                        | `ref`                         |
+| direction       | Represents the placement of the tooltip             | `MudraTooltipDirection`       |
+| alignment       | Alignment of the tooltip beak                       | `MudraTooltipAlignment`       |
+| startAlignment  | The gap from start edge when the alignment is start | `number`                      |
+| endAlignment    | The gap from end edge when the alignment is end     | `number`                      |
+| beakSize        | Size of the beak                                    | `MudraTooltipBeakSize`        |
+| isBeakHidden    | Controls the beak visibility                        | `boolean`                     |
+| gap             | Gap between the tooltip and the component           | `number`                      |
+| renderCondition | Represents the render condition of the tooltip      | `MudraTooltipRenderCondition` |
+| theme           | Themes of the Tooltip                               | `MudraTooltipTheme`           |
+
+</div>

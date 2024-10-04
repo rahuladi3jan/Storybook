@@ -1,0 +1,229 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import MudraTable from "./mudraTable";
+import { Type } from "./propTypes";
+
+<Meta title="Atoms/Mudra Table" component={MudraTable} />
+
+# Table
+
+Tables display sets of data.
+Tables display information in a way that's easy to scan, so that users can look for patterns and insights.
+
+## Usage
+
+### 1. Basic Table
+
+It has header and body both.
+It will be tabular in form.
+It has hover color. You can click any row and it will be selected untill you unselect it by clicking it again.
+This feature make table data to be read easily.
+
+export const BasicTable = () => {
+  return (
+    <div>
+      <MudraTable
+        type={Type.Tabular}
+        headers={[
+          "Bank Name",
+          "A/c Number",
+          "IFSC Code",
+          "Costumer Name",
+          "Statement Date",
+          "Max Balance",
+          "Min Balance",
+        ]}
+        tableRows={[
+          [
+            "HDFC Bank, India",
+            "50100274801358",
+            "-",
+            "Mr Sumit Kumar Pandey",
+            "Oct 2022 - Dec 2022",
+            "13870.08",
+            "13870.08",
+          ],
+          [
+            "HDFC Bank, India",
+            "50100274801358",
+            "-",
+            "Mr Raj",
+            "Oct 2022 - Dec 2022",
+            "13870.08",
+            "13870.08",
+          ],
+          [
+            "HDFC Bank, India",
+            "50100274801358",
+            "-",
+            "Mr Akshay",
+            "Oct 2022 - Dec 2022",
+            "13870.08",
+            "13870.08",
+          ],
+          [
+            "HDFC Bank, India",
+            "50100274801358",
+            "-",
+            "Mr Krishna Pandey",
+            "Oct 2022 - Dec 2022",
+            "13870.08",
+            "13870.08",
+          ],
+        ]}
+      />
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="BasicTable">{BasicTable.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraTable,
+  MudraTableType,
+} from "@services/storybook-storybook/atoms/index";
+
+export const BasicTable = () => {
+  const style = {
+    color: "red",
+    display: "flex",
+  };
+  return (
+    <MudraTable
+      type={MudraTableType.Tabular}
+      headers={[
+        "Bank Name",
+        "A/c Number",
+        "IFSC Code",
+        "Costumer Name",
+        "Statement Date",
+        "Max Balance",
+        "Min Balance",
+      ]}
+      tableRows={[
+        [
+          "HDFC Bank, India",
+          "50100274801358",
+          "-",
+          "Mr Sumit Kumar Pandey",
+          "Oct 2022 - Dec 2022",
+          "13870.08",
+          "13870.08",
+        ],
+        [
+          "HDFC Bank, India",
+          "50100274801358",
+          "-",
+          "Mr Raj",
+          "Oct 2022 - Dec 2022",
+          "13870.08",
+          "13870.08",
+        ],
+        [
+          "HDFC Bank, India",
+          "50100274801358",
+          "-",
+          "Mr Akshay",
+          "Oct 2022 - Dec 2022",
+          "13870.08",
+          "13870.08",
+        ],
+        [
+          "HDFC Bank, India",
+          "50100274801358",
+          "-",
+          "Mr Krishna Pandey",
+          "Oct 2022 - Dec 2022",
+          "13870.08",
+          "13870.08",
+        ],
+      ]}
+    />
+  );
+};
+```
+
+### 2. Kye Value Table
+
+This table will have key value type table.
+Its width is 100% of the parent, so you can either manage it by parent width or by passing tableWidth as string.
+
+export const KeyValueTable = () => {
+  return (
+    <div>
+      <MudraTable
+        type={Type.KeyValue}
+        tableWidth="376"
+        tableRows={[
+          ["Loan Amount", "₹500000"],
+          ["Tenure", "60 months"],
+          ["ROI", "17.49%"],
+          ["EMI", "₹12558"],
+          ["Insurance", "₹10679"],
+          ["Processing Fee + GST", "₹11800"],
+        ]}
+      />
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="KeyValueTable">{KeyValueTable.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraTable,
+  MudraTableType,
+} from "@services/storybook-storybook/atoms/index";
+
+export const KeyValueTable = () => {
+  const style = {
+    color: "red",
+    display: "flex",
+  };
+  return (
+    <MudraTable
+      type={MudraTableType.KeyValue}
+      tableWidth="376"
+      tableRows={[
+        ["Loan Amount", "₹500000"],
+        ["Tenure", "60 months"],
+        ["ROI", "17.49%"],
+        ["EMI", "₹12558"],
+        ["Insurance", "₹10679"],
+        ["Processing Fee + GST", "₹11800"],
+      ]}
+    />
+  );
+};
+```
+
+## Props
+
+`MudraTable`
+
+<div style={{overflowX: 'auto'}}>
+
+| prop         | description                                                         | type                                         |
+| ------------ | ------------------------------------------------------------------- | -------------------------------------------- |
+| `type`       | table type - Tabular or key value (default Tabular)                 | `MudraTableType`                             |
+| `className`  | user can use this className for giving custom styles (optional)     | `string`                                     |
+| `headers`    | header of table                                                     | `Array of (string or ReactElement)`          |
+| `tableRows`  | responsible for table body data- array of row array                 | `Array of Array of (srting or ReactElement)` |
+| `tableWidth` | pass it as string to control table width - (default 100% of parent) | `string`                                     |
+
+</div>
+
+`MudraTableType` It is an object with two keys.
+
+<div style={{overflowX: 'auto'}}>
+
+| key        | description                                                                                     |
+| ---------- | ----------------------------------------------------------------------------------------------- |
+| `Tabular`  | table will be in tabular form. Hover and selection color will be there to make it easy to read. |
+| `KeyValue` | table will be as key value pair, without header                                                 |
+
+</div>

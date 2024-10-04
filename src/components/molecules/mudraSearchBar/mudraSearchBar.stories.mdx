@@ -1,0 +1,235 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import MudraSearchBar from "./mudraSearchBar";
+import UserMobileInfo from "../../../mockData/userMobileInfo";
+
+<Meta title="Molecules/Mudra SearchBar" component={MudraSearchBar} />
+
+# SearchBar
+
+Search Bar provides input field for user to search and render the results based on the props. It initially display 5 results and next
+results will be added to the list on clicking more button.
+
+## Usage
+
+```jsx
+import { MudraSearchBar } from "./@services/storybook-storybook/molecules/mudraSearchBar";
+```
+
+## 1. Basic SearchBar
+
+<Canvas>
+  <Story name="Basic SearchBar">
+    <MudraSearchBar onSearch={() => alert("Search icon clicked!!!")} />
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraSearchBar } from "./@services/storybook-storybook/molecules/mudraSearchBar";
+
+export const BasicSearchBar = () => {
+  return <MudraSearchBar onSearch={() => alert("Search icon clicked!!!")} />;
+};
+```
+
+## 2. SearchBar with prefix and placeholder
+
+<Canvas>
+  <Story name="SearchBar with prefix and placeholder">
+    <MudraSearchBar
+      onSearch={() => alert("Search icon clicked!!!")}
+      prefix="+91-"
+      placeholder="Search cases using customer phone number"
+    />
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraSearchBar } from "./@services/storybook-storybook/molecules/mudraSearchBar";
+
+export const SearchBarWithPrefixAndPlaceHolder = () => {
+  return (
+    <MudraSearchBar
+      onSearch={() => alert("Search icon clicked!!!")}
+      prefix="+91-"
+      placeholder="Search cases using customer phone number"
+    />
+  );
+};
+```
+
+## 3. SearchBar with default search text
+
+> **Note:** For rendering default text use **defaultSearchText** prop for uncontrolled component and use **searchText** for controlled component
+
+<Canvas>
+  <Story name="SearchBar with default search text">
+    <MudraSearchBar
+      onSearch={() => alert("Search icon clicked!!!")}
+      prefix="+91-"
+      placeholder="Search cases using customer phone number"
+      defaultSearchText="9848984802"
+    />
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraSearchBar } from "./@services/storybook-storybook/molecules/mudraSearchBar";
+
+export const SearchBarWithPrefixAndPlaceHolder = () => {
+  return (
+    <MudraSearchBar
+      onSearch={() => alert("Search icon clicked!!!")}
+      prefix="+91-"
+      placeholder="Search cases using customer phone number"
+      defaultSearchText="9848984802"
+    />
+  );
+};
+```
+
+## 3. Controlled SearchBar
+
+> **Note:** Don't pass null or undefined to **searchText** on initial render for the component to behave as a controlled component
+
+export const ControlSearchBar = () => {
+  const [searchText, setSearchText] = React.useState("");
+  return (
+    <MudraSearchBar
+      onSearch={() => alert("Search icon clicked!!!")}
+      prefix="+91-"
+      placeholder="Search cases using customer phone number"
+      searchText={searchText}
+      onChange={(ev, value) => setSearchText(value)}
+    />
+  );
+};
+
+<Canvas>
+  <Story name="Controlled SearchBar">{ControlSearchBar()}</Story>
+</Canvas>
+
+```jsx
+import { MudraSearchBar } from "./@services/storybook-storybook/molecules/mudraSearchBar";
+import { useState } from "react";
+
+export const ControlledSearchBar = () => {
+  const [searchText, setSearchText] = useState("");
+  return (
+    <MudraSearchBar
+      onSearch={() => alert("Search icon clicked!!!")}
+      prefix="+91-"
+      placeholder="Search cases using customer phone number"
+      searchText={searchText}
+      onChange={(ev, text) => setSearchText(text)}
+    />
+  );
+};
+```
+
+## 4. SearchBar with Results
+
+export const SearchBarWithResults = () => {
+  const [searchText, setSearchText] = React.useState("");
+  const [searchResults, setSearchResults] = React.useState([]);
+  const onSearchClicked = () => {
+    const filteredUsers = UserMobileInfo.filter((user) => {
+      return user.phone.includes(searchText);
+    });
+    const results = filteredUsers.map((user) => {
+      return SearchResult(user.name, user.phone);
+    });
+    setSearchResults(results);
+  };
+  return (
+    <MudraSearchBar
+      onSearch={() => onSearchClicked()}
+      prefix="+91-"
+      placeholder="Search cases using customer phone number"
+      searchText={searchText}
+      onChange={(ev, value) => setSearchText(value)}
+      results={searchResults}
+    />
+  );
+};
+
+export const SearchResult = (name, number) => {
+  return (
+    <div style={{ paddingLeft: "8px" }}>
+      <div>{name}</div>
+      <div>{number}</div>
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="SearchBar with Results">
+    <div style={{ height: "400px" }}>{SearchBarWithResults()}</div>
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraSearchBar } from "./@services/storybook-storybook/molecules/mudraSearchBar";
+import { useState } from "react";
+
+export const ControlledSearchBar = () => {
+  const [searchText, setSearchText] = useState("");
+  return (
+    <MudraSearchBar
+      onSearch={() => alert("Search icon clicked!!!")}
+      prefix="+91-"
+      placeholder="Search cases using customer phone number"
+      searchText={searchText}
+      onChange={(ev, text) => setSearchText(text)}
+    />
+  );
+};
+```
+
+## 5. SearchBar with loader
+
+<Canvas>
+  <Story name="SearchBar with loader">
+    <MudraSearchBar
+      onSearch={() => alert("Search icon clicked!!!")}
+      prefix="+91-"
+      placeholder="Search cases using customer phone number"
+      defaultSearchText="9848984802"
+      isLoading={true}
+    />
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraSearchBar } from "./@services/storybook-storybook/molecules/mudraSearchBar";
+
+export const SearchBarWithPrefixAndPlaceHolder = () => {
+  return (
+    <MudraSearchBar
+      onSearch={() => alert("Search icon clicked!!!")}
+      prefix="+91-"
+      placeholder="Search cases using customer phone number"
+      defaultSearchText="9848984802"
+      isLoading={true}
+    />
+  );
+};
+```
+
+## Props
+
+`MudraSearchBar`
+
+<div style={{overflowX: 'auto'}}>
+
+| prop          | description                                                                  | type                                                                         |
+| ------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `prefix`      | Prefix for the searchbar (optional)                                          | `string`                                                                     |
+| `placeholder` | Placeholder text for the searchbar (optional)                                | `string`                                                                     |
+| `searchText`  | Search text for the controlled component (optional)                          | `string`                                                                     |
+| `className`   | Class name for the searchbar wrapper (optional)                              | `string`                                                                     |
+| `onChange`    | Callback function on change search text (optional)                           | `onChange: (ev: React.ChangeEvent<HTMLInputElement>, value: string) => void` |
+| `onSearch`    | Callback on user clicks enter or search icon                                 | `(text: string) => void`                                                     |
+| `isLoading`   | Indicates whether loader to displayed in the place of search icon (optional) | `boolean`                                                                    |
+| `results`     | Search results (optional)                                                    | `ReactElement[]`                                                             |
+
+</div>

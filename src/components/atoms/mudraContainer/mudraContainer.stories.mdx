@@ -1,0 +1,80 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import MudraContainer from "./mudraContainer";
+
+<Meta title="Atoms/Mudra Container" component={MudraContainer} />
+
+# Container
+
+Container can be used to render content in full row.
+
+## Usage
+
+### 1. Basic Container
+
+Container with the default white background and standard padding
+
+export const BasicContainer = () => {
+  return (
+    <MudraContainer>
+      This is Mudra Container component with a sample content.
+    </MudraContainer>
+  );
+};
+
+<Canvas>
+  <Story name="BasicContainer">{BasicContainer.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraContainer } from "@services/storybook-storybook/atoms/index";
+
+export const BasicContainer = () => {
+  return (
+    <MudraContainer>
+      This is Mudra Container component with a sample content.
+    </MudraContainer>
+  );
+};
+```
+
+### 2. Custom Background
+
+Container with the custom background color and standard padding
+
+export const CustomBackgroundContainer = () => {
+  return (
+    <MudraContainer backgroundColor="#F8FAFF">
+      This is Mudra Container component with a custom color.
+    </MudraContainer>
+  );
+};
+
+<Canvas>
+  <Story name="CustomBackgroundContainer">
+    {CustomBackgroundContainer.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraContainer } from "@services/storybook-storybook/atoms/index";
+
+export const CustomBackgroundContainer = () => {
+  return (
+    <MudraContainer backgroundColor="#F8FAFF">
+      This is Mudra Container component with a with custom color.
+    </MudraContainer>
+  );
+};
+```
+
+## Props
+
+`MudraContainer`
+
+<div style={{overflowX: 'auto'}}>
+
+| prop              | description             | type     |
+| ----------------- | ----------------------- | -------- |
+| `backgroundColor` | Custom background color | `string` |
+
+</div>

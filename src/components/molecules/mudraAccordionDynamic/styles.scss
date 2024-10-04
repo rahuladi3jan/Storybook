@@ -1,0 +1,75 @@
+@import "../../../configs/palette.scss";
+
+.mudra-dynamic-accordion {
+    background-color: $storybook-white-100;
+    border-radius: 0.5rem;
+
+    .mudra_dynamic_accordion_header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        min-height: 48px;
+        cursor: pointer;
+
+        .mudra_dynamic_accordion_title_container {
+            display: flex;
+            flex-grow: 1;
+
+            .mudra_dynamic_accordion_title {
+                font-size: 1rem;
+                font-weight: 700;
+            }
+
+            .mudra_dynamic_accordion_header_icon {
+                margin-right: 8px;
+            }
+
+            &.left-aligned {
+                flex-direction: row-reverse;
+                justify-content: left;
+                .icon {
+                  margin-right: 8px;
+                }
+              }
+
+            &.right-aligned {
+                flex-direction: row;
+                .icon {
+                    margin-left: 8px;
+                }
+            }
+
+        }
+
+        .mudra_dynamic_accordion_svg{
+            path {
+                fill: black;
+            }
+        }
+    }
+
+    .mudra_dynamic_accordion_summary {
+        height: 0;
+        min-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        transition: height 222ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+        .mudra_dynamic_accordion_content {
+            padding: 8px 16px 16px;
+        }
+    }
+
+    &.expanded-true{
+
+        .mudra_dynamic_accordion_summary {
+            min-height: 0;
+            height: auto;
+            overflow: visible;
+            visibility: visible;
+        }
+    }
+
+
+}

@@ -1,0 +1,179 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import MudraMultiSelect from "./mudraMultiSelect";
+
+<Meta title="Molecules/Mudra MultiSelect" component={MudraMultiSelect} />
+
+export const options = [
+  { value: "green", label: "Green" },
+  { value: "blue", label: "Blue" },
+  { value: "red", label: "Red" },
+  { value: "yellow", label: "Yellow" },
+  { value: "orange", label: "Orange" },
+  { value: "pink", label: "Pink" },
+  { value: "purple", label: "Purple" },
+  { value: "grey", label: "Grey" },
+];
+export const MultiSelectTemplate = (args) => (
+  <div
+    style={{
+      minHeight: "400px",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    }}
+  >
+    <div style={{ width: "500px" }}>
+      <MudraMultiSelect {...args} />
+    </div>
+  </div>
+);
+
+# MultiSelect
+
+The MultiSelect components gives the option to select multiple options.
+
+## Usage
+
+## 1. Basic MultiSelect
+
+<Canvas>
+  <Story
+    name="Basic MultiSelect"
+    args={{
+      placeHolder: "Select Component",
+      options: options,
+      value: [{ value: "green", label: "Green" }],
+    }}
+  >
+    {MultiSelectTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraMultiSelect } from "./@services/storybook-storybook/atoms/mudraMultiSelect";
+
+const Page = () => {
+  return (
+    <MudraMultiSelect
+      placeHolder={"Select Component"}
+      options={[
+        { value: "green", label: "Green" },
+        { value: "blue", label: "Blue" },
+        { value: "red", label: "Red" },
+        { value: "yellow", label: "Yellow" },
+        { value: "orange", label: "Orange" },
+        { value: "pink", label: "Pink" },
+        { value: "purple", label: "Purple" },
+        { value: "grey", label: "Grey" },
+      ]}
+      value={[{ value: "green", label: "Green" }]}
+    />
+  );
+};
+
+export default Page;
+```
+
+## 2. ReadOnly MultiSelect
+
+<Canvas>
+  <Story
+    name="ReadOnly MultiSelect"
+    args={{
+      placeHolder: "Select Component",
+      options: options,
+      value: [{ value: "green", label: "Green" }],
+      readOnly: true,
+    }}
+  >
+    {MultiSelectTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraMultiSelect } from "./@services/storybook-storybook/atoms/mudraMultiSelect";
+
+const Page = () => {
+  return (
+    <MudraMultiSelect
+      placeHolder={"Select Component"}
+      options={[
+        { value: "green", label: "Green" },
+        { value: "blue", label: "Blue" },
+        { value: "red", label: "Red" },
+        { value: "yellow", label: "Yellow" },
+        { value: "orange", label: "Orange" },
+        { value: "pink", label: "Pink" },
+        { value: "purple", label: "Purple" },
+        { value: "grey", label: "Grey" },
+      ]}
+      value={[{ value: "green", label: "Green" }]}
+      readOnly={true}
+    />
+  );
+};
+
+export default Page;
+```
+
+## 3. Disabled MultiSelect
+
+<Canvas>
+  <Story
+    name="Disabled MultiSelect"
+    args={{
+      placeHolder: "Select Component",
+      options: options,
+      value: [{ value: "green", label: "Green" }],
+      disabled: true,
+    }}
+  >
+    {MultiSelectTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraMultiSelect } from "./@services/storybook-storybook/atoms/mudraMultiSelect";
+
+const Page = () => {
+  return (
+    <MudraMultiSelect
+      placeHolder={"Select Component"}
+      options={[
+        { value: "green", label: "Green" },
+        { value: "blue", label: "Blue" },
+        { value: "red", label: "Red" },
+        { value: "yellow", label: "Yellow" },
+        { value: "orange", label: "Orange" },
+        { value: "pink", label: "Pink" },
+        { value: "purple", label: "Purple" },
+        { value: "grey", label: "Grey" },
+      ]}
+      value={[{ value: "green", label: "Green" }]}
+      disabled=true
+    />
+  );
+};
+
+export default Page;
+```
+
+## Props
+
+`MudraMultiSelect`
+
+<div style={{overflowX: 'auto'}}>
+
+| prop           | description                                                           | type                                        |
+| -------------- | --------------------------------------------------------------------- | ------------------------------------------- |
+| `placeHolder`  | The short hint displayed in the select before the user select a value | `string`                                    |
+| `options`      | Array of object with key value and label used for listing options     | `[{ value: string/number, label: string }]` |
+| `onSelect`     | function(value: object) => void                                       | `func`                                      |
+| `value`        | array that represents selected options                                | `[{ value: string/number, label: string }]` |
+| `className`    | Custom class name                                                     | `string`                                    |
+| `readOnly`     | Set value to true for read-only field (optional)                      | `boolean`                                   |
+| `disabled`     | Set value to true for disabled field (optional)                       | `boolean`                                   |
+| `isControlled` | Set value to true for controlled field (optional)                     | `boolean`                                   |
+
+</div>

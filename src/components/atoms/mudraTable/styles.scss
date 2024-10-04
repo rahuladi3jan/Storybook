@@ -1,0 +1,101 @@
+@import "../../../configs/palette.scss";
+
+.mudra-table {
+    width: 100%;
+
+    .mudra-table-rows {
+
+        .mudra-table-row {
+            &:hover {
+                background-color: $storybook-tcell-hover;
+            }
+
+            &.selected {
+                background-color: $storybook-tcell-selected;
+
+                &:hover {
+                    background-color: $storybook-tcell-selected-hover;
+                }
+            }
+        }
+    }
+
+    &.type-tabular{
+
+        .mudra-table-headers {
+            background-color: $storybook-table-header-bg;
+            display: table-header-group;
+
+            .mudra-table-header-row {
+                display: table-row;
+                vertical-align: middle;
+
+                .mudra-table-header-row-cell {
+                    font-size: 0.875rem;
+                    line-height: 1.5rem;
+                    display: table-cell;
+                    vertical-align: inherit;
+                    text-align: left;
+                    padding: 16px;
+                    color: $storybook-black;
+                    font-weight: 700;
+                    opacity: 0.8;
+                }
+            }
+        }
+
+        .mudra-table-rows {
+            display: table-row-group;
+
+            .mudra-table-row {
+                display: table-row;
+                vertical-align: middle;
+
+                .mudra-table-row-cell {
+                    font-weight: 400;
+                    font-size: 0.875rem;
+                    line-height: 1.43;
+                    display: table-cell;
+                    vertical-align: inherit;
+                    text-align: left;
+                    padding: 16px;
+                    color: $storybook-black;
+                    opacity: 0.8;
+                    border-bottom: 1px solid $storybook-table-bottom-border;
+                }
+            }
+        }
+    }
+
+    &.type-keyvalue {
+        display: table;
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0px;
+
+        .mudra-table-rows {
+            display: table-row-group;
+
+            .mudra-table-row {
+                color: inherit;
+                display: table-row;
+                vertical-align: middle;
+                outline: 0px;
+
+                .mudra-table-row-cell {
+                    font-weight: 700;
+                    font-size: 0.875rem;
+                    line-height: 1.43;
+                    display: table-cell;
+                    vertical-align: inherit;
+                    border-bottom: 1px solid $storybook-table-bottom-border;
+                    text-align: left;
+                    background-color: $storybook-border;
+                    padding: 16px;
+                    color: $storybook-black;
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}

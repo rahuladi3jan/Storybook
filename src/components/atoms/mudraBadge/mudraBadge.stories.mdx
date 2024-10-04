@@ -1,0 +1,219 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import MudraBadge from "./mudraBadge";
+import { Type, Theme, Size } from "./PropTypes";
+import { Contact } from "../../../icons";
+
+<Meta title="Atoms/Mudra Badge" component={MudraBadge} />
+
+# Badge
+
+Badge can be used as label to show some small information or action.
+
+## Usage
+
+### 1. Basic Badge
+
+Badge can be used to show some small information.
+
+export const BasicBadge = () => {
+  return (
+    <MudraBadge
+      label="Basic Badge"
+      type={Type.Normal}
+      theme={Theme.EmeraldGreen}
+      size={Size.Medium}
+    />
+  );
+};
+
+<Canvas>
+  <Story name="BasicBadge">{BasicBadge.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraBadge,
+  Type,
+  MudraBadgeSize,
+  MudraBadgeTheme,
+} from "@services/storybook-storybook/atoms/index";
+
+export const BasicBadge = () => {
+  return (
+    <MudraBadge
+      label="Basic Badge"
+      type={Type.Normal}
+      theme={MudraBadgeTheme.EmeraldGreen}
+      size={MudraBadgeSize.Medium}
+    />
+  );
+};
+```
+
+### 2. Badge With Dot
+
+Badge can be used to shwo some small information with a status dot.
+
+export const DottedBadge = () => {
+  return (
+    <MudraBadge
+      label="Basic Badge"
+      type={Type.WithDot}
+      theme={Theme.EmeraldGreen}
+      size={Size.Medium}
+    />
+  );
+};
+
+<Canvas>
+  <Story name="DottedBadge">{DottedBadge.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraBadge,
+  Type,
+  MudraBadgeSize,
+  MudraBadgeTheme,
+} from "@services/storybook-storybook/atoms/index";
+
+export const DottedBadge = () => {
+  return (
+    <MudraBadge
+      label="Dotted Badge"
+      type={Type.WithDot}
+      theme={MudraBadgeTheme.EmeraldGreen}
+      size={MudraBadgeSize.Medium}
+    />
+  );
+};
+```
+
+### 3. Badge With Close Icon
+
+Badge can be used to show some small information with a close icon.
+
+export const CloseBadge = () => {
+  return (
+    <MudraBadge
+      label="Basic Badge"
+      type={Type.WithClose}
+      theme={Theme.EmeraldGreen}
+      size={Size.Medium}
+      icon={Contact}
+      onCloseIconClick={() => alert("clicked")}
+    />
+  );
+};
+
+<Canvas>
+  <Story name="CloseBadge">{CloseBadge.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraBadge,
+  Type,
+  MudraBadgeSize,
+  MudraBadgeTheme,
+} from "@services/storybook-storybook/atoms/index";
+import { Contact } from "@services/storybook-storybook/icons";
+
+export const CloseBadge = () => {
+  return (
+    <MudraBadge
+      label="Dotted Badge"
+      type={Type.WithClose}
+      theme={MudraBadgeTheme.EmeraldGreen}
+      size={MudraBadgeSize.Medium}
+      icon={Contact}
+      onCloseIconClick={() => alert("clicked")}
+    />
+  );
+};
+```
+
+### 4. Badge With Avatar
+
+Badge can be used to show some small information with a icon.
+
+export const BadgeWithIcon = () => {
+  return (
+    <MudraBadge
+      label="Basic Badge"
+      type={Type.IconLeft}
+      theme={Theme.EmeraldGreen}
+      size={Size.Medium}
+      icon={Contact}
+    />
+  );
+};
+
+<Canvas>
+  <Story name="BadgeWithIcon">{BadgeWithIcon.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraBadge,
+  Type,
+  MudraBadgeSize,
+  MudraBadgeTheme,
+} from "@services/storybook-storybook/atoms/index";
+import { Contact } from "@services/storybook-storybook/icons";
+
+export const BadgeWithIcon = () => {
+  return (
+    <MudraBadge
+      label="Dotted Badge"
+      type={Type.IconLeft}
+      theme={MudraBadgeTheme.EmeraldGreen}
+      size={MudraBadgeSize.Medium}
+      icon={Contact}
+    />
+  );
+};
+```
+
+## Props
+
+`MudraBadge`
+
+<div style={{overflowX: 'auto'}}>
+
+| prop               | description                                                     | type              |
+| ------------------ | --------------------------------------------------------------- | ----------------- |
+| `label`            | content of badge (Required)                                     | `string`          |
+| `type`             | it defines what kind of badge it is. (optional)                 | `Type`            |
+| `icon`             | icon user want to use                                           | `Svg`             |
+| `theme`            | it defines the color user want to use.                          | `MudraBadgeTheme` |
+| `size`             | it defines size of badge                                        | `MudraBadgeSize`  |
+| `className`        | user can use this className for giving custom styles (optional) | `string`          |
+| `onCloseIconClick` | function will be called on click of close icon                  | `function`        |
+
+</div>
+
+`type` : Type is an object with 4 keys
+
+<div style={{overflowX: 'auto'}}>
+
+| key         | description                       |
+| ----------- | --------------------------------- |
+| `Normal`    | It has a label only.              |
+| `WithDot`   | It has a dot with label.          |
+| `WithClose` | It has close icon with label.     |
+| `IconLeft`  | It has icon on the left of label. |
+
+</div>
+
+`size` : MudraBadgeSize is an object with 3 keys
+
+<div style={{overflowX: 'auto'}}>
+
+| key      | description               |
+| -------- | ------------------------- |
+| `Small`  | Badge has small in size.  |
+| `Medium` | Badge has medium in size. |
+| `Large`  | Badge has large in size.  |
+
+</div>

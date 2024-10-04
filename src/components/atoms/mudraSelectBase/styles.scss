@@ -1,0 +1,44 @@
+@import "../../../configs/palette.scss";
+.select-base-container {
+  text-align: left;
+  border-bottom: 2px solid $storybook-blue-40;
+  transition-property: border, stroke;
+  transition-duration: 400ms;
+  stroke: $storybook-blue-40;
+  cursor: pointer;
+  position: relative;
+  &:hover {
+    border-color: $storybook-blue-140;
+    stroke: $storybook-blue-140;
+  }
+  &.disabled {
+    border-color: $storybook-blue-40 !important;
+    stroke: $storybook-blue-40 !important;
+    cursor: not-allowed;
+    .select-base-selected-value {
+      color: $storybook-blue-40;
+    }
+  }
+  &.readOnly {
+    cursor: not-allowed;
+    border-color: $storybook-blue-40 !important;
+    stroke: $storybook-blue-40 !important;
+  }
+  .select-base-selected-value {
+    color: $storybook-blue-140;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+.select-base-container.active {
+  border-color: $storybook-orange-100;
+  stroke: $storybook-orange-100;
+}
+.select-base-input {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}

@@ -1,0 +1,65 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import MudraRadio from "./mudraRadio";
+
+<Meta title="Atoms/Mudra Radio" component={MudraRadio} />
+
+# Radio
+
+The Toggle comonent toggle the state of a single setting on or off.
+
+## Usage
+
+```jsx
+import { MudraRadio } from "./@services/storybook-storybook/atoms/mudraRadio";
+```
+
+export const Radios = () => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "30px",
+      }}
+    >
+      <MudraRadio value="radio1" />
+      <MudraRadio value="radio2" checked />
+      <MudraRadio disabled value="radio3" />
+      <MudraRadio disabled value="radio4" checked />
+    </div>
+  );
+};
+
+### 1. Basic Radio
+
+<Canvas>
+  <Story name="Basic Radio">{Radios.bind()}</Story>
+</Canvas>
+
+```jsx
+import { MudraRadio } from "./@services/storybook-storybook/atoms/mudraRadio";
+
+const Component = () => {
+  return <MudraRadio value="radio1" />;
+};
+
+export default Component;
+```
+
+## Props
+
+`MudraRadio`
+
+<div style={{overflowX: 'auto'}}>
+
+| prop      | description                                                                                                                                                                                                                                     | type      |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| className | Override or extend the styles applied to the component.                                                                                                                                                                                         | `string`  |
+| disabled  | If true, the component is disabled.                                                                                                                                                                                                             | `boolean` |
+| checked   | If true, the component is checked. Used for controlled componenet                                                                                                                                                                               | `boolean` |
+| value     | The `value` attribute is a string containing the radio button's value. The value is never shown to the user by their user agent. Instead, it's used to identify which radio button in a group is selected                                       | `string`  |
+| name      | A radio group is defined by giving each of radio buttons in the group the same name. Once a radio group is established, selecting any radio button in that group automatically deselects any currently-selected radio button in the same group. | `string`  |
+| onChange  | A Callback fired when the raido state is changes.                                                                                                                                                                                               | `fn`      |
+
+</div>

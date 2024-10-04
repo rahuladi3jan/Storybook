@@ -1,0 +1,63 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import MudraLoader from "./mudraLoader";
+
+<Meta title="Atoms/Mudra Loader" component={MudraLoader} />
+
+export const LoaderTemplate = () => (
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+    }}
+  >
+    <MudraLoader size="small" />
+    <MudraLoader />
+    <MudraLoader size="large" />
+    <MudraLoader size="xl" />
+    <MudraLoader size="xxl" />
+  </div>
+);
+
+# Loader
+
+Loader express an unspecified wait time or display the length of a process.
+
+## Usage
+
+```jsx
+import { MudraLoader } from "./@services/storybook-storybook/atoms/mudraLoader";
+```
+
+### 1. Default Loader
+
+MudraLoader comes with different sizes `small`, `medium (default)`, `large`, `xl` and `xxl`.
+
+<Canvas>
+  <Story name="Basic Loader">{LoaderTemplate.bind()}</Story>
+</Canvas>
+
+```jsx
+import {
+  MudraLoader,
+  MudraLoaderSize,
+} from "./@services/storybook-storybook/atoms/mudraLoader";
+
+const Component = () => {
+  return <MudraLoader size={MudraLoaderSize.small} />;
+};
+export default Component;
+```
+
+## Props
+
+<div style={{overflowX: 'auto'}}>
+
+`MudraLoader`
+
+| prop | description                                                                        | type            |
+| ---- | ---------------------------------------------------------------------------------- | --------------- |
+| size | Different sizes of loader ( `small`, `medium (default)`, `large`, `xl` and `xxl` ) | MudraLoaderSize |
+
+</div>

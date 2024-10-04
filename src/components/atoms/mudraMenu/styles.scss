@@ -1,0 +1,14 @@
+@import "../../../configs/palette.scss";
+
+.mudra-menu {
+  position: absolute;
+  transform: translateY(5px);
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: $storybook-box-shadow;
+  overflow: hidden auto;
+  color: $storybook-black;
+  max-height: 150px;
+  background-color: $storybook-white-100;
+  z-index: 99;
+}

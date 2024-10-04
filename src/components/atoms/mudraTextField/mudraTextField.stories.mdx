@@ -1,0 +1,155 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import MudraTextField from "./mudraTextField";
+
+<Meta title="Atoms/Mudra TextField" component={MudraTextField} />
+
+export const TextFieldTemplate = (args) => <MudraTextField {...args} />;
+
+# TextField
+
+Chips are compact elements that represent an input, attribute, or action.
+
+## Usage
+
+```jsx
+import { MudraTextField } from "./@services/storybook-storybook/atoms/mudraTextField";
+```
+
+### 1. Basic TextField
+
+The chips comes with different `sizes` and in different styling.
+Chip component suports icon as well you can pass the appropriate icon in `icon` attribute.
+
+<Canvas>
+  <Story
+    name="Basic TextField"
+    args={{
+      disabled: false,
+      label: "Email",
+      required: true,
+      readOnly: false,
+      value: "Initial Value",
+      defaultValue: "john@storybook.com",
+      placeholder: "Enter your email",
+      errorMessage: "",
+    }}
+  >
+    {TextFieldTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraTextField } from "./@services/storybook-storybook/atoms/mudraTextField";
+
+const Component = () => {
+  return (
+    <MudraTextField
+      disabled={false}
+      label={"Email"}
+      required={true}
+      readOnly={false}
+      value={"Initial Value"}
+      defaultValue={"john@storybook.com"}
+      placeholder={"Enter your email"}
+      errorMessage={""}
+    />
+  );
+};
+export default Component;
+```
+
+### 2. Disabled TextField
+
+The chips comes with different `sizes` and in different styling.
+Chip component suports icon as well you can pass the appropriate icon in `icon` attribute.
+
+<Canvas>
+  <Story
+    name="Disabled TextField"
+    args={{
+      disabled: true,
+      label: "Name",
+      readOnly: false,
+      defaultValue: "John Dee",
+      placeholder: "Enter your name",
+      errorMessage: "Not valid",
+    }}
+  >
+    {TextFieldTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraTextField } from "./@services/storybook-storybook/atoms/mudraTextField";
+
+const Component = () => {
+  return (
+    <MudraTextField
+      disabled={true}
+      label={"Name"}
+      readOnly={false}
+      defaultValue={"John Dee"}
+      placeholder={"Enter your email"}
+      errorMessage={"Not valid"}
+    />
+  );
+};
+export default Component;
+```
+
+### 3. ReadOnly TextField
+
+The chips comes with different `sizes` and in different styling.
+Chip component suports icon as well you can pass the appropriate icon in `icon` attribute.
+
+<Canvas>
+  <Story
+    name="ReadOnly TextField"
+    args={{
+      label: "Aadhar",
+      required: true,
+      readOnly: true,
+      defaultValue: "**********9099",
+      placeholder: "Enter your Aadhar number",
+    }}
+  >
+    {TextFieldTemplate.bind()}
+  </Story>
+</Canvas>
+
+```jsx
+import { MudraTextField } from "./@services/storybook-storybook/atoms/mudraTextField";
+
+const Component = () => {
+  return (
+    <MudraTextField
+      required={true}
+      label={"Aadhar"}
+      readOnly={true}
+      defaultValue="**********9099"
+      placeholder="Enter your Aadhar number"
+    />
+  );
+};
+export default Component;
+```
+
+## Props
+
+<div style={{overflowX: 'auto'}}>
+
+`MudraTextField`
+
+| prop         | description                                                           | type      |
+| ------------ | --------------------------------------------------------------------- | --------- |
+| disabled     | To disable the component                                              | `boolean` |
+| label        | Display text for label                                                | `string`  |
+| required     | To indicate the field is mandatory to fill                            | `boolean` |
+| readOnly     | To make the compoennt readOnly                                        | `boolean` |
+| value        | The value of the input element, required for a controlled component.  | `string`  |
+| defaultValue | The default value. Use when the component is not controlled.          | `string`  |
+| placeholder  | The short hint displayed in the input before the user enters a value. | `string`  |
+| errorMessage | The short text displayed to display error message.                    | `string`  |
+
+</div>
